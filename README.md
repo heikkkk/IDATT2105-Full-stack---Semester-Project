@@ -1,1 +1,1 @@
-# IDATT2105-Full-stack---Semester-Project
+# IDATT2105-Semester-Project
