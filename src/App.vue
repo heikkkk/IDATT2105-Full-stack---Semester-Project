@@ -1,16 +1,7 @@
-<script setup>
+<script setup lang="js">
+import { RouterView } from 'vue-router';
 </script>
 
 <template>
-  <header>
-    <div class="wrapper">
-      <H1>Mal for frontend</H1>      
-
-
-    </div>
-  </header>
+  <RouterView />
 </template>
-
-<style scoped>
-
-</style>
