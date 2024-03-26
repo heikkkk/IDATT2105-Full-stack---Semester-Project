@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css?family=Inter');
+
+
+.header-container {
+    display: grid;
+    grid-template-columns: 0.5fr 1fr 0.5fr;
+    background-color: rgba(255, 255, 255, 0.7);
+    justify-items: center;
+    align-items: center;
+}
+
+#logo {
+    max-width: 70px;
+    max-height: 70px;
+}
+
+#logo-link {
+    display: flex;
+    flex-direction: row;
+    font-family: 'Inter';
+    font-weight: bold;
+    font-size: 16px;
+    color: #000;
+}
+
+#sign-up-link {
+    font-family: 'Inter';
+    font-weight: bold;
+    font-size: 16px;
+    color: #000;
+}
+
+.search-container {
+    position: relative;
+    margin: 20px;
+}
+
+#searchInput {
+    padding: 10px;
+    font-size: 17px;
+    border: 1px solid #ccc;
+    float: left;
+    width: 300px;
+
+
+}
+
+#searchButton {
+    float: left;
+    width: 80px;
+    padding: 10px;
+    background: #2196F3;
+    color: white;
+    font-size: 17px;
+    border: 1px solid grey;
+    border-left: none; /* Prevent double borders */
+    cursor: pointer;
+    align-content: center;
+}
+
+#searchButton:hover {
+    background: #0b7dda;
+}
+
+.fa-search {
+    color: #666;
+    font-size: 18px;
+}
