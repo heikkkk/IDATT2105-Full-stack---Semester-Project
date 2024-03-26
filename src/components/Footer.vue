@@ -4,7 +4,7 @@ import { RouterLink } from 'vue-router'
 </script>
 
 <template>
-  <div class="container">
+  <div class="footer-container">
     <RouterLink to="/about us">About us</RouterLink>
     <RouterLink to="/terms and policy">Terms and policy</RouterLink>
     <RouterLink to="/etc">Etc ...</RouterLink>

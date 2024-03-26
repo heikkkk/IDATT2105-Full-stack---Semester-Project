@@ -1,19 +1,11 @@
 <script setup lang="js">
+import LogoTitle from '@/components/LogoTitle.vue'
 import '../assets/css/header.css'
 </script>
 
 <template>
   <div class="header-container">
-    <div class="logo">
-      <RouterLink to="/" id="logo-link">
-        <div>
-          <!--
-          <img src="@/assets/img/logo.png" alt="logo" id="logo">
-          -->
-        </div>
-        <h1>quizopia</h1>
-      </RouterLink>
-    </div>
+    <LogoTitle></LogoTitle>
     <div class="search">
       <form class="search-form">
         <input type="text" id="searchInput" placeholder="Search Quizes">

@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Inter');
 
-
 .header-container {
+    height: 11vh;
     display: grid;
     grid-template-columns: 0.5fr 1fr 0.5fr;
     background-color: rgba(255, 255, 255, 0.7);
@@ -9,22 +9,8 @@
     align-items: center;
 }
 
-#logo {
-    max-width: 70px;
-    max-height: 70px;
-}
-
-#logo-link {
-    display: flex;
-    flex-direction: row;
-    font-family: 'Inter';
-    font-weight: bold;
-    font-size: 16px;
-    color: #000;
-}
-
 #sign-up-link {
-    font-family: 'Inter';
+    font-family: 'Inter', sans-serif;
     font-weight: bold;
     font-size: 16px;
     color: #000;
