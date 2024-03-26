@@ -1,0 +1,18 @@
+@import url('https://fonts.googleapis.com/css?family=Inter');
+
+#logo {
+    max-width: 70px;
+    max-height: 70px;
+}
+
+#logo-link {
+    display: flex;
+    flex-direction: row;
+    font-family: 'Inter', sans-serif;
+    font-weight: bold;
+    font-size: 16px;
+    color: #000;
+    text-decoration: none;
+    align-self: center;
+    justify-self: center;
+}

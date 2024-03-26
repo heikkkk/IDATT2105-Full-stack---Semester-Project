@@ -1,0 +1,61 @@
+input {
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+
+}
+
+.login-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.5), rgba(138, 83, 255, 0.5), rgba(93, 152, 159, 0.6));
+    background-size: cover;
+
+}
+
+.login-container {
+    display: grid;              /*TODO Think about removing this with flex instead*/
+    grid-template-rows: 1fr;
+
+    align-items: center;
+    justify-items: center;
+    width: 30%;
+    height: 60vh;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+}
+
+.login-form {
+    width: 80%;
+    align-self: center;
+    justify-self: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.login-button, .username-input, .password-input, .signup-container {
+    max-height: 50px;
+    width: 95%;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 5px;
+}
+
+.login-button {
+    cursor: pointer;
+    font-size: 14px;
+
+}
+
+.signup-container RouterLink {
+    justify-self: center;
+}
+
+.signup-container p, .signup-container p RouterLink {
+    color: #ffffff;
+}
+
+.signup-container {
+    align-items: start;
+}
