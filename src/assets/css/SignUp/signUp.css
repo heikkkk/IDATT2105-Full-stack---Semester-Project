@@ -1,8 +1,4 @@
-input {
-    box-sizing: border-box;
-}
-
-.login-wrapper {
+.signup-wrapper {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -13,19 +9,19 @@ input {
 
 }
 
-.login-container {
+.signup-container {
     display: grid;              /*TODO Think about removing this with flex instead*/
     grid-template-rows: 1fr;
 
     align-items: center;
     justify-items: center;
     width: 30%;
-    height: 60vh;
+    height: 70vh;
     background: rgba(0, 0, 0, 0.3);
     border-radius: 10px;
 }
 
-.login-form {
+.signup-form {
     width: 80%;
     align-self: center;
     justify-self: center;
@@ -33,7 +29,7 @@ input {
     flex-direction: column;
 }
 
-.login-button, .username-input, .password-input, .signup-paragraph-container {
+.signup-button, .username-input, .password-input, .login-paragraph-container {
     max-height: 50px;
     width: 95%;
     padding: 10px;
@@ -41,20 +37,20 @@ input {
     border-radius: 5px;
 }
 
-.login-button {
+.signup-button {
     cursor: pointer;
     font-size: 14px;
 
 }
 
-.login-button-container .signup-paragraph-container RouterLink {
+.login-paragraph-container RouterLink {
     justify-self: center;
 }
 
-.signup-paragraph-container p, .signup-paragraph-container p RouterLink {
+.login-paragraph-container p, .login-paragraph-container p RouterLink {
     color: #ffffff;
 }
 
-.signup-paragraph-container {
+.login-paragraph-container {
     align-items: start;
 }

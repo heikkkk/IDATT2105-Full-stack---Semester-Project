@@ -13,7 +13,7 @@ import '../assets/css/header.css'
       </form>
     </div>
     <div class="sign-up">
-      <RouterLink to="sign up" id="sign-up-link">Sign up</RouterLink>
+      <RouterLink to="/sign-up" id="sign-up-link">Sign up</RouterLink>
     </div>
   </div>
 </template>
