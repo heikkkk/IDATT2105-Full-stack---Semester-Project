@@ -4,7 +4,7 @@
     height: 11vh;
     display: grid;
     grid-template-columns: 0.5fr 1fr 0.5fr;
-    background-color: rgba(255, 255, 255, 0.7);
+    background-color: rgba(0, 0, 0, 0.5);
     justify-items: center;
     align-items: center;
 }
@@ -13,7 +13,7 @@
     font-family: 'Inter', sans-serif;
     font-weight: bold;
     font-size: 16px;
-    color: #000;
+    color: white;
 }
 
 .search-container {

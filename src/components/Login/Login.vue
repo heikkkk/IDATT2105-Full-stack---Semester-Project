@@ -1,12 +1,19 @@
 <script setup>
 import '../../assets/css/Login/login.css'
 import LogoTitle from '@/components/LogoTitle.vue'
+import { useRouter } from 'vue-router';
+
+// TODO implement form validation
+const router = useRouter();
+const login = () => {
+  router.push('/dashboard')
+};
 </script>
 
 <template>
   <div class="login-wrapper">
     <div class="login-container">
-      <form class="login-form">
+      <form class="login-form" @submit.prevent="login">
         <LogoTitle color="#ffffff"></LogoTitle>
         <input class="username-input" type="text" placeholder="Username">
         <input class="password-input" type="password" placeholder="Password">

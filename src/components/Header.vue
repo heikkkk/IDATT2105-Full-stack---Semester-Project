@@ -5,7 +5,7 @@ import '../assets/css/header.css'
 
 <template>
   <div class="header-container">
-    <LogoTitle></LogoTitle>
+    <LogoTitle color="white"></LogoTitle>
     <div class="search">
       <form class="search-form">
         <input type="text" id="searchInput" placeholder="Search Quizes">
