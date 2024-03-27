@@ -12,6 +12,7 @@ import LogoTitle from '@/components/LogoTitle.vue'
         <input class="password-input" type="password" placeholder="Password">
         <div class="login-button-container">
           <button class="login-button" type="submit">Login</button>
+          <RouterLink to="/playingTF" style="color: white">Temp</RouterLink>
           <div class="signup-paragraph-container">
             <p>Don't have a user?
               <RouterLink to="/sign-up" style="color: white">Sign up</RouterLink>
