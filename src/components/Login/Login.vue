@@ -2,10 +2,13 @@
 import '../../assets/css/Login/login.css'
 import LogoTitle from '@/components/LogoTitle.vue'
 import { useRouter } from 'vue-router';
+import { useUserStore } from '@/stores/UserStore.js'
 
 // TODO implement form validation
 const router = useRouter();
+const store = useUserStore()
 const login = () => {
+  store.setUsername("Username") //Todo remove this testing line
   router.push('/dashboard')
 };
 </script>

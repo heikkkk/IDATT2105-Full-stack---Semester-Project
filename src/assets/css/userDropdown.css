@@ -1,0 +1,47 @@
+
+.user-dropdown-wrapper {
+    height: 100%;
+}
+
+.user-dropdown-container {
+    align-items: center;
+    height: 100%;
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+}
+
+.user-dropdown-container .user-pic {
+    border-radius: 100%;
+    width: 50px;
+    height: 50px;
+}
+
+.user-dropdown-container .username-text {
+    color: white;
+    font-family: "Semi Bold Italic", sans-serif;
+}
+
+.user-dropdown-wrapper .dropdown-content {
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    display: none;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 300px;
+}
+
+.user-link {
+    text-decoration: none;
+    font-family: 'Inter', sans-serif;
+    font-weight: bold;
+    font-size: 16px;
+    color: white;
+    margin: 5px;
+}
+
+.user-dropdown-wrapper:hover .dropdown-content {
+    display: flex;
+    flex-direction: column;
+}
+

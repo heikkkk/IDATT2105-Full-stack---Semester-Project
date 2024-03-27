@@ -3,29 +3,42 @@ import { defineStore } from 'pinia'
 export const useUserStore = defineStore({
   id: 'UserStore',
   state: () => ({
-    activeUsername: null,
+    username: null,
+    userPicturePath: null,
     token: null
 
   }),
   actions: {
-    setActiveUser(newValue) {
-      this.activeUsername = newValue;
+    setUsername(newValue) {
+      this.username = newValue;
     },
     setToken(newToken) {
       this.token = newToken;
     },
+    setUserPicturePath(newPath) {
+      this.token = newPath;
+    },
     resetAll() {
-      this.activeUsername = null;
+      this.username = null;
       this.token = null;
+      this.userPicturePath = null;
     }
   },
   getters: {
-    getActiveUser() {
-      return this.activeUsername;
+    getUsername() {
+      return this.username;
     },
 
     getToken() {
       return this.token;
+    },
+
+    getPath() {
+      return this.userPicturePath;
+    },
+    // Todo might wanna alter this one
+    isActive() {
+      return this.token!= null && this.username!= null;
     }
   },
 

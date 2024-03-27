@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Inter');
 
 .header-container {
-    height: 11vh;
+    min-height: 12vh;
     display: grid;
     grid-template-columns: 0.5fr 1fr 0.5fr;
     background-color: rgba(0, 0, 0, 0.5);
@@ -9,7 +9,16 @@
     align-items: center;
 }
 
-#sign-up-link {
+.sign-up {
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-self: start;
+}
+
+.sign-up-link {
+    margin-right: 30px;
+    align-self: center;
     font-family: 'Inter', sans-serif;
     font-weight: bold;
     font-size: 16px;
@@ -27,8 +36,6 @@
     border: 1px solid #ccc;
     float: left;
     width: 300px;
-
-
 }
 
 #searchButton {

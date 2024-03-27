@@ -1,6 +1,11 @@
 <script setup lang="js">
 import LogoTitle from '@/components/LogoTitle.vue'
+import { useUserStore } from '@/stores/UserStore.js'
+import SettingsDropdown from '@/components/SettingsDropdown.vue'
+import UserDropdown from '@/components/UserDropdown.vue'
 import '../assets/css/header.css'
+
+const store = useUserStore()
 </script>
 
 <template>
@@ -12,8 +17,10 @@ import '../assets/css/header.css'
         <button type="button" id="searchButton"><i class="fa fa-search"></i>Search</button>
       </form>
     </div>
-    <div class="sign-up">
-      <RouterLink to="/sign-up" id="sign-up-link">Sign up</RouterLink>
+    <div v-if="store.getUsername==null" class="sign-up">
+      <RouterLink to="/sign-up" class="sign-up-link">Sign up</RouterLink>
+      <SettingsDropdown/>
     </div>
+    <UserDropdown v-else></UserDropdown>
   </div>
 </template>
