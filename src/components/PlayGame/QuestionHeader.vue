@@ -4,8 +4,8 @@ import '/src/assets/css/PlayGame/playGame.css'
 </script>
 
 <template>
-  <div class="square">
-    <p>This is a question</p>
+  <div class="questionHeader">
+    <p class="questionText">What is 3+4?</p>
   </div>
 
 </template>
