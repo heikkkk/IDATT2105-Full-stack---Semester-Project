@@ -1,4 +1,4 @@
-.container {
+.footer-container {
     width: 100%;
     height: 200px;
     display: flex;
@@ -9,7 +9,6 @@
 
     background-size: cover;
 }
-
 .router{
     /* Page title */
 
@@ -139,4 +138,5 @@ background-size: cover;
     text-align: center;
     margin-top: 50px;
     border: none;
+
 }

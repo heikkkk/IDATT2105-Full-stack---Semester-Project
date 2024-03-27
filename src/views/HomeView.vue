@@ -1,11 +1,11 @@
 <script setup lang="js">
 import Header from '@/components/Header.vue'
-import Play from '@/components/Home/Play.vue'
+import Home from '@/components/Home/Home.vue'
 import Footer from '@/components/Footer.vue'
 </script>
 
 <template>
   <Header></Header>
-  <Play></Play>
+  <Home></Home>
   <Footer></Footer>
 </template>
