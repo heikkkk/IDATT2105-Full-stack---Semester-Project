@@ -23,8 +23,12 @@ const router = createRouter({
       path: '/playingTF',
       name: 'playing true or false',
       component: () => import('../views/PlayingView.vue')
+    },
+    {
+      path: '/dashboard',
+      name: 'dashboard',
+      component: () => import('../views/DiscoverView.vue')
     }
-
   ]
 })
 
