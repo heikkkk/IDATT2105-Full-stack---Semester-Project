@@ -1,13 +1,11 @@
 .footer-container {
     width: 100%;
-    height: 200px;
     display: flex;
     #flex-direction: column;
     background-color: #000000;
     align-items: stretch;
-
-
     background-size: cover;
+    overflow: auto;
 }
 .router{
     /* Page title */
@@ -99,7 +97,7 @@ background-size: cover;
 
 }
 #linksCon{
-    width: 100%;
+    width: fit-content;
     height: 200px;
     display: flex;
     flex-direction: column;
@@ -112,11 +110,13 @@ background-size: cover;
 }
 
 #leftPart{
-    width: 100%;
-    height: 200px;
+    width: fit-content;
     display: flex;
-    align-items: stretch;
+    flex-direction: column;
     background-color: #000000;
+    margin-left: 300px;
+    align-items: center;
+
 }
 
 #subscribeButton{
@@ -138,5 +138,57 @@ background-size: cover;
     text-align: center;
     margin-top: 50px;
     border: none;
+}
 
+#Contacts-header{
+    width: fit-content;
+    height: 39px;
+
+    font-family: 'Inter', serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 130%;
+    /* identical to box height, or 39px */
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+
+    color: #FFFFFF;
+
+    border: 1px solid #000000;
+}
+.contacts-body{
+    /* Page title */
+
+
+    width: fit-content;
+    height: 10px;
+
+    font-family: 'Inter', serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 130%;
+    /* identical to box height, or 39px */
+    display: flex;
+    align-items: self-start;
+    text-decoration: none;
+    padding: 10px;
+
+    color: #FFFFFF;
+
+    border: 1px solid #000000;
+
+}
+#support{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#info{
+    margin-left: 10px;
+}
+#contacts{
+    align-content: flex-start;
 }
