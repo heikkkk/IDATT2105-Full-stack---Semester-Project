@@ -7,7 +7,7 @@
 .carousel-container h1 {
     font-family: "Semi Bold Italic", sans-serif;
     color: white;
-    padding: 0 0 0 3.25rem;
+    padding: 0 0 0 4rem;
 }
 
 .slider-container {
@@ -30,14 +30,14 @@
 .slider > img {
     flex: 0 0 calc(100% / var(--images-per-row));
     max-width: calc(100% / var(--images-per-row));
-    padding: .25rem;
+    padding: .5rem;
     aspect-ratio: 1.618; //The golden ratio;
-    border-radius: 8px;
+    border-radius: 11px;
     transition: transform 150ms ease-in-out;
 }
 
 .slider > img:hover {
-    transform: scale(1.05);
+    transform: scale(1.1);
 }
 
 .slider > img:hover {
@@ -51,7 +51,7 @@
     min-width: 3rem;
     background-color: rgba(0, 0, 0, 0.5);
     z-index: 10;
-    margin: .25rem 0;
+    margin: .5rem 0;
     font-size: 3rem;
     display: flex;
     align-items: center;
@@ -65,11 +65,13 @@
 .left-handle {
     border-top-right-radius: 3px;
     border-bottom-right-radius: 3px;
+    margin-right: 0.25rem;
 }
 
 .right-handle {
     border-top-left-radius: 3px;
     border-bottom-left-radius: 3px;
+    margin-left: 0.25rem;
 }
 
 .arrow {
