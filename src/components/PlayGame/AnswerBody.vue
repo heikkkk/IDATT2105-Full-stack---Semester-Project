@@ -10,7 +10,7 @@ import '/src/assets/css/PlayGame/playGame.css'
     <button id="thirdButton">2</button>
   </div>
   <div class="secondPart">
-    <button id="secondButton">8</button>
+    <button id="secondButton">katter er velig xxcdcdcdcdcdcdcdcdcdccfine</button>
     <button id="fourthButton">7</button>
   </div>
   </div>
