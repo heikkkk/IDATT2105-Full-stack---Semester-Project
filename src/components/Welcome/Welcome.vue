@@ -1,5 +1,5 @@
 <script setup lang="js">
-import '../../assets/css/Home/home.css'
+import '@/assets/css/Welcome/welcome.css'
 import { useRouter } from 'vue-router';
 
 const router = useRouter();

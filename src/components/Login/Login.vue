@@ -9,7 +9,7 @@ const router = useRouter();
 const store = useUserStore()
 const login = () => {
   store.setUsername("Username") //Todo remove this testing line
-  router.push('/dashboard')
+  router.push('/discover')
 };
 </script>
 
