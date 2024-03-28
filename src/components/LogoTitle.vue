@@ -1,6 +1,7 @@
 <script setup>
 import '../assets/css/logoTitle.css'
-
+import { useUserStore } from '@/stores/UserStore.js'
+const store = useUserStore();
 const props = defineProps({
   content: {
     type: String,
@@ -12,10 +13,18 @@ const props = defineProps({
   }
 })
 
+const userIsActive = () => {
+  if (store.getUsername!=null) {
+    return '/discover'
+  } else {
+    return '/'
+  }
+}
+
 </script>
 
 <template>
-  <RouterLink to="/" id="logo-link">
+  <RouterLink to=/ id="logo-link">
     <div>
       <img src="@/assets/img/logo.png" alt="logo" id="logo">
     </div>
