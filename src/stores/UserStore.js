@@ -38,7 +38,13 @@ export const useUserStore = defineStore({
     },
     // Todo might wanna alter this one
     isActive() {
-      return this.token!= null && this.username!= null;
+      return this.username!= null;
+    },
+    controlNavigate() {
+      if (this.isActive()) {
+        return '/discover'
+      }
+      return '/'
     }
   },
 

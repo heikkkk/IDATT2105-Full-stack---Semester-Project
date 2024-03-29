@@ -20,6 +20,7 @@ const router = createRouter({
       component: () => import('../views/SignUpView.vue')
     },
     {
+
       path: '/playingTF',
       name: 'playing true or false',
       component: () => import('../views/PlayingView.vue')
@@ -27,6 +28,10 @@ const router = createRouter({
     {
       path: '/dashboard',
       name: 'dashboard',
+    },
+    {
+      path: '/discover',
+      name: 'discover',
       component: () => import('../views/DiscoverView.vue')
     }
   ]

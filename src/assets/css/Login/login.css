@@ -33,12 +33,13 @@ input {
     flex-direction: column;
 }
 
-.login-button, .username-input, .password-input, .signup-paragraph-container {
+.login-button, .username-input, .password-input, .signup-paragraph-container{
     max-height: 50px;
     width: 95%;
     padding: 10px;
     margin: 10px;
     border-radius: 5px;
+    border-width: 3px;
 }
 
 .login-button {
@@ -57,4 +58,20 @@ input {
 
 .signup-paragraph-container {
     align-items: start;
+}
+
+.error {
+    max-height: 50px;
+    width: 95%;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 5px;
+    border-width: 3px;
+    border-color: red;
+}
+
+.error_msg {
+    color: red;
+    font-size: 16px;
+    align-self: center;
 }

@@ -1,5 +1,21 @@
+@import url('https://fonts.googleapis.com/css?family=Inter');
+
+*, *::after, *::before {
+    box-sizing: border-box;
+}
+
 body {
     margin: 0;
     background-image: url("../img/background2.png");
     background-size: cover;
+    overflow-x: hidden; /* Hide the horizontal scrollbar */
+}
+
+html {
+    scrollbar-width: auto;
+    scrollbar-color: #221e7d #FFF;
+}
+
+p {
+    font-family: "Semi Bold Italic", sans-serif;
 }

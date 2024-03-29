@@ -9,7 +9,3 @@ import Discover from '@/components/Discover/Discover.vue'
   <Discover/>
   <Footer/>
 </template>
-
-<style scoped>
-
-</style>
