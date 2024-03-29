@@ -16,6 +16,11 @@
     padding: 10px 20px;
     margin-right: 20px;
     margin-left: 20px;
+    transition: background 200ms;
+}
+
+.search-bar-form:hover {
+    background: rgba(255, 255, 255, .8);;
 }
 
 .search-bar-input {
