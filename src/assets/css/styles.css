@@ -15,3 +15,7 @@ html {
     scrollbar-width: auto;
     scrollbar-color: #221e7d #FFF;
 }
+
+p {
+    font-family: "Semi Bold Italic", sans-serif;
+}

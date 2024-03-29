@@ -36,16 +36,12 @@ const postLoginCredentials = () => {
   .catch(error => {
     //TODO show error message to the user
     authenticationError.value = true
-    console.log("[LoginService::postLoginCredentials]")
   })
 }
 
 const login = () => {
   postLoginCredentials()
 };
-
-
-
 </script>
 
 <template>
@@ -59,7 +55,7 @@ const login = () => {
         <div class="login-button-container">
           <button class="login-button" type="submit">Login</button>
           <div class="signup-paragraph-container">
-            <p>Don't have a user?
+            <p >Don't have a user?
               <RouterLink to="/sign-up" style="color: white">Sign up</RouterLink>
             </p>
           </div>
