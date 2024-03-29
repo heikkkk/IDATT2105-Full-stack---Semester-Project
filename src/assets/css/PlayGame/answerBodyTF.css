@@ -40,8 +40,11 @@
 }
 
 @keyframes true{
-    to{background-color: chartreuse}
-}
+    to{background-color: chartreuse;
+        transform: scale(1.1);}
+
+
+    }
 
 @keyframes false {
     to{background-color: darkred;}
