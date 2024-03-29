@@ -1,7 +1,6 @@
 <script setup>
 import '/src/assets/css/PlayGame/answerBodyTF.css'
 import { ref } from 'vue'
-//TODO FIX bug that do hinder animation.
 
 const isAnimated = ref(false)
 
