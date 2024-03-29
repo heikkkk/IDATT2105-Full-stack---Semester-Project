@@ -3,7 +3,7 @@
 .header-container {
     min-height: 12vh;
     display: grid;
-    grid-template-columns: 0.5fr 1fr 0.5fr;
+    grid-template-columns: 1fr 1.1fr 1fr;
     background-color: rgba(0, 0, 0, 0.7);
     justify-items: center;
     align-items: center;
@@ -13,16 +13,16 @@
     justify-self: start;
 }
 
-.sign-up {
+.burger {
     height: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-self: start;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr .4fr;
+    justify-items: center;
 }
 
 .sign-up-link {
     text-decoration: none;
-    margin-right: 30px;
     align-self: center;
     font-family: 'Inter', sans-serif;
     font-weight: bold;

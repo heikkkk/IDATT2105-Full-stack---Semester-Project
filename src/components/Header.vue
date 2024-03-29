@@ -1,10 +1,11 @@
 <script setup lang="js">
 import LogoTitle from '@/components/LogoTitle.vue'
 import SearchBar from '@/components/SearchBar.vue'
-import SettingsDropdown from '@/components/SettingsDropdown.vue'
+// import SettingsDropdown from '@/components/SettingsDropdown.vue'
 import UserDropdown from '@/components/UserDropdown.vue'
 import { useUserStore } from '@/stores/UserStore.js'
 import '../assets/css/header.css'
+import HamburgerMenu from '@/components/HamburgerMenu.vue'
 
 const store = useUserStore()
 </script>
@@ -13,19 +14,20 @@ const store = useUserStore()
   <div class="header-container">
     <LogoTitle class="logoTitle" color="white"/>
     <SearchBar class="search-bar"/>
-    <!--
-    <div class="search">
-      <form class="search-form">
-        <input type="text" id="searchInput" placeholder="Search Quizes">
-        <button type="button" id="searchButton"><i class="fa fa-search"></i>&#128269;</button>
-      </form>
+    <div v-if="store.isActive" class="burger">
+      <UserDropdown/>
+      <HamburgerMenu/>
     </div>
-    -->
-
+    <div v-else class="burger">
+      <div/>
+      <HamburgerMenu/>
+    </div>
+    <!--
     <div v-if="store.getUsername==null" class="sign-up">
       <RouterLink to="/sign-up" class="sign-up-link">Sign up</RouterLink>
-      <SettingsDropdown/>
+      <SettingsDropdown class="dropdown-content"/>
     </div>
     <UserDropdown v-else/>
+    -->
   </div>
 </template>
