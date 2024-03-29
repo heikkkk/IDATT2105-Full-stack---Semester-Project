@@ -1,49 +1,63 @@
 <script setup lang="js">
 import '../assets/css/footer.css'
+import '@fortawesome/fontawesome-free/css/all.css'
 import { RouterLink } from 'vue-router'
+import { useUserStore } from '@/stores/UserStore.js'
+
+const store = useUserStore();
+
+const isUserActive = () => {
+  if (store.isActive) {
+    return '/discover'
+  }
+  return '/login'
+}
+
 </script>
 
 <template>
-  <div class="footer-container">
-    <div id="info">
-      <p id="Contacts-header">Info</p>
-      <div id="linksCon">
+  <div class="footer-wrapper">
+
+    <div class="links-wrapper">
+      <p class="links-header">Links</p>
+      <div class="links-container">
+        <RouterLink class="router" to="/">Home</RouterLink>
+        <RouterLink class="router" :to="isUserActive()">Discover</RouterLink>
+        <RouterLink class="router" to="/login">Login</RouterLink>
+        <RouterLink class="router" to="/help">Help</RouterLink>
+      </div>
+    </div>
+
+    <div class="support-wrapper">
+      <p class="support-header">Support</p>
+      <div class="support-container">
+        <a href="https://twitter.com" target="_blank">
+          <i class="fab fa-twitter"></i>
+          Twitter
+        </a>
+        <a href="https://instagram.com" target="_blank">
+          <i class="fab fa-instagram"></i>
+           Instagram
+        </a>
+        <a href="https://facebook.com" target="_blank">
+          <i class="fab fa-facebook"></i>
+           Facebook
+        </a>
+        <a href="https://discord.gg" target="_blank">
+          <i class="fab fa-discord"></i>
+           Discord
+        </a>
+      </div>
+    </div>
+
+    <div class="info-wrapper">
+      <p class="info-header">Company</p>
+      <div class="info-container">
         <RouterLink class="router" to="/about us">About us</RouterLink>
-        <RouterLink class="router" to="/terms and policy">Terms and policy</RouterLink>
-        <RouterLink class="router" to="/etc">Etc ...</RouterLink>
-        <p id="ref">@2024 IDATT2105, Icons by icon8</p>
+        <RouterLink class="router" to="/lisence">License</RouterLink>
+        <RouterLink class="router" to="/privacy">Privacy</RouterLink>
       </div>
     </div>
-    <div id="support">
-      <p id="Contacts-header">Support us!</p>
-    <div id="centerPart">
-      <div class="imageBackground">
-        <div id="imageTwitter">
-        </div>
-      </div>
-      <div class="imageBackground">
-        <div id="imageInsta">
-        </div>
-      </div>
-      <div class="imageBackground">
-        <div id="imageFacebook">
-        </div>
-      </div>
-    </div>
-    </div>
-    <div id="leftPart">
-      <div id="contacts">
-        <p id="Contacts-header">Contacts</p>
-      <p class="contacts-body">Phone: 12344565</p>
-      <p class="contacts-body">Email: company@mail.com</p>
-      <p class="contacts-body">Address: Husveien 23, 9100 Troms</p>
-      </div>
-    </div>
-
-
 
   </div>
-
-
-
 </template>

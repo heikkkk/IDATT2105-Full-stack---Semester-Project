@@ -1,5 +1,6 @@
 
 .user-dropdown-wrapper {
+    text-decoration: none;
     height: 100%;
 }
 
@@ -22,13 +23,12 @@
     font-family: "Semi Bold Italic", sans-serif;
 }
 
+/*
 .user-dropdown-wrapper .dropdown-content {
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
-    display: none;
     position: absolute;
+    display: none;
     background-color: rgba(0, 0, 0, 0.5);
-    width: 300px;
+    max-width: 100%;
 }
 
 .user-link {
@@ -44,4 +44,4 @@
     display: flex;
     flex-direction: column;
 }
-
+*/
