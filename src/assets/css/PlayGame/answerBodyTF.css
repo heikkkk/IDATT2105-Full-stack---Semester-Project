@@ -39,7 +39,16 @@
 
 }
 
-#trueButton{
+@keyframes true{
+    to{background-color: chartreuse}
+}
+
+@keyframes false {
+    to{background-color: darkred;}
+}
+
+
+.trueButton{
     font-size: 40px;
     font-family: Arial, serif;
     font-weight: bold;
@@ -49,9 +58,21 @@
     margin-bottom: 20px;
     border-radius: 5px;
     background-color: cyan;
-    border: none
+    border: none;
 }
-#falseButton{
+
+.true-animate{
+    animation-name: true;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+.false-animate{
+    animation-name: false;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+
+.falseButton{
     font-size: 40px;
     font-family: Arial, serif;
     font-weight: bold;
@@ -61,5 +82,6 @@
     margin-bottom: 20px;
     border-radius: 5px;
     background-color: yellow;
-    border: none
+    border: none;
 }
+
