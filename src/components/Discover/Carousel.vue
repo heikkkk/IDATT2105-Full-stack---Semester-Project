@@ -13,7 +13,8 @@ const props = defineProps({
   }
 })
 
-const sliderRef = ref()
+const sliderRef = ref(null)
+
 const onHandleClicked = (increment) => {
   const slider = sliderRef.value
   const sliderIndex = parseInt(getComputedStyle(slider).getPropertyValue('--slider-index'));

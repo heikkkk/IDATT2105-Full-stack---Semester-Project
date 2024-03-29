@@ -21,7 +21,7 @@
 
 .discover-button-container .create-new-quiz-button {
     background: linear-gradient(to bottom right, #EF4765, #FF9A5A);
-    margin: 15px 0 0 3.25rem;
+    margin: 15px 0 0 4rem;
     border-radius: 8px;
     border: none;
     height: 4rem;
@@ -37,5 +37,6 @@
 
 
 .discover-button-container .create-new-quiz-button:hover {
+    background: linear-gradient(to bottom right, #BF1745, #CF6A2A);
     transform: scale(1.1);
 }

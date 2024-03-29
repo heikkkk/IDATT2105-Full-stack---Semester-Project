@@ -34,4 +34,5 @@
 
 #join-button:hover {
     transform: scale(1.1);
+    background: linear-gradient(to bottom right, #BF1745, #CF6A2A);
 }
