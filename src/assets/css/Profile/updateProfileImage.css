@@ -1,0 +1,39 @@
+input[type="file"] {
+    display: none;
+}
+
+.update-profile-image-container {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    margin: 3rem;
+    justify-items: center;
+}
+
+.update-profile-image-container h1 {
+    color: #FFFFFF;
+    font-family: Inter, sans-serif;
+    margin: 10px 0 30px;
+}
+
+.update-image-label {
+    align-content: center;
+    text-align: center;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+    background: linear-gradient(to bottom right, #EF4765, #FF9A5A);
+    border-radius: 8px;
+    border: none;
+    height: 4rem;
+    width: 180px;
+    font-family: "Semi Bold Italic", sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+    transition: transform 150ms ease-in-out;
+}
+
+.update-image-label:hover {
+    background: linear-gradient(to bottom right, #BF1745, #CF6A2A);
+    transform: scale(1.1);
+}

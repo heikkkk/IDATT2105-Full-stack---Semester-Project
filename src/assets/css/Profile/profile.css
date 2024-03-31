@@ -1,0 +1,82 @@
+.profile-wrapper {
+    min-height: 88vh;
+    background-image: linear-gradient(to bottom, rgba(225, 225, 225, 0.7), rgba(108, 53, 225, 0.8), rgba(63, 122, 129, 0.9));
+    // background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.7), rgba(168, 123, 255, 0.8), rgba(113, 172, 179, 0.9));
+    background-size: cover;
+    justify-content: center;
+}
+
+.profile-image {
+    cursor: pointer;
+    justify-content: center;
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    transition: all 0.5s ease;
+}
+
+.profile-image:hover {
+    transform: scale(1.05);
+}
+
+.profile-details-container {
+    padding: 1rem;
+    display: grid;
+    grid-template-rows: 1fr;
+    align-items: center;
+    justify-items: center;
+}
+
+.profile-username-container {
+
+}
+
+.profile-username {
+    font-family: "Inter", sans-serif;
+    font-weight: 500;
+    color: #FFFFFF;
+}
+
+.profile-button-container {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+}
+
+.profile-button-container button {
+    margin: 1rem;
+}
+
+.profile-button-container button {
+    background: linear-gradient(to bottom right, #EF4765, #FF9A5A);
+    border-radius: 8px;
+    border: none;
+    height: 4rem;
+    width: 180px;
+    font-family: "Semi Bold Italic", sans-serif;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+    transition: transform 150ms ease-in-out;
+}
+
+
+
+.profile-button-container button:hover {
+    background: linear-gradient(to bottom right, #BF1745, #CF6A2A);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    transform: scale(1.1);
+}
+
+@media (max-width: 500px) {
+    .profile-button-container {
+        justify-content: center;
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+    }
+}

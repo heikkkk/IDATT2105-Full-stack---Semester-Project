@@ -16,7 +16,6 @@ input {
 .login-container {
     display: grid;              /*TODO Think about removing this with flex instead*/
     grid-template-rows: 1fr;
-
     align-items: center;
     justify-items: center;
     width: 30%;

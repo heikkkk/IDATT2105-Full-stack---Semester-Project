@@ -13,12 +13,20 @@
     justify-self: start;
 }
 
-.burger {
+.burger-container {
     height: 100%;
     width: 100%;
     display: grid;
     grid-template-columns: 1fr .4fr;
     justify-items: center;
+}
+
+.userTitle {
+    transition: transform 150ms ease-in-out;
+}
+
+.userTitle:hover {
+    transform: scale(1.1);
 }
 
 .sign-up-link {
@@ -37,4 +45,18 @@
 .search-container {
     position: relative;
     margin: 20px;
+}
+
+@media (max-width: 835px) {
+    .header-container {
+        height: 225px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .userTitle {
+        position: relative;
+        justify-self: left;
+        margin-left: 10px;
+    }
 }
