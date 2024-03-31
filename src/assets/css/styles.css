@@ -4,6 +4,10 @@
     box-sizing: border-box;
 }
 
+hr {
+    width: 90%;
+}
+
 body {
     margin: 0;
     background-image: url("../img/background2.png");

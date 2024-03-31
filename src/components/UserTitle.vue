@@ -1,5 +1,5 @@
 <script setup>
-import '../assets/css/userDropdown.css'
+import '../assets/css/userTitle.css'
 import { useUserStore } from '@/stores/UserStore.js'
 
 const store = useUserStore()

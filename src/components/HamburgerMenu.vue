@@ -13,13 +13,13 @@ const onBurgerClicked = () => {
     menu.style.setProperty('right', 0);
     return;
   }
-  menu.style.setProperty('right', '-220px');
+  menu.style.setProperty('right', '-222px');
 }
 
 </script>
 
 <template>
-  <div class="hamburger">
+  <div class="hamburger-container">
     <i class="fas fa-bars fa-2x" @click="onBurgerClicked"></i>
   </div>
   <div class="hamburger-menu" ref="menuRef">

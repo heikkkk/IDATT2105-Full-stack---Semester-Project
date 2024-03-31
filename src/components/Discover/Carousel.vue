@@ -35,6 +35,7 @@ const onHandleClicked = (increment) => {
 <template>
   <div class="carousel-container">
     <h1>{{ props.title }}</h1>
+    <h2 v-if="content.length === 0">No quiz's available!</h2>
     <div class="slider-container">
       <button class="handle left-handle" @click="onHandleClicked(-1)"><span class="arrow">&#8249;</span></button>
       <div class="slider" ref="sliderRef">

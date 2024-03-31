@@ -1,14 +1,18 @@
-.hamburger i {
+:root {
+    --burger-menu-distance-from-top: 82px;
+}
+
+.hamburger-container i {
     color: #FFFFFF;
     cursor: pointer;
     transition: transform 150ms ease-in-out;
 }
 
-.hamburger i:hover {
+.hamburger-container i:hover {
     transform: scale(1.2);
 }
 
-.hamburger {
+.hamburger-container {
     font-size: 22px;
     align-content: center;
     height: 100%;
@@ -18,7 +22,7 @@
 
 .hamburger-menu {
     padding: 20px;
-    top: 82px;
+    top: var(--burger-menu-distance-from-top);
     position: absolute;
     transition: all 0.2s ease;
     background-color: rgba(0, 0, 0, 0.8);
@@ -48,4 +52,10 @@
 
 .hamburger-menu ul > li .hamburger-menu-link:hover {
     color: #AAAAAA;
+}
+
+@media (max-width: 835px) {
+    .hamburger-menu {
+        top: 225px;
+    }
 }

@@ -23,6 +23,28 @@ const router = createRouter({
       path: '/discover',
       name: 'discover',
       component: () => import('../views/DiscoverView.vue')
+    },
+    {
+      path: '/profile',
+      name: 'profile',
+      component: () => import('../views/ProfileView.vue'),
+      children: [
+        {
+          path: '/update-password',
+          name: 'update password',
+          component: () => import('../components/Profile/UpdatePassword.vue')
+        },
+        {
+          path: '/update-username',
+          name: 'update username',
+          component: () => import('../components/Profile/UpdateUsername.vue')
+        },
+        {
+          path: '/update-profile-image',
+          name: 'update profile image',
+          component: () => import('../components/Profile/UpdateProfileImage.vue')
+        }
+      ]
     }
   ]
 })
