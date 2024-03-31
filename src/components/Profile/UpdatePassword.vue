@@ -1,5 +1,5 @@
 <script setup>
-import '../../assets/css/profile/updatePassword.css'
+import '@/assets/css/Profile/updatePassword.css'
 </script>
 
 <template>

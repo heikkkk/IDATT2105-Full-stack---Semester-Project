@@ -49,6 +49,7 @@
 
 @media (max-width: 835px) {
     .header-container {
+        height: 225px;
         display: flex;
         flex-direction: column;
     }

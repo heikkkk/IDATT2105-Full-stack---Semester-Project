@@ -1,5 +1,5 @@
 <script setup>
-import '../../assets/css/profile/updateUsername.css'
+import '@/assets/css/Profile/updateUsername.css'
 </script>
 
 <template>

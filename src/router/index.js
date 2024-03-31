@@ -25,7 +25,7 @@ const router = createRouter({
       component: () => import('../views/DiscoverView.vue')
     },
     {
-      path: '/profile',
+      path: '/Profile',
       name: 'profile',
       component: () => import('../views/ProfileView.vue'),
       children: [
@@ -40,11 +40,16 @@ const router = createRouter({
           component: () => import('../components/Profile/UpdateUsername.vue')
         },
         {
-          path: '/update-profile-image',
-          name: 'update profile image',
+          path: '/update-Profile-image',
+          name: 'update Profile image',
           component: () => import('../components/Profile/UpdateProfileImage.vue')
         }
       ]
+    },
+    {
+      path: '/create-quiz',
+      name: 'create-quiz',
+      component: () => import('../views/CreateQuizView.vue')
     }
   ]
 })

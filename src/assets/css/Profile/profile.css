@@ -68,6 +68,7 @@
 
 .profile-button-container button:hover {
     background: linear-gradient(to bottom right, #BF1745, #CF6A2A);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     transform: scale(1.1);
 }
 

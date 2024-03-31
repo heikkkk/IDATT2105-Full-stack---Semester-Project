@@ -1,5 +1,5 @@
 <script setup>
-import '../../assets/css/profile/profile.css'
+import '@/assets/css/Profile/profile.css'
 import { useUserStore } from '@/stores/UserStore.js'
 import Carousel from '@/components/Discover/Carousel.vue'
 import { useRouter } from 'vue-router'
@@ -27,11 +27,11 @@ const showUpdateUsername = () => {
 }
 
 const showUpdateProfileImage = () => {
-  if (router.currentRoute.value.path === '/update-profile-image') {
+  if (router.currentRoute.value.path === '/update-Profile-image') {
     router.push('profile')
   }
   else {
-    router.push('/update-profile-image');
+    router.push('/update-Profile-image');
   }
 }
 </script>
