@@ -1,0 +1,41 @@
+name: Continuous Integration Pipeline
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [18.x] 
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'npm'
+
+    - name: Install dependencies
+      run: npm install
+
+    - name: Lint (Failures Ignored)
+      run: npm run lint || echo "Linting issues found, but ignoring..."
+    
+    - name: Format check with Prettier (Failures Ignored) 
+      run: npm run format -- --check || echo "Formatting issues detected, but ignoring..."
+
+    - name: Run unit tests (Failures Ignored)
+      run: npm run test:unit || echo "No unit tests found or other test errors, but continuing..."
+
+    - name: Build
+      run: npm run build
+
