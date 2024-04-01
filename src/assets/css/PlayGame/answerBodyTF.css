@@ -68,11 +68,13 @@
     animation-name: true;
     animation-duration: 1s;
     animation-fill-mode: forwards;
+    pointer-events: none;
 }
 .false-animate{
     animation-name: false;
     animation-duration: 1s;
     animation-fill-mode: forwards;
+    pointer-events: none;
 }
 
 .falseButton{

@@ -6,6 +6,8 @@ const isAnimated = ref(false)
 
 function DoAnimation(){
   isAnimated.value = !isAnimated.value
+  document.getElementsByClassName("trueButton").disabled = true;
+  document.getElementsByClassName("falseButton").disabled = true;
 }
 
 
