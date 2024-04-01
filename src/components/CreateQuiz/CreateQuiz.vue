@@ -1,5 +1,5 @@
 <script setup>
-import '../../assets/css/Quiz/createQuiz.css'
+import '@/assets/css/CreateQuiz/createQuiz.css'
 
 const props = defineProps({
   category: {
@@ -59,6 +59,7 @@ const props = defineProps({
       <div class="create-quiz-button-container">
         <button class="cancel-button">Cancel</button>
         <button class="confirm-button">Confirm</button>
+        <button class="delete-button">Delete quiz</button>
       </div>
     </form>
   </div>

@@ -1,5 +1,5 @@
 <script setup>
-import '../../assets/css/Quiz/questionDetails.css'
+import '@/assets/css/CreateQuiz/questionDetails.css'
 </script>
 
 <template>
