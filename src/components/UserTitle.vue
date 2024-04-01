@@ -1,5 +1,5 @@
 <script setup>
-import '../assets/css/userDropdown.css'
+import '../assets/css/userTitle.css'
 import { useUserStore } from '@/stores/UserStore.js'
 
 const store = useUserStore()
@@ -17,7 +17,7 @@ const store = useUserStore()
     <!--
     <div class="dropdown-content">
       <RouterLink class="user-link" to="/change-language">Change Language</RouterLink>
-      <RouterLink class="user-link" to="/profile">Profile settings</RouterLink>
+      <RouterLink class="user-link" to="/Profile">Profile settings</RouterLink>
       <RouterLink class="user-link" to="/" @click="store.resetAll()">Log out</RouterLink>
     </div>
     -->

@@ -1,0 +1,37 @@
+
+.update-username-container {
+    display: grid;
+    grid-template-rows: 0.3fr 1fr;
+    align-items: center;
+    justify-items: center;
+    height: 40vh;
+    border-radius: 10px;
+}
+
+.update-username-container h1 {
+    color: #FFFFFF;
+    font-family: Inter, sans-serif;
+    margin-top: 20px;
+    margin-bottom: 2px;
+}
+
+.update-username-form {
+    width: 30%;
+    align-self: center;
+    justify-self: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.update-username-button, .new-username-input {
+    max-height: 50px;
+    width: 95%;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 5px;
+}
+
+.update-username-button {
+    cursor: pointer;
+    font-size: 14px;
+}

@@ -38,6 +38,33 @@ const router = createRouter({
       path: '/finished',
       name: 'finished',
       component: () => import("../views/GameFinishedView.vue")
+    },
+    {
+      path: '/Profile',
+      name: 'profile',
+      component: () => import('../views/ProfileView.vue'),
+      children: [
+        {
+          path: '/update-password',
+          name: 'update password',
+          component: () => import('../components/Profile/UpdatePassword.vue')
+        },
+        {
+          path: '/update-username',
+          name: 'update username',
+          component: () => import('../components/Profile/UpdateUsername.vue')
+        },
+        {
+          path: '/update-Profile-image',
+          name: 'update Profile image',
+          component: () => import('../components/Profile/UpdateProfileImage.vue')
+        }
+      ]
+    },
+    {
+      path: '/create-quiz',
+      name: 'create-quiz',
+      component: () => import('../views/CreateQuizView.vue')
     }
   ]
 })
