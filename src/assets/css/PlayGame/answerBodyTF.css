@@ -41,14 +41,19 @@
 
 @keyframes true{
     to{background-color: chartreuse;
-        transform: scale(1.1);}
+
+        color: black;
+    }
 
 
     }
 
 @keyframes false {
-    to{background-color: darkred;}
+    to{background-color: darkred;
+    color: #FFFFFF}
 }
+
+
 
 
 .trueButton{

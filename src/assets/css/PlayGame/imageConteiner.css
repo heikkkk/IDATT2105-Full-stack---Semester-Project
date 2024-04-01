@@ -4,12 +4,13 @@
     border: 3px none;
     #background-color: #FFFFFF;
     border-radius: 30px;
-    margin: 20px;
+    margin: 30px;
     background: rgba(0, 0, 0, 0.3);
+
 
 }
 
 .imageCon{
-width: 600px;
-    height: 400px;
+width: 450px;
+    height: 300px;
 }

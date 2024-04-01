@@ -5,7 +5,7 @@ import '/src/assets/css/PlayGame/playGame.css'
 
 <template>
   <div class="questionHeader">
-    <p class="questionText">Hva er 4 fra 3</p>
+    <p class="questionText">Hvilken rase er dette?</p>
   </div>
 
 </template>
