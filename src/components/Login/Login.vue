@@ -53,7 +53,7 @@ const login = () => {
         <input v-model="username" :class="authenticationError === false ? 'username-input' : 'error'" type="text" placeholder="Username">
         <input v-model="password" :class="authenticationError === false ? 'password-input' : 'error'" type="password" placeholder="Password">
         <div class="login-button-container">
-          <button class="login-button" type="submit">Login</button>
+          <button class="login-button" type="submit" @click="login">Login</button>
           <div class="signup-paragraph-container">
             <p >Don't have a user?
               <RouterLink to="/sign-up" style="color: white">Sign up</RouterLink>
