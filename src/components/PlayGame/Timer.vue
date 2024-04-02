@@ -2,7 +2,9 @@
 
 import '/src/assets/css/PlayGame/timerComponent.css'
 import { onMounted, ref } from 'vue'
-import { useRoute, useRouter } from 'vue-router'
+import { useRouter } from 'vue-router'
+import { usePlayingStore } from '@/stores/PlayStore.js'
+import {defineExpose} from 'vue'
 
 let route = useRouter();
 
@@ -10,7 +12,22 @@ let time = ref("")
 
 let timerCheck = true;
 
+const playingStore = usePlayingStore()
 
+/**
+ * A function that calls to the parent-component
+ */
+const emits = defineEmits(['childEvent']);
+
+const notifyParent = () => {
+  emits('childEvent')
+}
+
+/**
+ * A wrapper-function that takes input in minutes.
+ * Which is calculated to seconds
+ * @param minutesInt takes the number of minutes the timer will be.
+ */
 function timerWrapper(minutesInt) {
 
 
@@ -33,6 +50,9 @@ function timerWrapper(minutesInt) {
 
   time.value = minutes + ":" + seconds
 
+  /**
+   * Starts the timer until the time runs out
+   */
   function startTimer() {
     timeLimitInSecounds.value--;
     let minutes = Math.floor(timeLimitInSecounds.value / 60);
@@ -42,7 +62,8 @@ function timerWrapper(minutesInt) {
       timerElement.value.textContent = '00:00'
       clearInterval(timerInterval);
       if(timerCheck) {
-        route.push('/finished')
+        notifyParent()
+        //route.push('/finished')
       }
       return;
     }
@@ -66,16 +87,13 @@ function timerWrapper(minutesInt) {
 }
 
 /**
- * This function will turn of the timer when you go backward or forward.
+ * This function will turn off the timer when you go backward or forward in the user-history.
  */
 window.addEventListener('popstate', function() {
-  // This function will be called whenever the user navigates backward or forward in the browser history
-  // You can add your logic here to handle the event
   timerCheck = false
-  console.log('User clicked on the go-back-one-page button or navigated backward');
 });
 /**
- * A wrapper that calculates by minutes. for example 0.5 minutes is 30 seconds
+ * Executes the timerWrapper that calculates by minutes. for example 0.5 minutes is 30 seconds
  * , 0.1 is 5 seconds
  */
 timerWrapper(0.2);
