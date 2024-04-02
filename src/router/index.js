@@ -20,13 +20,27 @@ const router = createRouter({
       component: () => import('../views/SignUpView.vue')
     },
     {
+
+      path: '/playingTF',
+      name: 'playing true or false',
+      component: () => import('../views/PlayingView.vue')
+    },
+    {
+      path: '/dashboard',
+      name: 'dashboard',
+    },
+    {
       path: '/discover',
       name: 'discover',
       component: () => import('../views/DiscoverView.vue')
     },
     {
-      path: '/profile',
-      name: 'profile',
+      path: '/finished',
+      name: 'finished',
+      component: () => import("../views/GameFinishedView.vue")
+    },
+    {
+      path: '/Profile',
       component: () => import('../views/ProfileView.vue'),
       children: [
         {

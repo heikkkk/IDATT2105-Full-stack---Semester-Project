@@ -1,0 +1,25 @@
+.exitButton{
+    height: 50px;
+    width: 50px;
+    //background-color: red;
+    color: #FFFFFF;
+    border-radius: 100%;
+    border: none;
+    font-size: 30px;
+    margin-bottom: 30px;
+    margin-top: 10px;
+    margin-right: 10px;
+    place-content: end;
+    float: right;
+    background: linear-gradient(to left, red,#ff8d85);
+}
+
+.exitButton:hover{
+ background: red;
+    cursor: pointer;
+
+}
+
+.button-placement{
+    place-content: flex-end;
+}
