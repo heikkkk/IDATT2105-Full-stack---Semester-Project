@@ -49,7 +49,19 @@ const router = createRouter({
     {
       path: '/create-quiz',
       name: 'create-quiz',
-      component: () => import('../views/CreateQuizView.vue')
+      component: () => import('../views/CreateQuizView.vue'),
+      children: [
+        {
+          path: '',
+          name: 'multiple-choice',
+          component: () => import('../components/CreateQuiz/CreateMultipleChoice.vue')
+        },
+        {
+          path: '/create-quiz/true-false',
+          name: 'true-false',
+          component: () => import('../components/CreateQuiz/CreateTrueFalse.vue')
+        }
+      ]
     }
   ]
 })

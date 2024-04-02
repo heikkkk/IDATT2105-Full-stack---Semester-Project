@@ -1,7 +1,5 @@
 .create-multiple-choice-wrapper {
-    background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.7), rgba(138, 83, 255, 0.8), rgba(93, 152, 159, 0.9));
-    display: grid;
-    padding-bottom: 50px;
+
 }
 
 .alternative-answer-container {
@@ -11,6 +9,7 @@
 }
 
 .alternative-answer-container input {
+    width: 140px;
     font-family: Inter, sans-serif;
     font-size: 20px;
     color: #000000;
@@ -50,7 +49,7 @@
     border-radius: 10px;
     display: grid;
     grid-template-columns: 1fr 0.1fr;
-    min-width: 90%;
+    width: 90%;
     height: 70px;
     margin: 10px;
     padding: 10px;
