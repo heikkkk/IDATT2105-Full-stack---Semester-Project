@@ -1,11 +1,11 @@
 <script setup>
 import Header from '@/components/Header.vue'
 import Footer from '@/components/Footer.vue'
-import CreateQuiz from '@/components/CreateQuiz/CreateQuiz.vue'
+import QuizInfo from '@/components/PlayQuiz/QuizInfo.vue'
 </script>
 
 <template>
   <Header/>
-  <CreateQuiz/>
+  <QuizInfo/>
   <Footer/>
 </template>

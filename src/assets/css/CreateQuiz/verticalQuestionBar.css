@@ -1,0 +1,35 @@
+.vertical-question-bar-wrapper {
+    background-color: rgba(0, 0, 0, .2);
+    width: 180px;
+    overflow-y: auto;
+}
+
+.new-question-container {
+    margin: 10px;
+    background: transparent;
+    background-size: cover;
+    border: 2px solid white;
+    display: grid;
+    border-radius: 8px;
+    width: 140px;
+    height: 90px;
+    cursor: pointer;
+    transition: transform 150ms ease-in-out;
+}
+
+.new-question-container:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    transform: scale(1.05);
+}
+
+.new-question-container .new-question-button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 50px;
+    font-weight: 500;
+    color: white;
+}
+
+.new-question-container .new-question-button {
+}
