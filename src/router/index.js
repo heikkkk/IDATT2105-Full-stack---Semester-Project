@@ -62,6 +62,11 @@ const router = createRouter({
           component: () => import('../components/CreateQuiz/CreateTrueFalse.vue')
         }
       ]
+    },
+    {
+      path: '/quiz-info',
+      name: 'quiz info',
+      component: () => import('../views/QuizInfoView.vue')
     }
   ]
 })

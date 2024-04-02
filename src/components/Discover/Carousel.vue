@@ -1,6 +1,7 @@
 <script setup>
 import '../../assets/css/Discover/carousel.css'
 import { ref } from 'vue'
+import CarouselImg from '@/components/Discover/CarouselImage.vue'
 
 const props = defineProps({
   title: {
@@ -39,7 +40,9 @@ const onHandleClicked = (increment) => {
     <div class="slider-container">
       <button class="handle left-handle" @click="onHandleClicked(-1)"><span class="arrow">&#8249;</span></button>
       <div class="slider" ref="sliderRef">
-        <img v-for="(item, index) in props.content" :key="index" :src="item" alt="placeholder">
+        <!--<img v-for="(item, index) in props.content" :key="index" :src="item" alt="placeholder">-->
+        <!-- <CarouselImg class="carousel-image" v-for="(item, index) in props.content" :key="index" title="Title" :img="item" ></CarouselImg>-->
+        <CarouselImg class="carousel-image" v-for="(item, index) in props.content" :key="index" :title="item.quiz_title" :id="item.quizId" img='src/assets/img/categories/science.png' ></CarouselImg>
       </div>
       <button class="handle right-handle" @click="onHandleClicked(1)"><span class="arrow">&#8250;</span></button>
     </div>
