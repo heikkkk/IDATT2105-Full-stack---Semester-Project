@@ -8,8 +8,12 @@ let route = useRouter();
 
 let time = ref("")
 
+let timerCheck = true;
+
 
 function timerWrapper(minutesInt) {
+
+
 
 
   let timeLimitInMinutes = ref(minutesInt);
@@ -37,7 +41,9 @@ function timerWrapper(minutesInt) {
     if (timeLimitInSecounds.value < 0) {
       timerElement.value.textContent = '00:00'
       clearInterval(timerInterval);
-      route.push('/finished')
+      if(timerCheck) {
+        route.push('/finished')
+      }
       return;
     }
 
@@ -60,10 +66,19 @@ function timerWrapper(minutesInt) {
 }
 
 /**
+ * This function will turn of the timer when you go backward or forward.
+ */
+window.addEventListener('popstate', function() {
+  // This function will be called whenever the user navigates backward or forward in the browser history
+  // You can add your logic here to handle the event
+  timerCheck = false
+  console.log('User clicked on the go-back-one-page button or navigated backward');
+});
+/**
  * A wrapper that calculates by minutes. for example 0.5 minutes is 30 seconds
  * , 0.1 is 5 seconds
  */
-timerWrapper(0.75);
+timerWrapper(0.2);
 </script>
 
 <template>

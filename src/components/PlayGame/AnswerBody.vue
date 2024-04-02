@@ -15,8 +15,6 @@ function DoAnimation(){
 function scaleButton(buttonId) {
   isPressedId.value = buttonId === isPressedId.value ? null : buttonId;
   DoAnimation()
-  let countDown = new Date()
-  console.log(countDown)
 }
 </script>
 
