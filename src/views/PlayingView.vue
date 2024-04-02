@@ -9,8 +9,9 @@ import Timer from '@/components/PlayGame/Timer.vue'
 
 <template>
   <div class="playing-wrapper">
-  <Timer></Timer>
+
 <QuestionHeader></QuestionHeader>
+    <Timer></Timer>
   <ImageContainer></ImageContainer>
   <AnswerBody></AnswerBody>
   <!--TODO: remove change from RouterLink to button -->
