@@ -52,13 +52,12 @@ function switchScene(){
 
 <template>
   <div class="playing-wrapper">
-
-<QuestionHeader :question="cat"></QuestionHeader>
+    <QuestionHeader :question="cat"></QuestionHeader>
     <Timer @childEvent="switchScene"></Timer>
-  <ImageContainer :image="image"></ImageContainer>
-  <AnswerBody :ans1="ans" :ans2="ans1" :ans3="ans2" :ans4="ans3"></AnswerBody>
+    <ImageContainer :image="image"></ImageContainer>
+    <AnswerBody :ans1="ans" :ans2="ans1" :ans3="ans2" :ans4="ans3"></AnswerBody>
   <!--TODO: remove change from RouterLink to button -->
-  <RouterLink to="/finished" style="color: white">Temp</RouterLink>
+    <RouterLink to="/finished" style="color: white">Temp</RouterLink>
   </div>
 </template>
 
