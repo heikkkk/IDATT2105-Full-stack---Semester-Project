@@ -1,6 +1,13 @@
 {
-  "name": "idatt2105-semester-project-frontend",
-  "version": "0.0.0",
+  "name": "@heikkkk/idatt2105-semester-project-frontend",
+  "version": "1.0.0",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/@heikkkk"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/heikkkk/IDATT2105-Semester-Project-Frontend.git"
+  },
   "private": true,
   "type": "module",
   "scripts": {
@@ -8,8 +15,8 @@
     "build": "vite build",
     "preview": "vite preview",
     "test:unit": "vitest",
-    "test:e2e": "start-server-and-test preview http://localhost:4173 'cypress run --e2e'",
-    "test:e2e:dev": "start-server-and-test 'vite dev --port 4173' http://localhost:4173 'cypress open --e2e'",
+    "test:e2e": "start-server-and-test preview http://localhost:4173/ 'cypress run --e2e'",
+    "test:e2e:dev": "start-server-and-test 'vite dev --port 4173' http://localhost:4173/ 'cypress open --e2e'",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore",
     "format": "prettier --write src/"
   },
