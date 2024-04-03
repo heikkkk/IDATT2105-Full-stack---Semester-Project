@@ -1,9 +1,5 @@
 /* Inspiration taken from Web Dev simplified: https://www.youtube.com/watch?v=yq4BeRtUHbk  */
 
-:root {
-
-}
-
 .carousel-container h1, .carousel-container h2 {
     font-family: "Semi Bold Italic", sans-serif;
     color: white;
@@ -34,14 +30,11 @@
     aspect-ratio: 1.618; //The golden ratio;
     border-radius: 11px;
     transition: transform 150ms ease-in-out;
+    cursor: pointer;
 }
 
 .slider > img:hover {
     transform: scale(1.1);
-}
-
-.slider > img:hover {
-    cursor: pointer;
 }
 
 .handle {
