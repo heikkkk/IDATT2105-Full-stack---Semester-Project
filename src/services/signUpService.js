@@ -5,15 +5,14 @@ import { useUserStore } from '@/stores/UserStore.js'
 const username = ref('')
 const password = ref('')
 const email = ref('')
-const authenticationError = ref(false)
 const userStore = useUserStore()
 
-const userObject = computed(() => ({
-  "username": username.value,
-  "password": password.value,
-  "email": email.value,
+const userObject = (username, email, password) => ({
+  "username": username,
+  "email": email,
+  "password": password,
   "roleId": 2
-}))
+})
 
 function parseResponse(response) {
   userStore.setUsername(response.data.user_name)
@@ -21,19 +20,22 @@ function parseResponse(response) {
   return response; // Return the response
 }
 
-export function postLoginCredentials() {
-  return axios.post('http://localhost:8080/sign-up', userObject.value)
+export function postLoginCredentials(username, email, password) {
+  console.log(userObject(username, email, password))
+  return axios.post('http://localhost:8080/sign-up', )
     .then(response => {
       return parseResponse(response, userStore)
     })
     .catch(error => {
-      authenticationError.value = true
       throw error; // Throw error to propagate it to the caller
     })
 }
 
-export function signUp() {
-  return postLoginCredentials()
+export function signUp(values) {
+  const username = values.username
+  const email = values.email
+  const password = values.password
+  return postLoginCredentials(username, email, password)
 }
 
-export { username, password, email, authenticationError }
+export { username, password, email }
