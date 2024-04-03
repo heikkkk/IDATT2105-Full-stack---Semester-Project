@@ -34,7 +34,7 @@ const navigateToDiscover = () => {
 }
 
 const navigaateToPlayQuiz = () => {
-  router.push('/play-quiz')
+  router.push('/playingTF')
 }
 
 const navigaateToCreateQuiz = () => {

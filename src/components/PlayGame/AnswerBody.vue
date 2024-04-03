@@ -24,6 +24,10 @@ function scaleButton(buttonId) {
   DoAnimation()
 }
 
+function setTrue(){
+
+}
+
 
 
 
@@ -33,12 +37,12 @@ function scaleButton(buttonId) {
   <div class="answerBox">
     <div class="centreBox">
       <div class="firstPart">
-        <button id="firstButton" @click="scaleButton('firstButton')" :class="{ 'pressed': isPressedId === 'firstButton'} ">{{props.ans1}}</button>
-        <button id="thirdButton" @click="scaleButton('thirdButton')" :class="{  'pressed': isPressedId === 'thirdButton' }">{{props.ans3}}</button>
+        <button v-if="props.ans1" id="firstButton" @click="scaleButton('firstButton')" :class="{ 'pressed': isPressedId === 'firstButton'} ">{{props.ans1}}</button>
+        <button v-if="props.ans3" id="thirdButton" @click="scaleButton('thirdButton')" :class="{  'pressed': isPressedId === 'thirdButton' }">{{props.ans3}}</button>
       </div>
       <div class="secondPart">
-        <button  id="secondButton" @click="scaleButton('secondButton')" :class="{'pressed': isPressedId === 'secondButton'}">{{props.ans2}}</button>
-        <button id="fourthButton" @click="scaleButton('fourthButton')" :class="{ 'pressed': isPressedId === 'fourthButton'}">{{props.ans4}}</button>
+        <button v-if="props.ans2" id="secondButton" @click="scaleButton('secondButton')" :class="{'pressed': isPressedId === 'secondButton'}">{{props.ans2}}</button>
+        <button v-if="props.ans4" id="fourthButton" @click="scaleButton('fourthButton')" :class="{ 'pressed': isPressedId === 'fourthButton'}">{{props.ans4}}</button>
 
       </div>
     </div>

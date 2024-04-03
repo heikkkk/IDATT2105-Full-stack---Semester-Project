@@ -1,110 +1,77 @@
 <script setup>
-
 import '/src/assets/css/PlayGame/timerComponent.css'
-import { onMounted, ref } from 'vue'
-import { useRouter } from 'vue-router'
-import { usePlayingStore } from '@/stores/PlayStore.js'
-import {defineExpose} from 'vue'
+import { ref, watch } from 'vue';
+import { useRouter } from 'vue-router';
+import { usePlayingStore } from '@/stores/PlayStore.js';
 
+let time = ref('00:00');
+let timerInterval;
 let route = useRouter();
+let { questionsLength, counter } = defineProps({
+  questionsLength: Number,
+  counter: Number
+});
 
-let time = ref("")
+const emits = defineEmits(['childEvent'])
 
-let timerCheck = true;
+function startTimer(minutes) {
+  let timeLimitInSecounds = minutes * 60;
 
-const playingStore = usePlayingStore()
+  timerInterval = setInterval(() => {
+    timeLimitInSecounds--;
 
-/**
- * A function that calls to the parent-component
- */
-const emits = defineEmits(['childEvent']);
+    if (timeLimitInSecounds <= 0) {
+      clearInterval(timerInterval);
+      handleTimerEnd();
+    }
 
-const notifyParent = () => {
+    updateTimeDisplay(timeLimitInSecounds);
+  }, 1000);
+
+  return timerInterval;
+}
+
+// Function to update time display
+function updateTimeDisplay(timeLimitInSecounds) {
+  let minutes = Math.floor(timeLimitInSecounds / 60);
+  let seconds = timeLimitInSecounds % 60;
+  time.value = `${minutes < 10 ? '0' + minutes : minutes}:${seconds < 10 ? '0' + seconds : seconds}`;
+}
+
+// Function to handle timer end
+function handleTimerEnd() {
+  if (questionsLength !== counter) {
+    console.log(questionsLength)
+    console.log(counter)
+    startTimer(0.2);
+    notifyParent()
+  } else {
+    route.push('/finished');
+  }
+}
+
+const notifyParent = () =>{
   emits('childEvent')
 }
 
-/**
- * A wrapper-function that takes input in minutes.
- * Which is calculated to seconds
- * @param minutesInt takes the number of minutes the timer will be.
- */
-function timerWrapper(minutesInt) {
 
-
-
-
-  let timeLimitInMinutes = ref(minutesInt);
-  let timeLimitInSecounds = ref(timeLimitInMinutes.value * 60);
-  let timerElement = ref(null);
-
-
-  let minutes = Math.floor(timeLimitInSecounds.value / 60);
-  let seconds = timeLimitInSecounds.value % 60;
-
-  if (minutes < 10) {
-    minutes = '0' + minutes;
+watch([questionsLength, counter], ([newQuestionsLength, newCounter], [oldQuestionsLength, oldCounter]) => {
+  if (newQuestionsLength !== oldQuestionsLength || newCounter !== oldCounter) {
+    clearInterval(timerInterval);
+    startTimer(0.2);
   }
-  if (seconds < 10) {
-    seconds = '0' + seconds;
-  }
-
-  time.value = minutes + ":" + seconds
-
-  /**
-   * Starts the timer until the time runs out
-   */
-  function startTimer() {
-    timeLimitInSecounds.value--;
-    let minutes = Math.floor(timeLimitInSecounds.value / 60);
-    let seconds = timeLimitInSecounds.value % 60;
-
-    if (timeLimitInSecounds.value < 0) {
-      timerElement.value.textContent = '00:00'
-      clearInterval(timerInterval);
-      if(timerCheck) {
-        notifyParent()
-        //route.push('/finished')
-      }
-      return;
-    }
-
-    if (minutes < 10) {
-      minutes = '0' + minutes;
-    }
-    if (seconds < 10) {
-      seconds = '0' + seconds;
-    }
-
-  time.value =  timerElement.value.textContent = minutes + ':' + seconds;
-  }
-
-  let timerInterval;
-
-  onMounted(() => {
-    timerElement.value = document.querySelector('.timer');
-    timerInterval = setInterval(startTimer, 1000);
-  });
-}
-
-/**
- * This function will turn off the timer when you go backward or forward in the user-history.
- */
-window.addEventListener('popstate', function() {
-  timerCheck = false
 });
-/**
- * Executes the timerWrapper that calculates by minutes. for example 0.5 minutes is 30 seconds
- * , 0.1 is 5 seconds
- */
-timerWrapper(0.2);
+
+
+startTimer(0.2);
 </script>
 
 <template>
-<div class="timerCon">
-  <span class="timer">{{time}}</span>
-</div>
+  <div class="timerCon">
+    <span class="timer">{{ time }}</span>
+  </div>
 </template>
 
 <style scoped>
-
+/* Your CSS styles here */
 </style>
