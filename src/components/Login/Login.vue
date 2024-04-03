@@ -3,7 +3,7 @@ import '../../assets/css/Login/login.css'
 import LogoTitle from '@/components/LogoTitle.vue'
 import { useRouter } from 'vue-router';
 import { useUserStore } from '@/stores/UserStore.js'
-import { login, username, password } from '../../assets/services/loginService.js'
+import { login, username, password } from '@/services/loginService.js'
 import axios from 'axios'
 import { ref, computed } from 'vue'
 
@@ -47,4 +47,4 @@ const handleSubmit = async () => {
       </form>
     </div>
   </div>
-</template>
+</template>../../services/loginService.js
