@@ -88,7 +88,6 @@ const submit = handleSubmit(async values => {
           label="Username"
           type="text"
           :error="errors.username"
-          :hasError="!!errors.username"
           v-model="username"
           class="username-input">
         </TextInput>
@@ -97,7 +96,6 @@ const submit = handleSubmit(async values => {
           label="Email"
           type="email"
           :error="errors.email"
-          :hasError="!!errors.email"
           v-model="email"
           class="email-input">
         </TextInput>
@@ -106,7 +104,6 @@ const submit = handleSubmit(async values => {
           label="Password"
           type="password"
           :error="errors.password"
-          :hasError="!!errors.password"
           v-model="password"
           class="password-input">
         </TextInput>
