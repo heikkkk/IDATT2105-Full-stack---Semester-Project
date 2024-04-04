@@ -41,8 +41,7 @@ function updateTimeDisplay(timeLimitInSecounds) {
 // Function to handle timer end
 function handleTimerEnd() {
   if (questionsLength !== counter) {
-    console.log(questionsLength)
-    console.log(counter)
+    //todo memory leaks
     startTimer(0.2);
     notifyParent()
   } else {

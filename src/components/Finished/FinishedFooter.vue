@@ -5,9 +5,12 @@ import "/src/assets/css/Finished/finishedFooter.css"
 // events that depends on number of rights.
 
 import { ref } from 'vue'
+import { useQuizStore } from '@/stores/QuizStorage.js'
 
-let correct = ref("10");
-let questions = ref("20");
+let store = useQuizStore()
+
+let correct = ref(store.getPoints);
+let questions = ref(store.questions);
 
 
 </script>

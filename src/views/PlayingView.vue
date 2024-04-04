@@ -4,7 +4,7 @@ import QuestionHeader from '@/components/PlayGame/QuestionHeader.vue'
 import ImageContainer from '@/components/PlayGame/ImageContainer.vue'
 import AnswerBody from '@/components/PlayGame/AnswerBody.vue'
 import Timer from '@/components/PlayGame/Timer.vue'
-import { ref } from 'vue'
+import { onUpdated, ref, watchEffect } from 'vue'
 import { useQuizStore } from '@/stores/QuizStorage.js'
 import { useRoute, useRouter } from 'vue-router'
 import { login } from '@/assets/services/loginService.js'
@@ -12,18 +12,24 @@ import { login } from '@/assets/services/loginService.js'
 let route = useRouter()
 let quizStorage = useQuizStore()
 let quiz = quizStorage.activeQuiz
-let questionText = ref("Can i haz cheezburga")
+
 
 let jsQuestionsLength = quiz['questions']['length']
 let jsQuestions = quiz['questions']
+
+quizStorage.setQuestionsLength(jsQuestionsLength)
+
 let jsAnswers = quiz['questions'][0]['answers']
+console.log(jsAnswers)
 let jsImages = quiz['questions']
 let jsAnswersLength = quiz['questions'][0]['answers']['length']
-let jsTrue = quiz['questions'][0]['answers']
-const map = new Map();
+let jsTrue = quiz['questions'][0]['answers'][0]['isCorrect']
 
-setTrue()
+let trueArray =[]
 
+
+console.log("gap2")
+setTrue(0)
 console.log("gap")
 
 console.log(quiz['questions']['length'])
@@ -44,12 +50,21 @@ let images = ['/src/assets/img/animal-pet-kitten-cat-feline-mammal-749376-pxhere
 
 let answers = [["1","2","3","4"],["bake","broil","fry","boil"]]
 
-let setAnswers = []
+let setAnswers =  []
 
-let ans = ref("soccer")
-let ans1 = ref("baseball")
-let ans2 = ref("football")
-let ans3 = ref("basketball")
+let questionText = ref("Can i haz cheezburga")
+
+for(let j = 0; j < jsAnswersLength; j++){
+  if(quiz['questions'][0]['answers'][j]['answerText'] !== undefined) {
+    setAnswers[j] = quiz['questions'][0]['answers'][j]['answerText']
+  }else{
+    setAnswers[j] = null
+  }
+}
+
+console.log("bridge")
+
+
 
 let image = ref('/src/assets/img/animal-pet-kitten-cat-feline-mammal-749376-pxhere.com.jpg')
 
@@ -60,17 +75,32 @@ console.log(jsQuestions[quizCounter]['questionText'])
 
 //}
 
-function setTrue(){
-for(let i = 0; i < jsQuestionsLength; i++){
-  if(quiz['questions'][i]['answers']['isCorrect'] === true){
-    map.set(['questions'][i]['answers']['isCorrect'],quiz['questions'][i]['answers']['answerText'])
+function setTrue(counter){
+  console.log("hiii")
+for(let i = 0; i < jsAnswersLength; i++){
+  if(quiz['questions'][counter]['answers'][i]['isCorrect'] === true){
+     trueArray.push(quiz['questions'][counter]['answers'][i]['answerText'])
   }
 }
+console.log("trueArray:", trueArray)
 }
-
 
 
 const switchScene = () => {
+
+
+
+  quizCounter++
+
+  if (quizCounter === jsQuestionsLength) {
+    route.push('/finished')
+    quizCounter = 0
+  }
+
+  setTrue(quizCounter)
+
+
+
 
   /*
   let outAnswers = answers.at(quizCounter)
@@ -93,20 +123,15 @@ const switchScene = () => {
 
   for (let i = 0; i < jsAnswersLength; i++) {
     setAnswers[i] = quiz['questions'][quizCounter]['answers'][i]['answerText']
-    console.log(setAnswers[i])
   }
 
 
   console.log("It works")
 
-  quizCounter++
-
-  if (quizCounter === jsQuestionsLength) {
-    route.push('/finished')
-    quizCounter = 0
-  }
   //console.log(quizCounter)
 }
+//Set start value points
+quizStorage.setPoints(0)
 
 
 
@@ -118,7 +143,7 @@ const switchScene = () => {
     <QuestionHeader :question="questionText"></QuestionHeader>
     <Timer :questionsLength="jsQuestionsLength" :counter="quizCounter" @childEvent="switchScene"></Timer>
     <ImageContainer :image="image"></ImageContainer>
-    <AnswerBody :ans1="setAnswers[0]" :ans2="setAnswers[1]" :ans3="setAnswers[2]" :ans4="setAnswers[3]"></AnswerBody>
+    <AnswerBody @answer-event="switchScene" :ans1="setAnswers[0]" :ans2="setAnswers[1]" :ans3="setAnswers[2]" :ans4="setAnswers[3]" :truth-array="trueArray"></AnswerBody>
   <!--TODO: remove change from RouterLink to button -->
     <RouterLink to="/finished" style="color: white">Temp</RouterLink>
   </div>

@@ -112,8 +112,8 @@ button{
 button.pressed {
     animation-name: pressed;
     animation-duration: 1s;
-    animation-fill-mode: forwards;
-    pointer-events: none;
+    #animation-fill-mode: forwards;
+    #pointer-events: none;
 
 }
 
