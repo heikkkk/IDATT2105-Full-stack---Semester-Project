@@ -1,14 +1,10 @@
 {
   "name": "@heikkkk/idatt2105-semester-project-frontend",
   "version": "1.0.0",
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com/@heikkkk"
-  },
   "repository": {
     "type": "git",
     "url": "git://github.com/heikkkk/IDATT2105-Semester-Project-Frontend.git"
   },
-  "private": false,
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -24,8 +20,11 @@
     "@fortawesome/fontawesome-free": "^6.5.1",
     "@fortawesome/fontawesome-svg-core": "^6.5.1",
     "axios": "^1.6.8",
+    "express": "^4.19.2",
+    "jest": "^29.7.0",
     "pinia": "^2.1.7",
     "pinia-plugin-persistedstate": "^3.2.1",
+    "supertest": "^6.3.4",
     "vue": "^3.4.21",
     "vue-router": "^4.2.5"
   },
