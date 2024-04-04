@@ -12,18 +12,18 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          token: ${{ secrets.CD_IDATT2105_Frontend }}
+            CD_IDATT2105_Frontend_TOKEN: ${{ secrets.CD_IDATT2105_Frontend }}
 
       - uses: actions/setup-node@v4
         with:
-          node-version: '20.x'
-          registry-url: 'https://npm.pkg.github.com'
-          scope: '@heikkkk'
+            node-version: '20.x'
+            registry-url: 'https://npm.pkg.github.com'
+            scope: '@heikkkk'
 
       - name: Automated Version Bump
         uses: 'phips28/gh-action-bump-version@master'
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+            CD_IDATT2105_Frontend_TOKEN: ${{ secrets.CD_IDATT2105_Frontend }}
 
       - run: npm ci
       - run: npm publish
