@@ -41,8 +41,12 @@ jobs:
       - name: Build
         run: npm run build
 
+      - name: Setup .npmrc
+        run: |
+          echo "@heikkkk:registry=https://npm.pkg.github.com" >> .npmrc
+          echo "//npm.pkg.github.com/:_authToken=${{ secrets.GITHUB_TOKEN }}" >> .npmrc
+
       - name: Publish to GitHub Packages
-        if: github.ref == 'refs/heads/main' && github.event_name == 'push'
         run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
