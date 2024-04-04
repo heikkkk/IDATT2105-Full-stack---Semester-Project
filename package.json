@@ -2,7 +2,8 @@
   "name": "@heikkkk/idatt2105-semester-project-frontend",
   "version": "1.0.0",
   "publishConfig": {
-    "registry": "https://registry.npmjs.org/"
+    "registry": "https://registry.npmjs.org/",
+    "access": "public"
   },  
   "repository": {
     "type": "git",
