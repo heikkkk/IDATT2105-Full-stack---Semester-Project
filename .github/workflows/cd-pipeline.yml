@@ -12,7 +12,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-            CD_IDATT2105_Frontend_TOKEN: ${{ secrets.CD_IDATT2105_Frontend }}
+            token: ${{ secrets.CD_IDATT2105_Frontend }}
 
       - uses: actions/setup-node@v4
         with:
