@@ -23,9 +23,9 @@ jobs:
       - name: Automated Version Bump
         uses: 'phips28/gh-action-bump-version@master'
         env:
-          GITHUB_TOKEN: ${{ secrets.CD_IDATT2105_Frontend }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - run: npm ci
       - run: npm publish
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+            GITHUB_TOKEN: ${{ secrets.NPM_TOKEN }}
