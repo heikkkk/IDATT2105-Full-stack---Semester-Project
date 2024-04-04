@@ -1,6 +1,10 @@
 <script setup>
 import QuestionBlock from '@/components/CreateQuiz/QuestionBlock.vue'
 import '../../assets/css/CreateQuiz/verticalQuestionBar.css'
+import { useQuizStore } from '@/stores/QuizStore.js'
+import { getNewQuestion } from '@/services/CreateQuizService.js'
+
+const emit = defineEmits(['toggleNextQuizEvent']);
 
 const props = defineProps({
   questionArray: {
@@ -8,14 +12,23 @@ const props = defineProps({
     default: () => []
   }
 })
+
+function onNewQuestionClicked() {
+  const quizStore = useQuizStore();
+  quizStore.getActiveQuiz.questions.push(getNewQuestion())
+}
+
+const emitNextQuiz = (id) => {
+  emit('toggleNextQuizEvent', id)
+}
+
 </script>
 
 <template>
   <div class="vertical-question-bar-wrapper">
-    <QuestionBlock v-for="(item, index) in props.questionArray" :key="index" title="Question 1"></QuestionBlock>
-    <QuestionBlock title="question 2" image="src/assets/img/categories/math.png"/>
+    <QuestionBlock v-for="(item, index) in props.questionArray" :title="item.questionText" :id="item.questionId" :index="index" @toggleQuestionEvent="emitNextQuiz"/>
     <div class="new-question-container">
-      <button class="new-question-button">&#43;</button>
+      <button class="new-question-button" @click="onNewQuestionClicked">&#43;</button>
     </div>
   </div>
 </template>

@@ -1,27 +1,64 @@
 <script setup>
 import '../../assets/css/CreateQuiz/question.css'
+import { saveQuiz } from '@/services/CreateQuizService.js'
+import router from '@/router/index.js'
+
+// Define emits for emitting the update event
+const emit = defineEmits(['questionTextEvent', 'questionImageEvent', 'settingsButtonEvent']);
+
+const props = defineProps({
+  questionText: {
+    type: String,
+    default: ''
+  },
+  questionImage: {
+    type: String,
+    default: "src/assets/img/questionMark.png"
+  }
+})
+
+const emitQuestionText = (event) => {
+  const newValue = event.target.value;
+  emit('questionTextEvent', newValue);
+};
+
+const emitQuestionImage = (event) => {
+  const newValue = event.target.value;
+  emit('questionImageEvent', newValue);
+};
+
+const emitSettingsButtonEvent = () => {
+  router.push('/summary')
+};
+
+async function onSaveQuizButtonPressed() {
+  const response = await saveQuiz();
+  if (response && response.status === 200) {
+    alert("Quiz saved")
+  }
+}
+
 </script>
 
 <template>
   <div class="question-wrapper">
 
     <div class="create-question-button-container">
-      <button>Settings</button>
-      <button>Save quiz</button>
-      <button>Delete question</button>
+      <button @click="emitSettingsButtonEvent">Settings</button>
+      <button @click="onSaveQuizButtonPressed()">Save quiz</button>
     </div>
 
     <div class="create-question-container">
-      <input class="create-question-input" type="text" placeholder="Type your question here">
+      <input class="create-question-input" type="text" :value="questionText" @input="emitQuestionText" placeholder="Type your question here">
     </div>
 
     <div class="create-question-image-wrapper">
       <div class="create-question-image-container">
-        <img src="@/assets/img/questionMark.png" alt="question image">
+        <img :src="questionImage" alt="question image">
       </div>
       <div class="change-question-image-container">
         <label class="change-question-image-label" for="change-question-image-input">Select image</label>
-        <input id="change-question-image-input" type="file">
+        <input id="change-question-image-input" type="file" @input="emitQuestionImage">
       </div>
     </div>
   </div>

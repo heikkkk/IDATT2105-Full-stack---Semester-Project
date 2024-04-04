@@ -5,7 +5,7 @@ export const useUserStore = defineStore({
   state: () => ({
     username: null,
     userPicturePath: null,
-    token: null
+    token: null,
 
   }),
   actions: {

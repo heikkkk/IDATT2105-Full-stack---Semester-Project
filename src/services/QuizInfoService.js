@@ -2,7 +2,7 @@ import axios from 'axios'
 import { useUserStore } from '@/stores/UserStore.js'
 
 const apiClient = axios.create({
-  baseURL: 'http://localhost:8080/api/quizzes',
+  baseURL: 'http://localhost:8080/api',
   headers: {
     Accept: 'application/json',
     'Content-Type': 'application/json'
@@ -17,7 +17,8 @@ const config = {
 
 export async function getUsernameById(id) {
   try {
-    return await apiClient.get("/username/" + id, config)
+    const response = await apiClient.get("/users/get-name/" + id, config)
+    return response.data
   } catch (error) {
     throw new Error('An error occurred while fetching username\'s : ' + error.response.statusText);
   }
@@ -25,7 +26,8 @@ export async function getUsernameById(id) {
 
 export async function getIdByUsername(username) {
   try {
-    return await apiClient.get("/userId/" + username, config)
+    const response = await apiClient.get("/users/get-id/" + username, config)
+    return response.data
   } catch (error) {
     throw new Error('An error occurred while fetching userId\'s : ' + error.response.statusText);
   }
@@ -33,7 +35,8 @@ export async function getIdByUsername(username) {
 
 export async function getCategoryById(id) {
   try {
-    return await apiClient.get("/category/" + id, config)
+    const response = await apiClient.get("/quizzes/id/category/" + id, config)
+    return response.data
   } catch (error) {
     throw new Error('An error occurred while fetching category\'s : ' + error.response.statusText);
   }
@@ -41,7 +44,8 @@ export async function getCategoryById(id) {
 
 export async function getMediaById(id) {
   try {
-    return await apiClient.get("/media/" + id, config)
+    const response = await apiClient.get("/media/" + id, config)
+    return response.data
   } catch (error) {
     throw new Error('An error occurred while fetching media\'s : ' + error.response.statusText);
   }

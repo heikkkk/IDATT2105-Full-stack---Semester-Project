@@ -9,13 +9,12 @@ import Timer from '@/components/PlayGame/Timer.vue'
 
 <template>
   <div class="playing-wrapper">
-
-<QuestionHeader></QuestionHeader>
+    <QuestionHeader></QuestionHeader>
     <Timer></Timer>
-  <ImageContainer></ImageContainer>
-  <AnswerBody></AnswerBody>
-  <!--TODO: remove change from RouterLink to button -->
-  <RouterLink to="/finished" style="color: white">Temp</RouterLink>
+    <ImageContainer></ImageContainer>
+    <AnswerBody></AnswerBody>
+    <!--TODO: remove change from RouterLink to button -->
+    <RouterLink to="/finished" style="color: white">Temp</RouterLink>
   </div>
 </template>
 

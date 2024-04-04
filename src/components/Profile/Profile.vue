@@ -3,10 +3,13 @@ import '@/assets/css/Profile/profile.css'
 import { useUserStore } from '@/stores/UserStore.js'
 import Carousel from '@/components/Discover/Carousel.vue'
 import { useRouter } from 'vue-router'
+import { onMounted, ref } from 'vue'
+import { getQuizesByUser } from '@/services/DiscoverService.js'
 
 const store = useUserStore();
 const profileImage = "src/assets/img/defaultUserPicture.png";
 const router = useRouter();
+let quizzesByUser = ref([]);
 
 const showUpdatePassword = () => {
   if (router.currentRoute.value.path === '/update-password') {
@@ -34,6 +37,16 @@ const showUpdateProfileImage = () => {
     router.push('/update-Profile-image');
   }
 }
+
+onMounted(async () => {
+  try {
+    const userResponse = await getQuizesByUser();
+    quizzesByUser.value = userResponse.data;
+    console.log(userResponse.data)
+  } catch (error) {
+    throw new Error('Could not load quizzes from server : ' + error.response.statusText);
+  }
+});
 </script>
 
 <template>
@@ -52,6 +65,6 @@ const showUpdateProfileImage = () => {
     <div class="profile-router-view-container">
       <RouterView class="profile-router-view"></RouterView>
     </div>
-    <Carousel title="Your quiz's"></Carousel>
+    <Carousel title="Your quiz's" v-model:content="quizzesByUser"></Carousel>
   </div>
 </template>

@@ -1,5 +1,5 @@
 :root {
-    --burger-menu-distance-from-top: 82px;
+    --burger-menu-distance-from-top: 13vh;
 }
 
 .hamburger-container i {
@@ -25,7 +25,7 @@
     top: var(--burger-menu-distance-from-top);
     position: absolute;
     transition: all 0.2s ease;
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: rgba(0, 0, 0, 0.9);
     display: flex;
     right: -100%;
     z-index: 100;

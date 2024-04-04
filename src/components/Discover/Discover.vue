@@ -4,6 +4,7 @@ import Carousel from '@/components/Discover/Carousel.vue'
 import '../../assets/css/Discover/discover.css'
 import { useRouter } from 'vue-router'
 import { getPublicQuizzes, getQuizesByUser } from '@/services/DiscoverService.js'
+import { useQuizStore } from '@/stores/QuizStore.js'
 
 let quizzesByUser = ref([]);
 let publicQuizzes = ref([]);
@@ -16,8 +17,10 @@ let categoryQuizzes = ref([
 ])
 
 const router = useRouter();
-const navigateToCreateQuiz = () => {
-  router.push('/create-quiz')
+
+function onNewQuizButtonPressed() {
+  useQuizStore().resetQuiz()
+  router.push('/summary')
 }
 
 onMounted(async () => {
@@ -38,7 +41,7 @@ onMounted(async () => {
   <div class="discover-wrapper">
     <div class="discover-container">
       <div class="discover-button-container">
-        <button class="create-new-quiz-button" @click="navigateToCreateQuiz">Create new quiz</button>
+        <button class="create-new-quiz-button" @click="onNewQuizButtonPressed()">Create new quiz</button>
       </div>
       <Carousel class="carousel" title="Your quiz's" v-model:content="quizzesByUser"/>
       <Carousel class="carousel" title="Category" v-model:content="categoryQuizzes"/>
