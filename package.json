@@ -8,7 +8,6 @@
     "type": "git",
     "url": "git://github.com/heikkkk/IDATT2105-Semester-Project-Frontend.git"
   },
-  "private": false,
   "type": "module",
   "scripts": {
     "dev": "vite",
