@@ -26,6 +26,12 @@ let questions = ref(store.questions);
       <button id="newGame-button">Back to menu</button>
     </div>
   </div>
+  <div class="finishedContainer">
+    <div class="header">
+      <p class="headerText">You got {{correct}} correct! </p>
+    </div>
+  </div>
+
 </template>
 
 <style scoped>
