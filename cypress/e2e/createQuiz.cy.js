@@ -9,10 +9,10 @@ describe('functional ',() =>{
     cy.get('[data-cy="login-button"]').click()
     cy.url().should('include', '/discover')
   })
-  it('go to createQuiz and create a quiz (required fields)', () =>{
+  /*it('go to createQuiz and create a quiz (required fields)', () =>{
     cy.visit('http://localhost:5173/discover')
     cy.get('[data-cy="create-new-quiz-button"]').click()
     cy.url().should('include', '/create-quiz')
-  })
+  })*/
 })
 

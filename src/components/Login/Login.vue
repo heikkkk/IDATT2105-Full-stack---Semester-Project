@@ -14,20 +14,21 @@ const router = useRouter()
 
 const handleSubmit = async () => {
   try {
-    const response = await login()
+    const response = await login();
     if (response && response.status === 200) {
+      // Use the token directly from the response
+      const token = response.data.access_token;
+      const userId = (await getIdByUsername(useUserStore().username, token)).data;
+      useUserStore().setUserId(userId);
 
-      const userId = (await getIdByUsername(useUserStore().username)).data
-      useUserStore().setUserId(userId)
-
-      router.push('/discover')
+      router.push('/discover');
     } else {
-      authenticationError.value = true
+      authenticationError.value = true;
     }
   } catch (error) {
-    authenticationError.value = true
+    authenticationError.value = true;
   }
-}
+};
 
 </script>
 
