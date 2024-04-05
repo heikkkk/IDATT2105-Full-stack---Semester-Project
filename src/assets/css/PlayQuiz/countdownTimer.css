@@ -1,0 +1,15 @@
+.countdown-timer-container label {
+    align-self: center;
+    justify-self: center;
+    font-size: 60px;
+    font-family: "Inter", sans-serif;
+    padding: 12px 1rem 0 11px;
+    color: white;
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: #240b3d;
+    border: none;
+    transition: transform 150ms ease-in-out;
+}

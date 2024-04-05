@@ -2,16 +2,11 @@
 
 import '/src/assets/css/PlayGame/timerComponent.css'
 import { onMounted, ref } from 'vue'
-import { useRoute, useRouter } from 'vue-router'
+import { useRouter } from 'vue-router'
 
-let route = useRouter();
-
+let route = useRouter()
 let time = ref("")
-
-
 function timerWrapper(minutesInt) {
-
-
   let timeLimitInMinutes = ref(minutesInt);
   let timeLimitInSecounds = ref(timeLimitInMinutes.value * 60);
   let timerElement = ref(null);

@@ -26,8 +26,7 @@ export async function getUsernameById(id) {
 
 export async function getIdByUsername(username) {
   try {
-    const response = await apiClient.get("/users/get-id/" + username, config)
-    return response.data
+    return await apiClient.get("/users/get-id/" + username, config)
   } catch (error) {
     throw new Error('An error occurred while fetching userId\'s : ' + error.response.statusText);
   }

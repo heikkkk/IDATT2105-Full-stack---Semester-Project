@@ -15,6 +15,7 @@ import {
 } from '@/services/CreateQuizService.js'
 import QuizSummary from '@/components/CreateQuiz/QuizSummary.vue'
 import CreateMultipleChoice from '@/components/CreateQuiz/CreateMultipleChoice.vue'
+import { useUserStore } from '@/stores/UserStore.js'
 
 // Retrieve the active quiz and current question
 const quiz = ref(useQuizStore().getActiveQuiz)
@@ -149,7 +150,9 @@ const nextQuestion = () => {
 }
 
 const test = () => {
+  //console.log(JSON.stringify(useQuizStore().getActiveQuiz))
   console.log(useQuizStore().getActiveQuiz)
+  console.log('userId: ', useUserStore().getUserId)
 }
 </script>
 
