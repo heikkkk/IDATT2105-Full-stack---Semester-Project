@@ -35,9 +35,6 @@ jobs:
 
     - name: Run unit tests (Failures Ignored)
       run: npm run test:unit || echo "No unit tests found or other test errors, but continuing..."
-
-    - name: Run E2E tests (Failures Ignored)
-      run: npm run test:e2e || echo "E2E tests failed due to backend not running, but continuing..."
           
     - name: Build
       run: npm run build
