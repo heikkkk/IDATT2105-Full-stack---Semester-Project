@@ -36,11 +36,11 @@ const handleSubmit = async () => {
         <input v-model="password" :class="authenticationError === false ? 'password-input' : 'error'" type="password" placeholder="Password">
         <div class="login-button-container">
 
-          <button class="login-button" type="submit">Login</button>
+          <button data-cy="login-button" class="login-button" type="submit">Login</button>
           <RouterLink to="/playingTF" style="color: white">Temp</RouterLink>
           <div class="signup-paragraph-container">
             <p >Don't have a user?
-              <RouterLink to="/sign-up" style="color: white">Sign up</RouterLink>
+              <RouterLink data-cy="" to="/sign-up" style="color: white">Sign up</RouterLink>
             </p>
           </div>
         </div>
