@@ -4,7 +4,7 @@ import LogoTitle from '@/components/LogoTitle.vue'
 import { useRouter } from 'vue-router';
 import { ref } from 'vue'
 import axios from 'axios'
-import { signUp, username, password, email } from '../../assets/services/signUpService.js'
+import { signUp, username, password, email } from '../../services/SignUpService.js'
 
 // TODO implement form validation
 const authenticationError = ref(false)
