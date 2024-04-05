@@ -30,7 +30,7 @@ const handleSubmit = async () => {
   <div class="login-wrapper">
     <div class="login-container">
       <form class="login-form" @submit.prevent="handleSubmit">
-        <LogoTitle color="#ffffff"></LogoTitle>
+        <LogoTitle data-cy="logo-title-login" color="#ffffff"></LogoTitle>
         <p v-if="authenticationError" class="error_msg">Incorrect username or password</p>
         <input v-model="username" :class="authenticationError === false ? 'username-input' : 'error'" type="text" placeholder="Username">
         <input v-model="password" :class="authenticationError === false ? 'password-input' : 'error'" type="password" placeholder="Password">
@@ -40,7 +40,7 @@ const handleSubmit = async () => {
           <RouterLink to="/playingTF" style="color: white">Temp</RouterLink>
           <div class="signup-paragraph-container">
             <p >Don't have a user?
-              <RouterLink data-cy="" to="/sign-up" style="color: white">Sign up</RouterLink>
+              <RouterLink data-cy="sign-up-button" to="/sign-up" style="color: white">Sign up</RouterLink>
             </p>
           </div>
         </div>

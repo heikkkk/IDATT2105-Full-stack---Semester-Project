@@ -1,5 +1,5 @@
 
-describe('goes to create a quiz',() =>{
+describe('functional ',() =>{
   beforeEach(() =>{
     cy.visit('http://localhost:5173')
     cy.contains('Login').click()
