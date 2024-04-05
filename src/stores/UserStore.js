@@ -3,12 +3,16 @@ import { defineStore } from 'pinia'
 export const useUserStore = defineStore({
   id: 'UserStore',
   state: () => ({
+    userId: null,
     username: null,
     userPicturePath: null,
-    token: null
+    token: null,
 
   }),
   actions: {
+    setUserId(newValue) {
+      this.userId = newValue;
+    },
     setUsername(newValue) {
       this.username = newValue;
     },
@@ -25,6 +29,10 @@ export const useUserStore = defineStore({
     }
   },
   getters: {
+    getUserId() {
+      return this.userId;
+    },
+
     getUsername() {
       return this.username;
     },

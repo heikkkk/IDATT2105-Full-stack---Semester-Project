@@ -3,9 +3,10 @@ import '../../assets/css/Login/login.css'
 import LogoTitle from '@/components/LogoTitle.vue'
 import { useRouter } from 'vue-router';
 import { useUserStore } from '@/stores/UserStore.js'
-import { login, username, password } from '../../assets/services/loginService.js'
+import { login, username, password } from '../../services/LoginService.js'
 import axios from 'axios'
 import { ref, computed } from 'vue'
+import { getIdByUsername } from '@/services/QuizInfoService.js'
 
 const authenticationError = ref(false)
 
@@ -15,6 +16,10 @@ const handleSubmit = async () => {
   try {
     const response = await login()
     if (response && response.status === 200) {
+
+      const userId = (await getIdByUsername(useUserStore().username)).data
+      useUserStore().setUserId(userId)
+
       router.push('/discover')
     } else {
       authenticationError.value = true

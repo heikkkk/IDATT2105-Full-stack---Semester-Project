@@ -1,6 +1,7 @@
 import axios from 'axios'
 import { ref, computed } from 'vue'
 import { useUserStore } from '@/stores/UserStore.js'
+import { getIdByUsername } from '@/services/QuizInfoService.js'
 
 const username = ref('')
 const password = ref('')

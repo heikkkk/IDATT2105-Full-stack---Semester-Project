@@ -1,8 +1,8 @@
 <script setup>
-import '../../assets/css/PlayQuiz/quizInfo.css'
+import '../../assets/css/CreateQuiz/quizInfo.css'
 import { useRouter } from 'vue-router'
 import { useUserStore } from '@/stores/UserStore.js'
-import { useQuizStore } from '@/stores/QuizStorage.js'
+import { useQuizStore } from '@/stores/QuizStore.js'
 import { onMounted, ref } from 'vue'
 import { getCategoryById, getIdByUsername, getUsernameById } from '@/services/QuizInfoService.js'
 
@@ -14,15 +14,21 @@ const quizStore = useQuizStore();
 const quiz = quizStore.getActiveQuiz;
 const title = quiz.title;
 const author = ref('');
-const numberOfQuestions = quiz.questions.length;
+let numberOfQuestions;
+try {
+  numberOfQuestions = quiz.questions.length;
+} catch (error) {
+  numberOfQuestions = 0;
+}
 const createdAt = quiz.created_at;
 const category = ref('');
 const description = quiz.description;
 
 onMounted(async () => {
   try {
-    activeUserId.value = await getIdByUsername(userStore.getUsername)
-    author.value = await getUsernameById(quiz.user_id);
+    activeUserId.value = (await getIdByUsername(userStore.getUsername)).data
+    console.log(activeUserId.value)
+    author.value = await getUsernameById(quiz.userId);
     category.value = await getCategoryById(quiz.categoryId);
   } catch (error) {
     console.error('An error occurred while fetching author or category:', error);
@@ -52,7 +58,7 @@ const navigaateToCreateQuiz = () => {
 
     <div class="quiz-info-content-container">
       <div class="quiz-info-image-container">
-        <img class="quiz-info-image" src='@/assets/img/questionMark.png' alt="questionMark">
+        <img class="quiz-info-image" src='../../assets/img/questionMark.png' alt="questionMark">
       </div>
 
       <div class="quiz-info-details-container">
@@ -67,7 +73,7 @@ const navigaateToCreateQuiz = () => {
     <div class="quiz-info-button-container">
       <button @click="navigateToDiscover">Go back</button>
       <button @click="navigaateToPlayQuiz">Play Quiz</button>
-      <button @click="navigaateToCreateQuiz" v-if="quiz.user_id === activeUserId">Edit Quiz</button>
+      <button @click="navigaateToCreateQuiz" v-if="quiz.userId === activeUserId">Edit Quiz</button>
     </div>
 
   </div>
