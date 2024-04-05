@@ -22,7 +22,7 @@ function parseResponse(response) {
 
 export function postLoginCredentials(username, email, password) {
   console.log(userObject(username, email, password))
-  return axios.post('http://localhost:8080/sign-up', )
+  return axios.post('http://localhost:8080/sign-up', userObject(username, email, password))
     .then(response => {
       return parseResponse(response, userStore)
     })
