@@ -8,7 +8,7 @@ export const useQuizStore = defineStore({
   state: () => ({
     activeQuiz: {
       categoryId: 1,
-      created_at: "",
+      created_at: null,
       description: "",
       isPublic: true,
       mediaId: 1,
@@ -16,8 +16,10 @@ export const useQuizStore = defineStore({
       quizId: useQuestionStore().getGenericId,
       templateId: 1,
       title: "My new quiz",
-      userId: getIdByUsername(useUserStore().getUsername)
-    }
+      userId: useUserStore().getUserId
+    },
+    correctQuestionCount: 0,
+    finalQuestion: false
   }),
   actions: {
     setActiveQuiz(newQuiz) {
@@ -34,13 +36,28 @@ export const useQuizStore = defineStore({
         quizId: useQuestionStore().getGenericId,
         templateId: 1,
         title: "My new quiz",
-        userId: getIdByUsername(useUserStore().getUsername)
+        userId: useUserStore().getUserId
       }
+    },
+    setCorrectQuestionCount(newValue) {
+      this.correctQuestionCount = newValue
+    },
+    incrementCorrectQuestionCount() {
+      this.correctQuestionCount++
+    },
+    setFinalQuestion(newValue) {
+      this.finalQuestion = newValue
     }
   },
   getters: {
     getActiveQuiz() {
       return this.activeQuiz
+    },
+    getCorrectQuestionCount() {
+      return this.correctQuestionCount
+    },
+    isFinalQuestion() {
+      return this.finalQuestion
     }
   },
 

@@ -50,6 +50,10 @@ export function getActiveQuestion() {
   }
 }
 
+export function removeAnswer(answerIndex) {
+  getActiveQuestion().answers.splice(answerIndex, 1);
+}
+
 export function updateId() {
   const activeQuestion = getActiveQuestion()
   activeQuestion['questionId'] = useQuestionStore().getGenericId

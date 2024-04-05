@@ -1,5 +1,5 @@
 <script setup>
-import '../../assets/css/PlayQuiz/quizInfo.css'
+import '../../assets/css/CreateQuiz/quizInfo.css'
 import { useRouter } from 'vue-router'
 import { useUserStore } from '@/stores/UserStore.js'
 import { useQuizStore } from '@/stores/QuizStore.js'
@@ -26,7 +26,7 @@ const description = quiz.description;
 
 onMounted(async () => {
   try {
-    activeUserId.value = await getIdByUsername(userStore.getUsername)
+    activeUserId.value = (await getIdByUsername(userStore.getUsername)).data
     console.log(activeUserId.value)
     author.value = await getUsernameById(quiz.userId);
     category.value = await getCategoryById(quiz.categoryId);
@@ -58,7 +58,7 @@ const navigaateToCreateQuiz = () => {
 
     <div class="quiz-info-content-container">
       <div class="quiz-info-image-container">
-        <img class="quiz-info-image" src='@/assets/img/questionMark.png' alt="questionMark">
+        <img class="quiz-info-image" src='../../assets/img/questionMark.png' alt="questionMark">
       </div>
 
       <div class="quiz-info-details-container">

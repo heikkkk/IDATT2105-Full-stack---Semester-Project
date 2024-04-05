@@ -3,35 +3,9 @@
 import '/src/assets/css/PlayGame/timerComponent.css'
 import { onMounted, ref } from 'vue'
 import { useRouter } from 'vue-router'
-import { usePlayingStore } from '@/stores/PlayStore.js'
-import {defineExpose} from 'vue'
 
-let route = useRouter();
-
+let route = useRouter()
 let time = ref("")
-
-let timerCheck = true;
-
-const playingStore = usePlayingStore()
-
-/**
- * A function that calls to the parent-component
- */
-const emits = defineEmits(['childEvent']);
-
-const notifyParent = () => {
-  emits('childEvent')
-}
-
-/**
- * A wrapper-function that takes input in minutes.
- * Which is calculated to seconds
- * @param minutesInt takes the number of minutes the timer will be.
- */
-function timerWrapper(minutesInt) {
-
-
-
 
   let timeLimitInMinutes = ref(minutesInt);
   let timeLimitInSecounds = ref(timeLimitInMinutes.value * 60);
