@@ -1,11 +1,15 @@
 <script setup>
 import '/src/assets/css/PlayGame/playGame.css'
 
+let props = defineProps({
+  question: String
+})
+
 </script>
 
 <template>
   <div class="questionHeader">
-    <p class="questionText">Hvilken rase er dette?</p>
+    <p class="questionText">{{props.question}}</p>
   </div>
 
 </template>

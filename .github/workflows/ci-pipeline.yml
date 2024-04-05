@@ -2,7 +2,7 @@ name: Continuous Integration Pipeline
 
 on:
   push:
-    branches: [ main ]
+    branches: [ '*' ]
   pull_request:
     branches: [ main ]
 
@@ -36,6 +36,8 @@ jobs:
     - name: Run unit tests (Failures Ignored)
       run: npm run test:unit || echo "No unit tests found or other test errors, but continuing..."
 
+    - name: Run E2E tests
+      run: npm run test:e2e 
+          
     - name: Build
       run: npm run build
-

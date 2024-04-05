@@ -6,7 +6,7 @@ import { useRouter } from 'vue-router'
 
 let route = useRouter()
 let time = ref("")
-function timerWrapper(minutesInt) {
+
   let timeLimitInMinutes = ref(minutesInt);
   let timeLimitInSecounds = ref(timeLimitInMinutes.value * 60);
   let timerElement = ref(null);
@@ -24,6 +24,9 @@ function timerWrapper(minutesInt) {
 
   time.value = minutes + ":" + seconds
 
+  /**
+   * Starts the timer until the time runs out
+   */
   function startTimer() {
     timeLimitInSecounds.value--;
     let minutes = Math.floor(timeLimitInSecounds.value / 60);
@@ -32,7 +35,10 @@ function timerWrapper(minutesInt) {
     if (timeLimitInSecounds.value < 0) {
       timerElement.value.textContent = '00:00'
       clearInterval(timerInterval);
-      route.push('/finished')
+      if(timerCheck) {
+        notifyParent()
+        //route.push('/finished')
+      }
       return;
     }
 
@@ -55,10 +61,16 @@ function timerWrapper(minutesInt) {
 }
 
 /**
- * A wrapper that calculates by minutes. for example 0.5 minutes is 30 seconds
+ * This function will turn off the timer when you go backward or forward in the user-history.
+ */
+window.addEventListener('popstate', function() {
+  timerCheck = false
+});
+/**
+ * Executes the timerWrapper that calculates by minutes. for example 0.5 minutes is 30 seconds
  * , 0.1 is 5 seconds
  */
-timerWrapper(0.75);
+timerWrapper(0.2);
 </script>
 
 <template>
