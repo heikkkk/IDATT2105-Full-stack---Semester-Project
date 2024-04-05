@@ -36,24 +36,8 @@ jobs:
     - name: Run unit tests (Failures Ignored)
       run: npm run test:unit || echo "No unit tests found or other test errors, but continuing..."
 
-    - name: Prepare for E2E tests
-      run: |
-        # Add any setup steps required before running E2E tests. For example:
-        # - Starting up a test server
-        # - Setting up test databases
-        # - Configuring environment variables
-        echo "Environment setup for E2E tests..."
-
     - name: Run E2E tests
-      run: npm run test:e2e 
+      run: npm run test:e2e:dev
 
     - name: Build
       run: npm run build
-
-    - name: Teardown E2E Test Environment
-      run: |
-        # Add commands to stop the test server or perform other cleanup tasks. For example:
-        # - Stopping a local test server
-        # - Clearing test databases
-        # - Removing temporary files or configurations
-        echo "Tearing down E2E test environment..."
