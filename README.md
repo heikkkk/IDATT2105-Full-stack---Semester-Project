@@ -56,5 +56,30 @@ npm run test:e2e
 
 # Common Issues and Troubleshooting
 
-# CI/CD - Github Actions
+## Issues with the Backend Server
 
+1. **Is your Backend running?**: ~~Well you better go catch it~~ First, verify that the backend server process is active.
+
+2. **Verify Server Status**: After starting the backend server, ensure it is running on localhost and listening on port 8080.
+
+# CI/CD - Github Actions
+## Communication Fault
+**Issue**: The application fails to connect to the database, indicating a possible misconfiguration.
+
+**Solution**: Ensure your database is correctly configured. Common misconfigurations include incorrect database URL, port, username, or password. Double-check your configurations.
+
+# CI/CD - Github Actions
+## CI
+Tests are run continuously with the Continuous Integration pipeline through Github Actions. The pipeline executes npm commands to build the application and run tests.
+
+## CD
+The Continuous Deployment pipeline automates the deployment of the Quizopia frontend application to GitHub Packages whenever changes are pushed to the main branch. NOTE: It only gets deployed if the version number is incremented in package.json:
+```json
+{
+  "name": "@heikkkk/idatt2105-semester-project-frontend",
+  "version": "X.X.X",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/heikkkk/IDATT2105-Semester-Project-Frontend.git"
+  },
+```
