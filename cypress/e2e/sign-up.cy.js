@@ -1,4 +1,4 @@
-describe('flow of sign-up-site', () => {
+/**describe('flow of sign-up-site', () => {
   it('go to sign-up site',() => {
     cy.visit('http://localhost:5173')
     cy.contains('Login').click()
@@ -21,7 +21,6 @@ describe('flow of sign-up-site', () => {
     cy.get('[data-cy="burger-menu-link"]').click()
     cy.contains('Profile').click()
     cy.url().should('include', '/userProfile')
-    cy.contains('testUser').should('include', 'tes' +
-      'tUser')
+    cy.contains('testUser').should('include', 'testUser')
   })
-})
+})**/

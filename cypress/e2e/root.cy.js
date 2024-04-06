@@ -1,6 +1,6 @@
 describe('flow of the home-site', () => {
   beforeEach(() => {
-    cy.visit('http://localhost:5173')
+    cy.visit('http://localhost:4173')
   })
   it('validate login-link in hamburger-menu and goes to login-site', () => {
     cy.get('[data-cy="burger-menu-link"]').click()
