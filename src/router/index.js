@@ -76,6 +76,11 @@ const router = createRouter({
       path: '/quiz-results',
       name: 'quiz results',
       component: () => import('../components/PlayQuiz/QuizResults.vue')
+    },
+    {
+      path: '/search-result',
+      name: 'search-result',
+      component: () => import('../views/SearchResultView.vue/')
     }
   ]
 })

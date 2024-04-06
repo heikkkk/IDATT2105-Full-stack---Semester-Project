@@ -2,6 +2,7 @@
 import '../../assets/css/Discover/carousel.css'
 import { ref } from 'vue'
 import CarouselImg from '@/components/Discover/CarouselImage.vue'
+import { getCategoryImage } from '@/services/DiscoverService.js'
 
 const props = defineProps({
   title: {
@@ -38,13 +39,17 @@ const onHandleClicked = (increment) => {
     <h1>{{ props.title }}</h1>
     <h2 v-if="content.length === 0">No quiz's available!</h2>
     <div class="slider-container">
-      <button class="handle left-handle" @click="onHandleClicked(-1)"><span class="arrow">&#8249;</span></button>
+      <button class="handle left-handle" @click="onHandleClicked(-1)">
+        <span class="arrow">&#8249;</span>
+      </button>
       <div class="slider" ref="sliderRef">
         <!--<img v-for="(item, index) in props.content" :key="index" :src="item" alt="placeholder">-->
         <!-- <CarouselImg class="carousel-image" v-for="(item, index) in props.content" :key="index" title="Title" :img="item" ></CarouselImg>-->
-        <CarouselImg class="carousel-image" v-for="(item, index) in props.content" :key="index" v-model:title="item.quizTitle" v-model:id="item.quizId" img='src/assets/img/categories/science.png' ></CarouselImg>
+        <CarouselImg class="carousel-image" v-for="(item, index) in props.content" :key="index" v-model:title="item.quizTitle" v-model:id="item.quizId" :img='getCategoryImage(item.categoryId)'></CarouselImg>
       </div>
-      <button class="handle right-handle" @click="onHandleClicked(1)"><span class="arrow">&#8250;</span></button>
+      <button class="handle right-handle" @click="onHandleClicked(1)">
+        <span class="arrow">&#8250;</span>
+      </button>
     </div>
   </div>
 </template>

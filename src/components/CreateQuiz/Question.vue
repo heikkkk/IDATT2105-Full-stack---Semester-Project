@@ -17,6 +17,8 @@ const props = defineProps({
   }
 })
 
+console.log('Quesiton: ' + props.questionImage)
+
 const emitQuestionText = (event) => {
   const newValue = event.target.value;
   emit('questionTextEvent', newValue);
@@ -57,8 +59,10 @@ async function onSaveQuizButtonPressed() {
         <img :src="questionImage" alt="question image">
       </div>
       <div class="change-question-image-container">
+        <!--
         <label class="change-question-image-label" for="change-question-image-input">Select image</label>
         <input id="change-question-image-input" type="file" @input="emitQuestionImage">
+        -->
       </div>
     </div>
   </div>

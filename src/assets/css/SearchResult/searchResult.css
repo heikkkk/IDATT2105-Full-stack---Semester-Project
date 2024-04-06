@@ -1,0 +1,8 @@
+.search-result-wrapper {
+    background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.5), rgba(138, 83, 255, 0.6), rgba(93, 152, 159, 0.7));
+    min-height: 87vh;
+}
+
+.search-result-container {
+    display: grid;
+}
