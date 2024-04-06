@@ -3,9 +3,8 @@ import '../../assets/css/SignUp/signUp.css'
 import LogoTitle from '@/components/LogoTitle.vue'
 import { useRouter } from 'vue-router';
 import { ref } from 'vue'
-import axios from 'axios'
 import { useField, useForm } from 'vee-validate'
-import { signUp } from '@/services/signUpService.js'
+import { signUp } from '@/services/SignUpService.js'
 import TextInput from '@/components/SignUp/TextInput.vue'
 
 const registrationError = ref(false)
@@ -16,7 +15,6 @@ const required = value => {
   const requiredMessage = 'This field is required'
   if (value === undefined || value === null) return requiredMessage
   if (!String(value).length) return requiredMessage
-
   return true
 }
 
@@ -25,7 +23,6 @@ const emailSyntax = value => {
     if (!emailRegex.test(String(value).toLowerCase())) {
       return 'Invalid email address'
     }
-
   return true
 }
 
@@ -73,9 +70,7 @@ const submit = handleSubmit(async values => {
     console.log("an error has occured")
     registrationError.value = true
   }
-  
 })
-
 </script>
 
 <template>
