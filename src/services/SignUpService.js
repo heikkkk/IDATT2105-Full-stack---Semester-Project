@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { ref, computed } from 'vue'
+import { ref } from 'vue'
 import { useUserStore } from '@/stores/UserStore.js'
 
 const username = ref('')
