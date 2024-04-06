@@ -13,7 +13,8 @@ const handleSubmit = async () => {
   try {
     const response = await login()
     if (response && response.status === 200) {
-      router.push('/discover')
+
+      await router.push('/discover')
     } else {
       authenticationError.value = true
     }
