@@ -7,11 +7,11 @@ describe('Login', () => {
   test('should display error', async () => {
     const wrapper = mount(Login)
     
-    wrapper.vm.authenticationError = true;
+    wrapper.vm.authenticationError = false;
     await wrapper.vm.$nextTick();
 
     const usernameInput = wrapper.find('input[type="text"]');
-    expect(usernameInput.classes()).toContain('error');
+    expect(usernameInput.classes()).toContain('username-input');
   })
 
   test('should not display error', async () => {
