@@ -5,6 +5,7 @@ import { useUserStore } from '@/stores/UserStore.js'
 import { useQuizStore } from '@/stores/QuizStore.js'
 import { onMounted, ref } from 'vue'
 import { getCategoryById, getIdByUsername, getUsernameById } from '@/services/QuizInfoService.js'
+import { getCategoryImage } from '@/services/DiscoverService.js'
 
 const router = useRouter();
 const userStore = useUserStore();
@@ -14,13 +15,15 @@ const quizStore = useQuizStore();
 const quiz = quizStore.getActiveQuiz;
 const title = quiz.title;
 const author = ref('');
+const imagePath = getCategoryImage(quiz.categoryId)
 let numberOfQuestions;
 try {
   numberOfQuestions = quiz.questions.length;
 } catch (error) {
   numberOfQuestions = 0;
 }
-const createdAt = quiz.created_at;
+console.log(quiz)
+const createdAt = quiz.createdAt;
 const category = ref('');
 const description = quiz.description;
 
@@ -58,13 +61,13 @@ const navigaateToCreateQuiz = () => {
 
     <div class="quiz-info-content-container">
       <div class="quiz-info-image-container">
-        <img class="quiz-info-image" src='../../assets/img/questionMark.png' alt="questionMark">
+        <img class="quiz-info-image" :src='imagePath' alt="questionMark">
       </div>
 
       <div class="quiz-info-details-container">
         <p>Author: {{author}}</p>
         <p>Number of questions: {{numberOfQuestions}}</p>
-        <p>Created at: {{createdAt}}</p>
+        <p>Created: {{createdAt}}</p>
         <p>Category: {{category}}</p>
         <p>Description: {{description}}</p>
       </div>

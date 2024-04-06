@@ -1,0 +1,13 @@
+.result-link-container {
+    margin: 2px;
+    border-radius: 15px;
+    background-color: rgba(0, 0, 0, .3);
+    transition: border 200ms;
+    cursor: pointer;
+    box-sizing: border-box; /* Include border in the specified width and height */
+    border: 2px solid transparent; /* Set the initial border style */
+}
+
+.result-link-container:hover {
+    border: 2px solid rgba(0, 0, 0, 0.3); /* Set the border width, style, and color */
+}

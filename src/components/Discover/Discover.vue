@@ -11,11 +11,36 @@ import { useUserStore } from '@/stores/UserStore.js'
 let quizzesByUser = ref([]);
 let publicQuizzes = ref([]);
 let categoryQuizzes = ref([
-  [null, null, 'Math','src/assets/img/categories/math.png'],
-  [null, null, 'Science', 'src/assets/img/categories/science.png'],
-  [null, null, 'Sport', 'src/assets/img/categories/sport.png'],
-  [null, null, 'Film', 'src/assets/img/categories/film.png'],
-  [null, null, 'Food', 'src/assets/img/categories/food.png']
+  {
+    "categoryId": 1,
+    "quizId": 0,
+    "quizTitle": "Math",
+    "thumbnailFilepath": "src/assets/img/categories/math.png"
+  },
+  {
+    "categoryId": 2,
+    "quizId": 0,
+    "quizTitle": "Science",
+    "thumbnailFilepath": "src/assets/img/categories/science.png"
+  },
+  {
+    "categoryId": 3,
+    "quizId": 0,
+    "quizTitle": "Sport",
+    "thumbnailFilepath": "src/assets/img/categories/sport.png"
+  },
+  {
+    "categoryId": 4,
+    "quizId": 0,
+    "quizTitle": "Film",
+    "thumbnailFilepath": "src/assets/img/categories/film.png"
+  },
+  {
+    "categoryId": 5,
+    "quizId": 0,
+    "quizTitle": "Food",
+    "thumbnailFilepath": "src/assets/img/categories/food.png"
+  },
 ])
 
 const router = useRouter();

@@ -13,15 +13,16 @@ import {
   storeUpdateQuestionTitle, storeUpdateTimeLimit,
   storeUpdateExplanation
 } from '@/services/CreateQuizService.js'
-import QuizSummary from '@/components/CreateQuiz/QuizSummary.vue'
 import CreateMultipleChoice from '@/components/CreateQuiz/CreateMultipleChoice.vue'
 import { useUserStore } from '@/stores/UserStore.js'
+import { getCategoryImage } from '@/services/DiscoverService.js'
 
 // Retrieve the active quiz and current question
 const quiz = ref(useQuizStore().getActiveQuiz)
-
+// Initialize active question properties
 const questionText = ref('');
-const questionImage = ref('');
+const questionImage = ref(getCategoryImage(useQuizStore().getActiveQuiz.categoryId));
+console.log(questionImage.value)
 const answer1 = ref('');
 const answer2 = ref('');
 const answer3 = ref('');
@@ -45,7 +46,8 @@ const updateReactiveValues = () => {
     const activeQuestion = getActiveQuestion();
     console.log(activeQuestion)
     questionText.value = activeQuestion.questionText;
-    questionImage.value = 'src/assets/img/questionMark.png';
+    questionImage.value = ref(getCategoryImage(useQuizStore().getActiveQuiz.categoryId));
+
     // Initialize unreached answers as default
     for (let i = 0; i < 4; i++) {
       listOfAnswers[i].value = ''
@@ -158,11 +160,13 @@ const test = () => {
 
 <template>
   <div class="create-quiz-container" @click="test">
-    <VerticalQuestionBar @click="test" v-model:question-array="quiz.questions" @toggleNextQuizEvent="nextQuestion"/>
+    <VerticalQuestionBar @click="test"
+                         v-model:question-array="quiz.questions"
+                         @toggleNextQuizEvent="nextQuestion"/>
     <div>
       <h1>{{quiz.title}}</h1>
       <Question v-model:question-text="questionText"
-                v-model:question-image="questionImage"
+                :question-image="questionImage.value"
                 @questionTextEvent="updateQuestionText"
                 @questionImageEvent="updateQuestionImage"
       />
