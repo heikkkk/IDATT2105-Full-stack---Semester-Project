@@ -10,12 +10,12 @@ pinia.use(piniaPluginPersistedState);
 const app = createApp(App)
 app.use(pinia)
 
-const userStore = useUserStore()
+
 
 const username = ref('')
 const password = ref('')
 const email = ref('')
-const userStore = useUserStore()
+
 
 const userObject = (username, email, password) => ({
   "username": username,
@@ -25,6 +25,7 @@ const userObject = (username, email, password) => ({
 })
 
 function parseResponse(response) {
+  const userStore = useUserStore()
   userStore.setUsername(response.data.user_name)
   userStore.setToken(response.data.access_token)
   return response; // Return the response

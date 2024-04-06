@@ -10,7 +10,6 @@ describe('log in to the site and change profile-features',() =>{
     cy.get('[data-cy="burger-menu-link"]').click()
     cy.get('[data-cy="hamburger-profile-link"]').click()
     cy.url().should('include', '/profile')
-    cy.get('[data.cy="profile-image"]').should('not.match')
 
   })
 })
