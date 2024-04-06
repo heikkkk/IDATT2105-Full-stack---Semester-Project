@@ -33,7 +33,7 @@ export async function getPublicQuizzes() {
 
 export async function getQuizById(id) {
   try {
-    return await apiClient.get("/quiz/" + id, config)
+    return await apiClient.get("/" + id, config)
   } catch (error) {
     throw new Error('An error occurred while fetching public quiz\'s : ' + error.response.statusText);
   }

@@ -42,7 +42,7 @@ const onHandleClicked = (increment) => {
       <div class="slider" ref="sliderRef">
         <!--<img v-for="(item, index) in props.content" :key="index" :src="item" alt="placeholder">-->
         <!-- <CarouselImg class="carousel-image" v-for="(item, index) in props.content" :key="index" title="Title" :img="item" ></CarouselImg>-->
-        <CarouselImg class="carousel-image" v-for="(item, index) in props.content" :key="index" :title="item.quiz_title" :id="item.quizId" img='src/assets/img/categories/science.png' ></CarouselImg>
+        <CarouselImg class="carousel-image" v-for="(item, index) in props.content" :key="index" v-model:title="item.quiz_title" v-model:id="item.quizId" img='src/assets/img/categories/science.png' ></CarouselImg>
       </div>
       <button class="handle right-handle" @click="onHandleClicked(1)"><span class="arrow">&#8250;</span></button>
     </div>

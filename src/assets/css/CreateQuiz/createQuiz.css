@@ -4,3 +4,8 @@
     grid-template-columns: .15fr 1fr 0.2fr;
     gap: 20px;
 }
+
+.create-quiz-container h1{
+    text-align: center;
+    font-family: "Inter", sans-serif;
+}

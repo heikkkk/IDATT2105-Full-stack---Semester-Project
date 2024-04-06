@@ -1,6 +1,11 @@
 <script setup>
 import Question from '@/components/CreateQuiz/Question.vue'
 import '../../assets/css/CreateQuiz/createTrueFalse.css'
+import { ref } from 'vue'
+
+const trueChecked = ref(false);
+const falseChecked = ref(false);
+
 </script>
 
 <template>
@@ -11,7 +16,7 @@ import '../../assets/css/CreateQuiz/createTrueFalse.css'
       <div class="true-container">
         <label class="true-label">True</label>
         <div class="true-checkbox-container">
-          <input type="radio" id="true" value="true" name="true-false">
+          <input type="radio" id="true" v-model="trueChecked" name="true-false">
           <label for="true">&#x2714;</label>
         </div>
       </div>
@@ -19,7 +24,7 @@ import '../../assets/css/CreateQuiz/createTrueFalse.css'
       <div class="false-container">
         <label class="false-label">False</label>
         <div class="false-checkbox-container">
-          <input type="radio" id="false" value="false" name="true-false">
+          <input type="radio" id="false" v-model="falseChecked" name="true-false">
           <label for="false">&#x2714;</label>
         </div>
       </div>

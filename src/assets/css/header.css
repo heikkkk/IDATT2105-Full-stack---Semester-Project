@@ -1,12 +1,13 @@
 @import url('https://fonts.googleapis.com/css?family=Inter');
 
 .header-container {
-    min-height: 12vh;
+    min-height: 13vh;
     display: grid;
     grid-template-columns: 1fr 1.1fr 1fr;
     background-color: rgba(0, 0, 0, 0.7);
     justify-items: center;
     align-items: center;
+    z-index: 100;
 }
 
 .header-container .logoTitle {

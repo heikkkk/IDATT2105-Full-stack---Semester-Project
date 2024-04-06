@@ -77,7 +77,7 @@ const submit = handleSubmit(async values => {
   <div class="signup-wrapper">
     <div class="signup-container">
       <form class="signup-form" @submit="submit">
-        <LogoTitle color="#ffffff"></LogoTitle> 
+        <LogoTitle color="#ffffff"></LogoTitle>
         <p v-if="registrationError" class="error_msg">Sorry, we could not register you at this time.<br> Please try again later</p>
         <TextInput
           label="Username"
@@ -103,7 +103,7 @@ const submit = handleSubmit(async values => {
           class="password-input">
         </TextInput>
 
-       
+
         <div class="signup-button-container">
           <button class="signup-button" type="submit">Sign up</button>
           <div class="login-paragraph-container">

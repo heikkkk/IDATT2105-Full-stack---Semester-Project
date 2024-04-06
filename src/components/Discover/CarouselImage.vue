@@ -2,7 +2,7 @@
 import '../../assets/css/Discover/carouselImage.css'
 import { getQuizById } from '@/services/DiscoverService.js'
 import { useRouter } from 'vue-router'
-import { useQuizStore } from '@/stores/QuizStorage.js'
+import { useQuizStore } from '@/stores/QuizStore.js'
 
 const router = useRouter();
 const props = defineProps({
