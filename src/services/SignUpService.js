@@ -1,14 +1,16 @@
 import axios from 'axios'
 import { ref, computed } from 'vue'
 import { useUserStore } from '@/stores/UserStore.js'
+import piniaPluginPersistedState from "pinia-plugin-persistedstate"
 import { createPinia } from 'pinia'
 import { createApp } from 'vue'
 import App from '@/App.vue'
-
 const pinia = createPinia()
-createApp(App).use(pinia)
+pinia.use(piniaPluginPersistedState);
+const app = createApp(App)
+app.use(pinia)
 
-const userStore = useUserStore(pinia)
+const userStore = useUserStore()
 
 const username = ref('')
 const password = ref('')

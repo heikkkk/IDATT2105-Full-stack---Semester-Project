@@ -1,18 +1,20 @@
 import axios from 'axios'
 import { ref, computed } from 'vue'
 import { useUserStore } from '@/stores/UserStore.js'
+import piniaPluginPersistedState from "pinia-plugin-persistedstate"
 import { createPinia } from 'pinia'
 import { createApp } from 'vue'
 import App from '@/App.vue'
-
 const pinia = createPinia()
-createApp(App).use(pinia)
+pinia.use(piniaPluginPersistedState);
+const app = createApp(App)
+app.use(pinia)
 
-const userStore = useUserStore(pinia)
+
+const userStore = useUserStore()
 
 const username = ref('')
 const password = ref('')
-const authenticationError = ref(false)
 
 const authConfig = computed(() => ({
   auth: {
@@ -30,10 +32,10 @@ function parseResponse(response) {
 export function postLoginCredentials() {
   return axios.post('http://localhost:8080/sign-in', {}, authConfig.value)
     .then(response => {
-      return parseResponse(response, userStore)
+
+      return parseResponse(response)
     })
     .catch(error => {
-      authenticationError.value = true
       throw error; // Throw error to propagate it to the caller
     })
 }
@@ -42,4 +44,4 @@ export function login() {
   return postLoginCredentials()
 }
 
-export { username, password, authenticationError }
+export { username, password }

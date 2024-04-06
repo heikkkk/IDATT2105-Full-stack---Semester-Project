@@ -2,11 +2,8 @@
 import '../../assets/css/Login/login.css'
 import LogoTitle from '@/components/LogoTitle.vue'
 import { useRouter } from 'vue-router';
-import { useUserStore } from '@/stores/UserStore.js'
 import { login, username, password } from '../../services/LoginService.js'
-import axios from 'axios'
-import { ref, computed } from 'vue'
-import { getIdByUsername } from '@/services/QuizInfoService.js'
+import { ref } from 'vue'
 
 const authenticationError = ref(false)
 
@@ -16,10 +13,6 @@ const handleSubmit = async () => {
   try {
     const response = await login();
     if (response && response.status === 200) {
-      // Use the token directly from the response
-      const token = response.data.access_token;
-      const userId = (await getIdByUsername(useUserStore().username, token)).data;
-      useUserStore().setUserId(userId);
 
       router.push('/discover');
     } else {
