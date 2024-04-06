@@ -24,7 +24,7 @@ const isPublic = ref(activeQuiz.isPublic)
 onMounted(async () => {
   try {
     const response = await getCategoryById(useQuizStore().getActiveQuiz.categoryId)
-    category = response.data
+    category.value = response.data
   } catch (error) {
     throw new Error('Could not load get categoryId: ' + error.response.statusText);
   }
