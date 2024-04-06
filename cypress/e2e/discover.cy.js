@@ -14,7 +14,7 @@ describe('flow of the discovery-site', () => {
     cy.url().should('include', '/sign-up')
   })
   it('go to root (/) if Quizopia is pressed', ()=>{
-    cy.get('[data-cy="logo-title-login"]').click()
+    cy.get('[data-cy="logo-title-discover"]').click()
     cy.url().should('include', '/')
   })
 })

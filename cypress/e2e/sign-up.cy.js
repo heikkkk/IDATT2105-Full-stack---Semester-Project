@@ -21,6 +21,7 @@ describe('flow of sign-up-site', () => {
     cy.get('[data-cy="burger-menu-link"]').click()
     cy.contains('Profile').click()
     cy.url().should('include', '/userProfile')
-    cy.contains('testUser').should('include', 'testUser')
+    cy.contains('testUser').should('include', 'tes' +
+      'tUser')
   })
 })
