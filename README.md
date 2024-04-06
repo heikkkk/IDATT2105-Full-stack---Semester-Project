@@ -29,8 +29,6 @@ npm run dev
 Before you can run the frontend application, ensure you have the following software installed on your system:
 - **Node.js and npm (Node Package Manager)**: Download and install Node.js (which includes npm). [Download Node.js](https://nodejs.org/en)
 
-# Configuration
-
 # Testing
 ## Run Unit Tests with [Vitest](https://vitest.dev/)
 
