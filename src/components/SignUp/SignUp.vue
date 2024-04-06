@@ -31,12 +31,12 @@ const handleSubmit = async () => {
     <div class="signup-container">
       <form class="signup-form" @submit.prevent="handleSubmit">
         <LogoTitle color="#ffffff"></LogoTitle>
-        <input v-model="username" :class="authenticationError === false ? 'username-input' : 'error'" class="username-input" type="text" placeholder="Username">
-        <input v-model="email" :class="authenticationError === false ? 'email-input' : 'error'" class="email-input" type="email" placeholder="Email">
-        <input v-model="password" :class="authenticationError === false ? 'password-input' : 'error'" class="password-input" type="password" placeholder="Password">
-        <input v-model="repeatPassword" :class="authenticationError === false ? 'password-input' : 'error'" class="password-input" type="password" placeholder="Repeat password">
+        <input data-cy="sign-up-username" v-model="username" :class="authenticationError === false ? 'username-input' : 'error'" class="username-input" type="text" placeholder="Username">
+        <input data-cy="sign-up-email" v-model="email" :class="authenticationError === false ? 'email-input' : 'error'" class="email-input" type="email" placeholder="Email">
+        <input data-cy="sign-up-password" v-model="password" :class="authenticationError === false ? 'password-input' : 'error'" class="password-input" type="password" placeholder="Password">
+        <input data-cy="sign-up-repeat-password" v-model="repeatPassword" :class="authenticationError === false ? 'password-input' : 'error'" class="password-input" type="password" placeholder="Repeat password">
         <div class="signup-button-container">
-          <button class="signup-button" type="submit">Sign up</button>
+          <button data-cy="sign-up-button" class="signup-button" type="submit">Sign up</button>
           <div class="login-paragraph-container">
             <p>Already created an account?
               <RouterLink to="/login" style="color: white">Login</RouterLink>
