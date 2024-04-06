@@ -55,7 +55,7 @@ const handleChange = (event) => {
       else if (event.target.id == 3) field = 'password'
 
       setFieldValue(field, event.target.value)
-    }
+}
 
 const submit = handleSubmit(async values => {
   try {
