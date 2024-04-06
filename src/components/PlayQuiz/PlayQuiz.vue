@@ -30,7 +30,7 @@ if (questions.length !== 0) {
 }
 
 const displayNextQuestion = () => {
-  if (index + 2 === questions.length) {
+  if (index + 2 >= questions.length) {
     useQuizStore().setFinalQuestion(true)
   }
   // If there is no more questions

@@ -2,11 +2,8 @@
 import '../../assets/css/Login/login.css'
 import LogoTitle from '@/components/LogoTitle.vue'
 import { useRouter } from 'vue-router';
-import { useUserStore } from '@/stores/UserStore.js'
 import { login, username, password } from '../../services/LoginService.js'
-import axios from 'axios'
-import { ref, computed } from 'vue'
-import { getIdByUsername } from '@/services/QuizInfoService.js'
+import { ref } from 'vue'
 
 const authenticationError = ref(false)
 
@@ -16,10 +13,6 @@ const handleSubmit = async () => {
   try {
     const response = await login()
     if (response && response.status === 200) {
-
-      const userId = (await getIdByUsername(useUserStore().username)).data
-      useUserStore().setUserId(userId)
-
       router.push('/discover')
     } else {
       authenticationError.value = true
@@ -40,9 +33,7 @@ const handleSubmit = async () => {
         <input v-model="username" :class="authenticationError === false ? 'username-input' : 'error'" type="text" placeholder="Username">
         <input v-model="password" :class="authenticationError === false ? 'password-input' : 'error'" type="password" placeholder="Password">
         <div class="login-button-container">
-
           <button class="login-button" type="submit">Login</button>
-          <RouterLink to="/playingTF" style="color: white">Temp</RouterLink>
           <div class="signup-paragraph-container">
             <p >Don't have a user?
               <RouterLink to="/sign-up" style="color: white">Sign up</RouterLink>
