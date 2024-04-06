@@ -23,6 +23,7 @@ input {
     height: 70vh;
     background: rgba(0, 0, 0, 0.3);
     border-radius: 10px;
+    min-width: fit-content;
 }
 
 .signup-form {
@@ -58,3 +59,20 @@ input {
 .login-paragraph-container {
     align-items: start;
 }
+
+.error {
+    max-height: 50px;
+    width: 95%;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 5px;
+    border-width: 3px;
+    border-color: red;
+}
+
+.error_msg {
+    color: white;
+    font-size: 20px;
+    align-self: center;
+}
+
