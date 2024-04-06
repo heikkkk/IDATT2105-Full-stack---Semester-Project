@@ -54,12 +54,6 @@ Rememeber that the backend application needs to be running for this to work.
 2. **Verify Server Status**: After starting the backend server, ensure it is running on localhost and listening on port 8080.
 
 # CI/CD - Github Actions
-## Communication Fault
-**Issue**: The application fails to connect to the database, indicating a possible misconfiguration.
-
-**Solution**: Ensure your database is correctly configured. Common misconfigurations include incorrect database URL, port, username, or password. Double-check your configurations.
-
-# CI/CD - Github Actions
 ## CI
 Tests are run continuously with the Continuous Integration pipeline through Github Actions. The pipeline executes npm commands to build the application and run tests.
 
