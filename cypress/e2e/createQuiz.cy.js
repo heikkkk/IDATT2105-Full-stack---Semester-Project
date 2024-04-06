@@ -1,7 +1,7 @@
 
 describe('functional ',() =>{
   beforeEach(() =>{
-    cy.visit('http://localhost:5173')
+    cy.visit('http://localhost:4173')
     cy.contains('Login').click()
     cy.url().should('include', '/login')
     cy.get('.username-input').type('adminUser')
