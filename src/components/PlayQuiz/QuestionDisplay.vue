@@ -79,33 +79,28 @@ function onTimerReachedZero() {
 </script>
 
 <template>
-  <div class="play-quiz-wrapper">
-
-    <div class="play-quiz-title-container">
-      <h1>{{props.quizTitle}}</h1>
+  <div class="question-display-wrapper">
+    <div class="question-display-text-container">
+      <h1>{{props.questionText}}</h1>
     </div>
 
-    <div class="play-quiz-text-container">
-      <h2>{{props.questionText}}</h2>
-    </div>
-
-    <div class="play-quiz-content-container">
-      <div class="play-quiz-timer-container">
+    <div class="question-display-content-container">
+      <div class="question-display-timer-container">
         <CountdownTimer :timer-value="timerSeconds"
                         ref="timer"
                         @timerZeroEvent="onTimerReachedZero"/>
       </div>
-      <div class="play-quiz-image-container">
+      <div class="question-display-image-container">
         <img :src="props.questionImage" alt="question image">
       </div>
-      <div class="play-quiz-button-container">
-        <button class="play-quiz-next-question-button"
+      <div class="question-display-button-container">
+        <button class="question-display-next-question-button"
                 ref="nextQuestionButton"
                 @click="onNextQuestionPressed">{{buttonText}}
         </button>
       </div>
     </div>
-    <div class="play-quiz-answer-container">
+    <div class="question-display-answer-container">
       <AnswerButton v-for="(item, index) in answerArray"
                     :color="colorArray[index]"
                     :answer="item"

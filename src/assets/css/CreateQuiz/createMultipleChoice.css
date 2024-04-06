@@ -79,14 +79,14 @@
     background-color: #fbf354
 }
 
-@media (max-width: 725px) {
+@media (max-width: 850px) {
     .alternative-answer-container {
         display: flex;
         flex-direction: column;
     }
 }
 
-@media (max-width: 565px) {
+@media (max-width: 830px) {
     .create-question-button-container {
         display: flex;
         flex-direction: column;

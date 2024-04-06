@@ -5,6 +5,8 @@ import '../../assets/css/Discover/discover.css'
 import { useRouter } from 'vue-router'
 import { getPublicQuizzes, getQuizesByUser } from '@/services/DiscoverService.js'
 import { useQuizStore } from '@/stores/QuizStore.js'
+import { getIdByUsername } from '@/services/QuizInfoService.js'
+import { useUserStore } from '@/stores/UserStore.js'
 
 let quizzesByUser = ref([]);
 let publicQuizzes = ref([]);
@@ -27,6 +29,8 @@ onMounted(async () => {
   try {
     const userResponse = await getQuizesByUser();
     const publicResponse = await getPublicQuizzes();
+    const userId = await getIdByUsername(useUserStore().username)
+    useUserStore().setUserId(userId.data)
     quizzesByUser.value = userResponse.data;
     publicQuizzes.value = publicResponse.data;
     console.log(userResponse.data)

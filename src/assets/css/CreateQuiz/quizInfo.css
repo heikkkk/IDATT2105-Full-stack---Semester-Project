@@ -21,6 +21,14 @@
     max-height: 30vh;
 }
 
+.quiz-info-image-container {
+    justify-self: end;
+}
+
+.quiz-info-details-container {
+    justify-self: start;
+}
+
 .quiz-info-content-container {
     justify-items: center;
     display: grid;
@@ -64,7 +72,7 @@
     .quiz-info-content-container {
         display: flex;
         flex-direction: column;
-        justify-self: center;
+        justify-self: start;
     }
 
     .quiz-info-image-container, .quiz-info-details-container {

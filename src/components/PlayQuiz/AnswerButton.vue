@@ -36,6 +36,7 @@ function revealAnswers() {
     containerRef.value.style.backgroundColor = 'green'
   } else {
     containerRef.value.style.backgroundColor = 'red'
+    containerRef.value.style.opacity = 0.3
   }
 }
 
