@@ -15,31 +15,26 @@ let categoryQuizzes = ref([
     "categoryId": 1,
     "quizId": 0,
     "quizTitle": "Math",
-    "thumbnailFilepath": "src/assets/img/categories/math.png"
   },
   {
     "categoryId": 2,
     "quizId": 0,
     "quizTitle": "Science",
-    "thumbnailFilepath": "src/assets/img/categories/science.png"
   },
   {
     "categoryId": 3,
     "quizId": 0,
-    "quizTitle": "Sport",
-    "thumbnailFilepath": "src/assets/img/categories/sport.png"
+    "quizTitle": "History",
   },
   {
     "categoryId": 4,
     "quizId": 0,
-    "quizTitle": "Film",
-    "thumbnailFilepath": "src/assets/img/categories/film.png"
+    "quizTitle": "Sport",
   },
   {
     "categoryId": 5,
     "quizId": 0,
     "quizTitle": "Food",
-    "thumbnailFilepath": "src/assets/img/categories/food.png"
   },
 ])
 

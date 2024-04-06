@@ -28,7 +28,7 @@ async function handleSubmit() {
     }
     useQuizStore().setSearchResults(response.data)
     emit('searchEvent')
-    router.push('/search-result?')
+    router.push('/search-result')
 
   } catch (error) {
     throw new Error('Could not load quizzes from server : ' + error.response.statusText);
