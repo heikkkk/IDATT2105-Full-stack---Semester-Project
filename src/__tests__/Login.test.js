@@ -3,10 +3,24 @@ import { describe, expect, test } from 'vitest'
 import Login from '@/components/Login/Login.vue'
 
 describe('Login', () => {
-  const wrapper = mount(Login)
 
-  test('should display error',async () => {
-    await wrapper.setData({ authenticationError: true })
-    expect(wrapper.find('.error-msg').exists().toBe(true))
+  test('should display error', async () => {
+    const wrapper = mount(Login)
+    
+    wrapper.vm.authenticationError = true;
+    await wrapper.vm.$nextTick();
+
+    const usernameInput = wrapper.find('input[type="text"]');
+    expect(usernameInput.classes()).toContain('error');
+  })
+
+  test('should not display error', async () => {
+    const wrapper = mount(Login)
+
+    wrapper.vm.authenticationError = true;
+    await wrapper.vm.$nextTick();
+
+    const usernameInput = wrapper.find('input[type="text"]');
+    expect(usernameInput.classes()).toContain('error');
   })
 })

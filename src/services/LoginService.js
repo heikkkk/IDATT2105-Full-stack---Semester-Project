@@ -1,12 +1,18 @@
 import axios from 'axios'
 import { ref, computed } from 'vue'
 import { useUserStore } from '@/stores/UserStore.js'
-import { getIdByUsername } from '@/services/QuizInfoService.js'
+import { createPinia } from 'pinia'
+import { createApp } from 'vue'
+import App from '@/App.vue'
+
+const pinia = createPinia()
+createApp(App).use(pinia).mount('#app')
+
+const userStore = useUserStore(pinia)
 
 const username = ref('')
 const password = ref('')
 const authenticationError = ref(false)
-const userStore = useUserStore()
 
 const authConfig = computed(() => ({
   auth: {
