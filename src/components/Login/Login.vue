@@ -11,17 +11,17 @@ const router = useRouter()
 
 const handleSubmit = async () => {
   try {
-    const response = await login();
+    const response = await login()
     if (response && response.status === 200) {
 
-      router.push('/discover');
+      await router.push('/discover')
     } else {
-      authenticationError.value = true;
+      authenticationError.value = true
     }
   } catch (error) {
-    authenticationError.value = true;
+    authenticationError.value = true
   }
-};
+}
 
 </script>
 
@@ -36,7 +36,6 @@ const handleSubmit = async () => {
         <div class="login-button-container">
 
           <button data-cy="login-button" class="login-button" type="submit">Login</button>
-          <RouterLink to="/playingTF" style="color: white">Temp</RouterLink>
           <div class="signup-paragraph-container">
             <p >Don't have a user?
               <RouterLink data-cy="sign-up-button" to="/sign-up" style="color: white">Sign up</RouterLink>
@@ -46,4 +45,4 @@ const handleSubmit = async () => {
       </form>
     </div>
   </div>
-</template>
+</template>../../services/LoginService.js
