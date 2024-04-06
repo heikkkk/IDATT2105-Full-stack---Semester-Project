@@ -9,9 +9,10 @@ describe('flow of the discovery-site', () => {
     cy.url().should('include', '/discover')
   })
 
-  it('Go to the registration-site', () => {
-    cy.get('[data-cy="sign-up-button"]').click()
-    cy.url().should('include', '/sign-up')
+  it('Go to the user-profile', () => {
+    cy.get('[data-cy="burger-menu-link"]').click()
+    cy.get('[data-cy="hamburger-profile-link"]').click()
+    cy.url().should('include', '/profile')
   })
   it('go to root (/) if Quizopia is pressed', ()=>{
     cy.get('[data-cy="logo-title-discover"]').click()
