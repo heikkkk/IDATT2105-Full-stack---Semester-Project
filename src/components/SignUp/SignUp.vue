@@ -62,7 +62,7 @@ const submit = handleSubmit(async values => {
   const response = await signUp(values)
 
   if (response && response.status === 200) {
-      router.push('/discover')
+      await router.push('/discover')
     } else {
       registrationError.value = true
     }
