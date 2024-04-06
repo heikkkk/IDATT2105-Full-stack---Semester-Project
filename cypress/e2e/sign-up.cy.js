@@ -1,5 +1,4 @@
-/**
-describe('flow of sign-up-site', () => {
+/**describe('flow of sign-up-site', () => {
   it('go to sign-up site',() => {
     cy.visit('http://localhost:4173')
     cy.contains('Login').click()
