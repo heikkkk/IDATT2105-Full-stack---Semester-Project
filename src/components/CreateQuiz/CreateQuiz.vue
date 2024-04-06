@@ -159,9 +159,8 @@ const test = () => {
 </script>
 
 <template>
-  <div class="create-quiz-container" @click="test">
-    <VerticalQuestionBar @click="test"
-                         v-model:question-array="quiz.questions"
+  <div class="create-quiz-container">
+    <VerticalQuestionBar v-model:question-array="quiz.questions"
                          @toggleNextQuizEvent="nextQuestion"/>
     <div>
       <h1>{{quiz.title}}</h1>

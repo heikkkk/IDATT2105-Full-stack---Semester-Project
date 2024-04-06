@@ -14,6 +14,14 @@ const props = defineProps({
     type: String,
     default: ''
   },
+  author: {
+    type: String,
+    default: ''
+  },
+  category: {
+    type: String,
+    default:''
+  },
   img: {
     type: String,
     default: 'src/assets/img/placeholder.png'
@@ -41,6 +49,8 @@ async function onLinkClicked() {
     </div>
     <div class="result-link-title-container">
       <h2>{{title}}</h2>
+      <p>Author: {{author}}</p>
+      <p>Category: {{category}}</p>
     </div>
   </div>
 </template>

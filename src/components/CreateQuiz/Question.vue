@@ -29,7 +29,7 @@ const emitQuestionImage = (event) => {
   emit('questionImageEvent', newValue);
 };
 
-const emitSettingsButtonEvent = () => {
+function emitSettingsButtonEvent() {
   router.push('/summary')
 };
 
@@ -37,6 +37,7 @@ async function onSaveQuizButtonPressed() {
   const response = await saveQuiz();
   if (response && response.status === 200) {
     alert("Quiz saved")
+    console.log('saved')
   }
 }
 
@@ -46,7 +47,7 @@ async function onSaveQuizButtonPressed() {
   <div class="question-wrapper">
 
     <div class="create-question-button-container">
-      <button @click="emitSettingsButtonEvent">Settings</button>
+      <button @click="emitSettingsButtonEvent()">Settings</button>
       <button @click="onSaveQuizButtonPressed()">Save quiz</button>
     </div>
 

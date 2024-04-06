@@ -5,4 +5,7 @@
 
 .search-result-container {
     display: grid;
+    max-height: 87vh;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
