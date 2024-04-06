@@ -35,10 +35,6 @@ let time = ref("")
     if (timeLimitInSecounds.value < 0) {
       timerElement.value.textContent = '00:00'
       clearInterval(timerInterval);
-      if(timerCheck) {
-        notifyParent()
-        //route.push('/finished')
-      }
       return;
     }
 
@@ -58,19 +54,7 @@ let time = ref("")
     timerElement.value = document.querySelector('.timer');
     timerInterval = setInterval(startTimer, 1000);
   });
-}
 
-/**
- * This function will turn off the timer when you go backward or forward in the user-history.
- */
-window.addEventListener('popstate', function() {
-  timerCheck = false
-});
-/**
- * Executes the timerWrapper that calculates by minutes. for example 0.5 minutes is 30 seconds
- * , 0.1 is 5 seconds
- */
-timerWrapper(0.2);
 </script>
 
 <template>

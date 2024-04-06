@@ -12,7 +12,7 @@ const store = useUserStore()
 
 <template>
   <div class="header-container">
-    <LogoTitle class="logoTitle" color="white"/>
+    <LogoTitle data-cy="logo-title-discover" class="logoTitle" color="white"/>
     <SearchBar class="search-bar"/>
     <div v-if="store.isActive" class="burger-container">
       <UserDropdown class="userTitle"/>

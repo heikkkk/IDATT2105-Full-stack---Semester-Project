@@ -20,7 +20,7 @@ const onBurgerClicked = () => {
 
 <template>
   <div class="hamburger-container">
-    <i class="fas fa-bars fa-2x" @click="onBurgerClicked"></i>
+    <i data-cy="burger-menu-link" class="fas fa-bars fa-2x" @click="onBurgerClicked"></i>
   </div>
   <div class="hamburger-menu" ref="menuRef">
     <ul>
