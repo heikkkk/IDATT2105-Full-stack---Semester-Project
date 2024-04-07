@@ -64,7 +64,7 @@ onMounted(async () => {
       <button class="update-profile-image" @click="showUpdateProfileImage">Update image</button>
       -->
       <button data-cy="update-password-button" class="update-password" @click="showUpdatePassword">Update password</button>
-      <button data-cy="update-username-button"  class="update-username" @click="showUpdateUsername">Update username</button>
+      <button data-cy="update-username-button" class="update-username" @click="showUpdateUsername">Update username</button>
     </div>
     <div class="profile-router-view-container">
       <RouterView class="profile-router-view"></RouterView>

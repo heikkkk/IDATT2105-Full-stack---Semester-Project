@@ -18,10 +18,8 @@ const onSearchEventReceived = () => {
 
 <template>
   <div class="header-container">
-
     <LogoTitle data-cy="logo-title-discover" class="logoTitle" color="white"/>
     <SearchBar class="search-bar" @searchEvent="onSearchEventReceived"/>
-
     <div v-if="store.isActive" class="burger-container">
       <UserDropdown class="userTitle"/>
       <HamburgerMenu/>

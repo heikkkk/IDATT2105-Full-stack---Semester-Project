@@ -23,6 +23,7 @@ export const useUserStore = defineStore({
       this.token = newPath;
     },
     resetAll() {
+      this.userId = null;
       this.username = null;
       this.token = null;
       this.userPicturePath = null;
