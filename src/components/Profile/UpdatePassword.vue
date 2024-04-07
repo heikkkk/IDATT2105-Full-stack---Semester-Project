@@ -1,15 +1,22 @@
 <script setup>
 import '@/assets/css/Profile/updatePassword.css'
+import { ref } from 'vue'
+
+let newPassword = ref('')
+let confirmPassword = ref('')
+
+const handleSubmit = () => {
+
+}
 </script>
 
 <template>
   <hr>
     <div class="update-password-container">
       <h1>Create new password</h1>
-      <form class="update-password-form">
-        <input class="old-password-input" type="password" placeholder="Old password">
-        <input class="new-password-input" type="password" placeholder="New password">
-        <input class="confirm-password-input" type="password" placeholder="Confirm password">
+      <form class="update-password-form" @submit.prevent="handleSubmit">
+        <input class="new-password-input" v-model="newPassword" type="password" placeholder="New password">
+        <input class="confirm-password-input" v-model="confirmPassword" type="password" placeholder="Confirm password">
         <button class="update-password-button" type="submit">Update password</button>
       </form>
     </div>

@@ -1,0 +1,30 @@
+.result-link-container {
+    padding: 10px;
+    margin: 2px;
+    border-radius: 15px;
+    background-color: rgba(0, 0, 0, .3);
+    transition: border 200ms;
+    cursor: pointer;
+    box-sizing: border-box; /* Include border in the specified width and height */
+    border: 2px solid transparent; /* Set the initial border style */
+}
+
+.result-link-container:hover {
+    border: 2px solid rgba(255, 255, 255, 1); /* Set the border width, style, and color */
+}
+
+.result-link-container img {
+    margin: 5px;
+    max-width: 200px;
+    aspect-ratio: 1.618;
+}
+
+.result-link-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.result-link-container h2, .result-link-container p {
+    font-family: "Inter", sans-serif;
+    color: white;
+}

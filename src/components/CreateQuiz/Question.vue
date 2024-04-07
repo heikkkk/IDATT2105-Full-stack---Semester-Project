@@ -17,6 +17,8 @@ const props = defineProps({
   }
 })
 
+console.log('Quesiton: ' + props.questionImage)
+
 const emitQuestionText = (event) => {
   const newValue = event.target.value;
   emit('questionTextEvent', newValue);
@@ -27,13 +29,14 @@ const emitQuestionImage = (event) => {
   emit('questionImageEvent', newValue);
 };
 
-const emitSettingsButtonEvent = () => {
+function emitSettingsButtonEvent() {
   router.push('/summary')
 };
 
 async function onSaveQuizButtonPressed() {
   const response = await saveQuiz();
-  if (response && response.status === 200) {
+  if (response && response.status === 201) {
+    console.log(response.status)
     alert("Quiz saved")
   }
 }
@@ -44,7 +47,7 @@ async function onSaveQuizButtonPressed() {
   <div class="question-wrapper">
 
     <div class="create-question-button-container">
-      <button @click="emitSettingsButtonEvent">Settings</button>
+      <button @click="emitSettingsButtonEvent()">Settings</button>
       <button @click="onSaveQuizButtonPressed()">Save quiz</button>
     </div>
 
@@ -57,8 +60,10 @@ async function onSaveQuizButtonPressed() {
         <img :src="questionImage" alt="question image">
       </div>
       <div class="change-question-image-container">
+        <!--
         <label class="change-question-image-label" for="change-question-image-input">Select image</label>
         <input id="change-question-image-input" type="file" @input="emitQuestionImage">
+        -->
       </div>
     </div>
   </div>
