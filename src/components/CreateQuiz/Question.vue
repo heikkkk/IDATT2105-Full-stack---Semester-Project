@@ -1,7 +1,9 @@
 <script setup>
 import '../../assets/css/CreateQuiz/question.css'
 import { saveQuiz } from '@/services/CreateQuizService.js'
-import router from '@/router/index.js'
+import { useRouter } from 'vue-router'
+
+const router = useRouter()
 
 // Define emits for emitting the update event
 const emit = defineEmits(['questionTextEvent', 'questionImageEvent', 'settingsButtonEvent']);
@@ -31,6 +33,7 @@ const emitQuestionImage = (event) => {
 
 function emitSettingsButtonEvent() {
   router.push('/summary')
+
 };
 
 async function onSaveQuizButtonPressed() {

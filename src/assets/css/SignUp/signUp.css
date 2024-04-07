@@ -10,17 +10,20 @@ input {
     width: 100%;
     background: linear-gradient(to bottom, rgba(255, 255, 255, 0.5), rgba(138, 83, 255, 0.5), rgba(93, 152, 159, 0.6));
     background-size: cover;
+}
 
+.signup-wrapper label {
+    margin-left: 10px;
 }
 
 .signup-container {
-    display: grid;              /*TODO Think about removing this with flex instead*/
-    grid-template-rows: 1fr;
+    display: flex;
+    flex-direction: column;
 
     align-items: center;
     justify-items: center;
     width: 30%;
-    height: 70vh;
+    max-height: 100vh;
     background: rgba(0, 0, 0, 0.3);
     border-radius: 10px;
     min-width: fit-content;
@@ -35,7 +38,10 @@ input {
 }
 
 .signup-button, .username-input, .password-input, .login-paragraph-container, .email-input {
-    max-height: 50px;
+    outline: none;
+    border: none;
+
+    height: 45px;
     width: 95%;
     padding: 10px;
     margin: 10px;
@@ -43,9 +49,22 @@ input {
 }
 
 .signup-button {
+    justify-self: center;
     cursor: pointer;
-    font-size: 14px;
+    color: white;
+    font-size: 18px;
+    background: linear-gradient(to bottom right, #EF4765, #FF9A5A);
+    border-radius: 8px;
+    border: none;
+    font-family: "Semi Bold Italic", sans-serif;
+    font-weight: bold;
+    transition: transform 150ms ease-in-out;
+}
 
+.signup-button:hover {
+    background: linear-gradient(to bottom right, #BF1745, #CF6A2A);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    transform: scale(1.05);
 }
 
 .login-paragraph-container RouterLink {
@@ -53,7 +72,10 @@ input {
 }
 
 .login-paragraph-container p, .login-paragraph-container p RouterLink {
+    margin: 0;
+    padding: 0;
     color: #ffffff;
+    font-weight: 600;
 }
 
 .login-paragraph-container {
@@ -64,7 +86,6 @@ input {
     max-height: 50px;
     width: 95%;
     padding: 10px;
-    margin: 10px;
     border-radius: 5px;
     border-width: 3px;
     border-color: red;

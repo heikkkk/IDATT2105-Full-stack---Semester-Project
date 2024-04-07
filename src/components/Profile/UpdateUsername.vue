@@ -19,6 +19,7 @@ async function handleSubmit() {
       alert("Username updated!")
     }
   }
+  // Force reload in order to get correct token
   window.location.reload();
 
 }

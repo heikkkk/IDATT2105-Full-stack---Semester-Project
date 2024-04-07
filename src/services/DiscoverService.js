@@ -65,6 +65,15 @@ export const categoryMapper = {
   6: "Food"
 }
 
+export const reversedCategoryMapper = {
+  "Science": 1,
+  "Math": 2,
+  "History": 3,
+  "Sport": 4,
+  "Film": 5,
+  "Food": 6
+};
+
 export function getCategoryImage(categoryId) {
   return categoryImageMapper[categoryId]
 }

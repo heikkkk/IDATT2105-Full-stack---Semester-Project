@@ -14,12 +14,12 @@ input {
 }
 
 .login-container {
-    display: grid;              /*TODO Think about removing this with flex instead*/
+    display: grid;
     grid-template-rows: 1fr;
     align-items: center;
     justify-items: center;
     width: 30%;
-    height: 60vh;
+    height: 68vh;
     background: rgba(0, 0, 0, 0.3);
     border-radius: 10px;
     min-width: fit-content;
@@ -34,17 +34,36 @@ input {
 }
 
 .login-button, .username-input, .password-input, .signup-paragraph-container{
-    max-height: 50px;
+    outline: none;
+    border: none;
+
+    height: 45px;
     width: 95%;
     padding: 10px;
     margin: 10px;
     border-radius: 5px;
-    border-width: 3px;
+}
+
+.login-button:hover, .username-input:hover, .password-input:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+}
+
+.login-button:hover {
+    background: linear-gradient(to bottom right, #BF1745, #CF6A2A);
+    transform: scale(1.05);
 }
 
 .login-button {
+    justify-self: center;
     cursor: pointer;
-    font-size: 14px;
+    color: white;
+    font-size: 18px;
+    background: linear-gradient(to bottom right, #EF4765, #FF9A5A);
+    border-radius: 8px;
+    border: none;
+    font-family: "Semi Bold Italic", sans-serif;
+    font-weight: bold;
+    transition: transform 150ms ease-in-out;
 
 }
 
@@ -53,6 +72,7 @@ input {
 }
 
 .signup-paragraph-container p, .signup-paragraph-container p RouterLink {
+    font-weight: 600;
     color: #ffffff;
 }
 
@@ -74,4 +94,10 @@ input {
     color: red;
     font-size: 16px;
     align-self: center;
+}
+
+@media (max-height: 550px) {
+    .login-container {
+        height: 80vh;
+    }
 }

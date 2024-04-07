@@ -3,7 +3,7 @@ import '@/assets/css/CreateQuiz/quizSummary.css'
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
 import { useQuizStore } from '@/stores/QuizStore.js'
-import { categoryMapper, getCategoryImage } from '@/services/DiscoverService.js'
+import { categoryMapper, getCategoryImage, reversedCategoryMapper } from '@/services/DiscoverService.js'
 import { deleteQuiz } from '@/services/CreateQuizService.js'
 
 const router = useRouter();
@@ -41,13 +41,8 @@ const onDescriptionChange = (event) => {
 }
 
 const onCategoryChange = (event) => {
-  if (event.target.value === 'Science') {
-    activeQuiz['categoryId'] = 1;
-  } else if (event.target.value === 'Math') {
-    activeQuiz['categoryId'] = 2;
-  } else if (event.target.value === 'History') {
-    activeQuiz['categoryId'] = 3;
-  }
+  activeQuiz['categoryId'] = reversedCategoryMapper[event.target.value]
+  console.log(activeQuiz['categoryId'])
   coverImage.value.src = getCategoryImage(activeQuiz['categoryId']);
 }
 
@@ -97,6 +92,9 @@ const onIsPublicChange = (event) => {
             <option>Science</option>
             <option>Math</option>
             <option>History</option>
+            <option>Sport</option>
+            <option>Film</option>
+            <option>Food</option>
           </select>
         </div>
         <div class="visibility-container">
