@@ -77,3 +77,7 @@ export const reversedCategoryMapper = {
 export function getCategoryImage(categoryId) {
   return categoryImageMapper[categoryId]
 }
+
+export function checkBadUserClearance() {
+  return (useUserStore().getToken == null || useUserStore().getUsername == null)
+}

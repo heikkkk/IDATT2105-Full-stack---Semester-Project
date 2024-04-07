@@ -13,6 +13,21 @@ const isUserActive = () => {
   return '/login'
 }
 
+const isUserOnline = () => {
+  if (store.isActive) {
+    return '/discover'
+  }
+  return '/'
+}
+
+const isLoggedIn = () => {
+  if (store.isActive) {
+    store.resetAll()
+  }
+}
+
+
+
 </script>
 
 <template>
@@ -21,15 +36,14 @@ const isUserActive = () => {
     <div class="links-wrapper">
       <p class="links-header">Links</p>
       <div class="links-container">
-        <RouterLink class="router" to="/">Home</RouterLink>
-        <RouterLink class="router" :to="isUserActive()">Discover</RouterLink>
-        <RouterLink class="router" to="/login">Login</RouterLink>
-        <RouterLink class="router" to="/help">Help</RouterLink>
+        <RouterLink class="router" id="home" :to="isUserOnline()">Home</RouterLink>
+        <RouterLink class="router" id="discover" :to="isUserActive()">Discover</RouterLink>
+        <RouterLink class="router" id="login" to="/login" @click="isLoggedIn()">Login</RouterLink>
       </div>
     </div>
 
     <div class="support-wrapper">
-      <p class="support-header">Support</p>
+      <p class="support-header">Support us</p>
       <div class="support-container">
         <a href="https://twitter.com" target="_blank">
           <i class="fab fa-twitter"></i>
@@ -53,9 +67,8 @@ const isUserActive = () => {
     <div class="info-wrapper">
       <p class="info-header">Company</p>
       <div class="info-container">
-        <RouterLink class="router" to="/about us">About us</RouterLink>
-        <RouterLink class="router" to="/lisence">License</RouterLink>
-        <RouterLink class="router" to="/privacy">Privacy</RouterLink>
+        <RouterLink class="router" to="/about-us">About us</RouterLink>
+        <RouterLink class="router" to="/privacy-policy">Privacy</RouterLink>
       </div>
     </div>
 
