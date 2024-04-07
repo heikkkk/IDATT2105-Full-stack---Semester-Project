@@ -29,6 +29,7 @@ const showUpdateUsername = () => {
   }
 }
 
+/*
 const showUpdateProfileImage = () => {
   if (router.currentRoute.value.path === '/update-Profile-image') {
     router.push('profile')
@@ -37,6 +38,7 @@ const showUpdateProfileImage = () => {
     router.push('/update-Profile-image');
   }
 }
+*/
 
 onMounted(async () => {
   try {
@@ -58,8 +60,11 @@ onMounted(async () => {
       </div>
     </div>
     <div class="profile-button-container">
-      <button data-cy="update-image-button" class="update-profile-image" @click="showUpdateProfileImage">Update image</button>
-      <button data-cy="update-password-button" class="update-password" @click="showUpdatePassword">Update password</button>
+      <!--
+      <button class="update-profile-image" @click="showUpdateProfileImage">Update image</button>
+      -->
+      <button data-cy="update-password-button" class="update-password"
+              @click="showUpdatePassword">Update password</button>
       <button data-cy="update-username-button" class="update-username" @click="showUpdateUsername">Update username</button>
     </div>
     <div class="profile-router-view-container">

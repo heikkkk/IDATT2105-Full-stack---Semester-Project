@@ -4,14 +4,16 @@ import {ref} from 'vue'
 import { useQuizStore} from '@/stores/QuizStore.js'
 import QuestionDisplay from '@/components/PlayQuiz/QuestionDisplay.vue'
 import { useRouter } from 'vue-router'
+import { getCategoryImage } from '@/services/DiscoverService.js'
 
 const router = useRouter()
 useQuizStore().setCorrectQuestionCount(0)
 useQuizStore().setFinalQuestion(false)
-let questionKey = 0;
+let questionKey = ref(0);
 
 const activeQuiz = useQuizStore().getActiveQuiz;
 const questions = activeQuiz.questions
+const imagePath = getCategoryImage(activeQuiz.categoryId)
 let index = 0
 let activeQuestion = null
 
@@ -29,8 +31,12 @@ if (questions.length !== 0) {
   router.push('/quiz-results')
 }
 
+if (index + 2 >= questions.length) {
+  useQuizStore().setFinalQuestion(true)
+}
+
 const displayNextQuestion = () => {
-  if (index + 2 === questions.length) {
+  if (index + 2 >= questions.length) {
     useQuizStore().setFinalQuestion(true)
   }
   // If there is no more questions
@@ -42,7 +48,7 @@ const displayNextQuestion = () => {
     questionText.value = activeQuestion.questionText
     timeLimit.value = activeQuestion.question_duration
     answers.value = activeQuestion.answers
-    questionKey += 1
+    questionKey.value += 1
   }
 }
 </script>
@@ -51,6 +57,7 @@ const displayNextQuestion = () => {
   <div class="play-quiz-wrapper">
     <QuestionDisplay v-model:question-text="questionText"
                      :key="questionKey"
+                     :question-image="imagePath"
                      :quiz-title="activeQuiz.title"
                      v-model:timer-seconds="timeLimit"
                      v-model:answers="answers"

@@ -24,12 +24,7 @@ export async function getUsernameById(id) {
   }
 }
 
-export async function getIdByUsername(username, token) {
-  const config = {
-    headers: {
-      'Authorization': 'Bearer ' + token
-    }
-  };
+export async function getIdByUsername(username) {
   try {
     return await apiClient.get("/users/get-id/" + username, config);
   } catch (error) {

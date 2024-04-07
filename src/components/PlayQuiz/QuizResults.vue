@@ -19,10 +19,12 @@ function onExitQuizButtonPressed() {
 
 <template>
   <div class="quiz-result-wrapper">
-    <h1>You got {{correctQuestions}} out of {{totalQuestions}} right!</h1>
-    <div class="quiz-result-button-container">
-      <button @click="onPlayAgainButtonPressed()">Play again</button>
-      <button @click="onExitQuizButtonPressed()">Exit quiz</button>
+    <div class="quiz-result-container">
+      <h1>You got {{correctQuestions}} out of {{totalQuestions}} right!</h1>
+      <div class="quiz-result-button-container">
+        <button @click="onPlayAgainButtonPressed()">Play again</button>
+        <button @click="onExitQuizButtonPressed()">Exit quiz</button>
+      </div>
     </div>
   </div>
 </template>
