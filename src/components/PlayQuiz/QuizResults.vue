@@ -3,6 +3,16 @@ import '../../assets/css/PlayQuiz/quizResult.css'
 import { useQuizStore } from '@/stores/QuizStore.js'
 import { useRouter } from 'vue-router'
 
+import { createApp } from 'vue'
+import { createPinia } from 'pinia'
+import piniaPluginPersistedState from 'pinia-plugin-persistedstate'
+import App from '@/App.vue'
+
+const pinia = createPinia()
+pinia.use(piniaPluginPersistedState);
+const app = createApp(App)
+app.use(pinia)
+
 const router = useRouter()
 const quizStore = useQuizStore()
 const correctQuestions = quizStore.getCorrectQuestionCount

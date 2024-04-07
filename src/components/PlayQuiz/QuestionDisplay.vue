@@ -2,8 +2,17 @@
 import '../../assets/css/PlayQuiz/questionDisplay.css'
 import CountdownTimer from '@/components/PlayQuiz/CountdownTimer.vue'
 import AnswerButton from '@/components/PlayQuiz/AnswerButton.vue'
-import { ref } from 'vue'
+import { createApp, ref } from 'vue'
 import { useQuizStore } from '@/stores/QuizStore.js'
+
+import { createPinia } from 'pinia'
+import piniaPluginPersistedState from 'pinia-plugin-persistedstate'
+import App from '@/App.vue'
+
+const pinia = createPinia()
+pinia.use(piniaPluginPersistedState);
+const app = createApp(App)
+app.use(pinia)
 
 const emit = defineEmits(['nextQuestionEvent']);
 const props = defineProps({
@@ -81,7 +90,7 @@ function onTimerReachedZero() {
 <template>
   <div class="question-display-wrapper">
     <div class="question-display-text-container">
-      <h1>{{props.questionText}}</h1>
+      <h1>{{questionText}}</h1>
     </div>
 
     <div class="question-display-content-container">
@@ -91,7 +100,7 @@ function onTimerReachedZero() {
                         @timerZeroEvent="onTimerReachedZero"/>
       </div>
       <div class="question-display-image-container">
-        <img :src="props.questionImage" alt="question image">
+        <img :src="questionImage" alt="question image">
       </div>
       <div class="question-display-button-container">
         <button class="question-display-next-question-button"
