@@ -84,7 +84,6 @@ const emitAnswer4Checked = (event) => {
 
 <template>
   <div class="create-multiple-choice-wrapper">
-
     <div class="alternative-answer-container">
       <div class="alternative-1-container">
         <input type="text" id="alternative-1" :value="answer1" @input="emitAnswer1" placeholder="Add answer 1">

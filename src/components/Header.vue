@@ -8,12 +8,20 @@ import '../assets/css/header.css'
 import HamburgerMenu from '@/components/HamburgerMenu.vue'
 
 const store = useUserStore()
+
+const emit = defineEmits(['searchEvent']);
+const onSearchEventReceived = () => {
+  emit('searchEvent')
+}
+
 </script>
 
 <template>
   <div class="header-container">
+
     <LogoTitle data-cy="logo-title-discover" class="logoTitle" color="white"/>
-    <SearchBar class="search-bar"/>
+    <SearchBar class="search-bar" @searchEvent="onSearchEventReceived"/>
+
     <div v-if="store.isActive" class="burger-container">
       <UserDropdown class="userTitle"/>
       <HamburgerMenu/>

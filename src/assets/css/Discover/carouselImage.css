@@ -10,7 +10,6 @@
 }
 
 .carousel-img-container p {
-
     z-index: 100;
     top: 15px;
     left: 15px;
@@ -25,8 +24,8 @@
 .carousel-img-container img {
     height: 100%;
     max-width: 100%;
-    padding: .5rem;
     aspect-ratio: 1.618;
+    padding: .5rem;
     border-radius: 11px;
     transition: transform 150ms ease-in-out;
 }

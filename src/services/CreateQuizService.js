@@ -25,6 +25,15 @@ export async function saveQuiz() {
   }
 }
 
+export async function deleteQuiz(quizId) {
+  try {
+    console.log(config)
+    return await apiClient.put("/delete-quiz/" + quizId, null, config)
+  } catch (error) {
+    throw new Error('An error occurred while saving quiz\'s : ' + error.response.statusText);
+  }
+}
+
 export function getNewQuestion() {
   return {
     "questionId": useQuestionStore().getGenericId,

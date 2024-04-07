@@ -5,15 +5,37 @@ import '../../assets/css/Discover/discover.css'
 import { useRouter } from 'vue-router'
 import { getPublicQuizzes, getQuizesByUser } from '@/services/DiscoverService.js'
 import { useQuizStore } from '@/stores/QuizStore.js'
+import { getIdByUsername } from '@/services/QuizInfoService.js'
+import { useUserStore } from '@/stores/UserStore.js'
 
 let quizzesByUser = ref([]);
 let publicQuizzes = ref([]);
 let categoryQuizzes = ref([
-  [null, null, 'Math','src/assets/img/categories/math.png'],
-  [null, null, 'Science', 'src/assets/img/categories/science.png'],
-  [null, null, 'Sport', 'src/assets/img/categories/sport.png'],
-  [null, null, 'Film', 'src/assets/img/categories/film.png'],
-  [null, null, 'Food', 'src/assets/img/categories/food.png']
+  {
+    "categoryId": 1,
+    "quizId": 0,
+    "quizTitle": "Math",
+  },
+  {
+    "categoryId": 2,
+    "quizId": 0,
+    "quizTitle": "Science",
+  },
+  {
+    "categoryId": 3,
+    "quizId": 0,
+    "quizTitle": "History",
+  },
+  {
+    "categoryId": 4,
+    "quizId": 0,
+    "quizTitle": "Sport",
+  },
+  {
+    "categoryId": 5,
+    "quizId": 0,
+    "quizTitle": "Food",
+  },
 ])
 
 const router = useRouter();
@@ -27,6 +49,8 @@ onMounted(async () => {
   try {
     const userResponse = await getQuizesByUser();
     const publicResponse = await getPublicQuizzes();
+    const userId = await getIdByUsername(useUserStore().username)
+    useUserStore().setUserId(userId.data)
     quizzesByUser.value = userResponse.data;
     publicQuizzes.value = publicResponse.data;
     console.log(userResponse.data)

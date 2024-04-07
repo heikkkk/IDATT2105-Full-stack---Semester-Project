@@ -1,6 +1,5 @@
 import { defineStore } from 'pinia'
 import { useQuestionStore } from '@/stores/QuestionStore.js'
-import { getIdByUsername } from '@/services/QuizInfoService.js'
 import { useUserStore } from '@/stores/UserStore.js'
 
 export const useQuizStore = defineStore({
@@ -12,14 +11,26 @@ export const useQuizStore = defineStore({
       description: "",
       isPublic: true,
       mediaId: 1,
-      questions: [],
+      questions: [{
+        "questionId": useQuestionStore().getGenericId,
+        "questionName": "",
+        "questionText": "",
+        "explanations": "",
+        "question_duration": 60,
+        "isPublic": true,
+        "difficultyId": 1,
+        "mediaId": 1,
+        "typeId": 1,
+        "answers": []
+      }],
       quizId: useQuestionStore().getGenericId,
       templateId: 1,
       title: "My new quiz",
       userId: useUserStore().getUserId
     },
     correctQuestionCount: 0,
-    finalQuestion: false
+    finalQuestion: false,
+    searchResult: []
   }),
   actions: {
     setActiveQuiz(newQuiz) {
@@ -32,7 +43,18 @@ export const useQuizStore = defineStore({
         description: "",
         isPublic: true,
         mediaId: 1,
-        questions: [],
+        questions: [{
+          "questionId": useQuestionStore().getGenericId,
+          "questionName": "",
+          "questionText": "",
+          "explanations": "",
+          "question_duration": 60,
+          "isPublic": true,
+          "difficultyId": 1,
+          "mediaId": 1,
+          "typeId": 1,
+          "answers": []
+        }],
         quizId: useQuestionStore().getGenericId,
         templateId: 1,
         title: "My new quiz",
@@ -47,6 +69,9 @@ export const useQuizStore = defineStore({
     },
     setFinalQuestion(newValue) {
       this.finalQuestion = newValue
+    },
+    setSearchResults(newValue) {
+      this.searchResult = newValue
     }
   },
   getters: {
@@ -58,6 +83,9 @@ export const useQuizStore = defineStore({
     },
     isFinalQuestion() {
       return this.finalQuestion
+    },
+    getSearchResults() {
+      return this.searchResult
     }
   },
 
