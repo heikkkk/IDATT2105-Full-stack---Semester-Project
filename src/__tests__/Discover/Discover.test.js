@@ -9,7 +9,6 @@ describe('Discover', () => {
     const wrapper = mount(Discover)
 
    let categoryQuizzes = wrapper.vm.categoryQuizzes
-    console.log(categoryQuizzes)
     const userQuizCarousel = wrapper.findAllComponents(Carousel)[1]
     expect(userQuizCarousel.props().content).toEqual(categoryQuizzes)
   })
