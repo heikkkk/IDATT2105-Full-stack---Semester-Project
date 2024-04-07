@@ -51,7 +51,7 @@ onMounted(async () => {
     </div>
     <div class="profile-button-container">
       <button data-cy="update-password-button" class="update-password" @click="showUpdatePassword">Update password</button>
-      <button data-cy="update-username-button" 
+      <button data-cy="update-username-button"></button>
     </div>
     <div class="profile-router-view-container">
       <RouterView class="profile-router-view"></RouterView>
