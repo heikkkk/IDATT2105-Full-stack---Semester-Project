@@ -15,7 +15,16 @@ const config = {
   }
 }
 
-export async function getUsernameById(id) {
+export async function updateUsername(id) {
+  try {
+    const response = await apiClient.get("/users/get-name/" + id, config)
+    return response.data
+  } catch (error) {
+    throw new Error('An error occurred while fetching username\'s : ' + error.response.statusText);
+  }
+}
+
+export async function updatePassword(id) {
   try {
     const response = await apiClient.get("/users/get-name/" + id, config)
     return response.data
