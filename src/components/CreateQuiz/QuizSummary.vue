@@ -113,7 +113,7 @@ const onIsPublicChange = (event) => {
 
       <div class="create-quiz-button-container">
         <button class="cancel-button" @click="onCancelButtonPressed">Cancel</button>
-        <button class="confirm-button" @click="onContinueButtonPressed">Continue</button>
+        <button data-cy="continue-button" class="confirm-button" @click="onContinueButtonPressed">Continue</button>
         <button class="delete-button" @click="onDeleteButtonPressed">Delete quiz</button>
       </div>
     </div>
