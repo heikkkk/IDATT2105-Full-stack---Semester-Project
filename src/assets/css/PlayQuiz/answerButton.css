@@ -16,6 +16,7 @@
 }
 
 .answer-button-label {
+    cursor: pointer;
     align-self: center;
     background-color: transparent;
     font-size: 28px;

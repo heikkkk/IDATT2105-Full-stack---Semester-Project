@@ -10,6 +10,11 @@ import TextInput from '@/components/SignUp/TextInput.vue'
 const registrationError = ref(false)
 const router = useRouter()
 
+/**
+ * Validates whether a value is provided for a required field.
+ * @param {string|number|null|undefined} value - The value to be validated.
+ * @returns {(string|boolean)} Returns a string with the error message if the value is empty or true if it's valid.
+ */
 const required = value => {
   const requiredMessage = 'This field is required'
   if (value === undefined || value === null) return requiredMessage
@@ -17,6 +22,11 @@ const required = value => {
   return true
 }
 
+/**
+ * Validates the syntax of an email address.
+ * @param {string} value - The email address to be validated.
+ * @returns {(string|boolean)} Returns a string with the error message if the email address is invalid or true if it's valid.
+ */
 const emailSyntax = value => {
     const emailRegex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
     if (!emailRegex.test(String(value).toLowerCase())) {
@@ -25,6 +35,9 @@ const emailSyntax = value => {
   return true
 }
 
+/**
+ * Defines the validation schema for the entire form.
+ */
 const validationSchema = {
       username: required,
       password: required,
@@ -47,6 +60,12 @@ const { value: username } = useField('username')
 const { value: email } = useField('email')
 const { value: password } = useField('password')
 
+/**
+ * Handles form submission using VeeValidate.
+ * Upon successful sign-up, redirects the user to the discover page.
+ * If sign-up fails, displays a registration error message.
+ * @param values - the sign-up values from the user.
+ */
 const submit = handleSubmit(async values => {
   try {
   const response = await signUp(values)

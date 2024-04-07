@@ -4,6 +4,7 @@ import Header from '@/components/Header.vue'
 import Footer from '@/components/Footer.vue'
 import { marked } from 'marked'
 
+// Privacy policy text in markdown format
 const privacyText = "# Privacy Policy\n" +
   "\n" +
   "Welcome to Quizopia! We value your privacy and want to be transparent about how we handle your personal information when you use our service.\n" +
@@ -29,6 +30,8 @@ const privacyText = "# Privacy Policy\n" +
   "### Contact Us\n" +
   "\n" +
   "If you have any questions or comments about our Privacy Policy, please feel free to reach out to us at Quizopia@gmail.com.\n"
+
+// Convert markdown content to HTML for rendering
 const htmlContent = marked(privacyText);
 
 </script>

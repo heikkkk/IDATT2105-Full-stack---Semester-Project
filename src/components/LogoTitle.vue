@@ -1,6 +1,7 @@
 <script setup>
 import '../assets/css/logoTitle.css'
 import { useUserStore } from '@/stores/UserStore.js'
+
 const store = useUserStore();
 const props = defineProps({
   content: {
@@ -9,6 +10,12 @@ const props = defineProps({
   }
 })
 
+/**
+ * Determines the URL to which the user should be redirected based on their login status.
+ * If the user is active (logged in), it returns the URL for the discover page.
+ * If the user is not active, it returns the URL for the home page.
+ * @returns {string} The URL to redirect the user based on their login status.
+ */
 const userIsActive = () => {
   if (store.isActive) {
     return '/discover'

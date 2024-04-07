@@ -6,13 +6,23 @@ import { useRouter } from 'vue-router'
 import { useQuizStore } from '@/stores/QuizStore.js'
 import { checkBadUserClearance } from '@/services/DiscoverService.js'
 
+// Custom event emitter for emitting search events
 const emit = defineEmits(['searchEvent']);
 const router = useRouter()
+
+// Reactive references for filter type and search keyword
 const filter = ref('Title')
 const keyword = ref('')
 
-// Only allows logged-in users to search in search bar
+/**
+ * Handles the submission of the search bar form.
+ * Checks if the user is logged in, then performs the search based on the selected filter type (title, author, or category).
+ * Upon receiving search results from the server, it updates the search results in the quiz store and emits a search event.
+ * It then navigates the user to the search result page.
+ * @throws Error if an error occurs during the search process.
+ */
 async function handleSearchBarSubmit() {
+  // Check user clearance and prompt login if not logged in
   if (checkBadUserClearance()) {
     alert("You have to login in order to search for quizzes.")
     router.push('/')
@@ -26,9 +36,10 @@ async function handleSearchBarSubmit() {
     } else if (filter.value === 'Category') {
       response = await getQuizzesByCategory(keyword.value)
     }
+    // Update search results in the quiz store and emit search event
     useQuizStore().setSearchResults(response.data)
     emit('searchEvent')
-    router.push('/search-result')
+    await router.push('/search-result')
   } catch (error) {
     throw new Error('Could not load quizzes from server : ' + error.response.statusText);
   }

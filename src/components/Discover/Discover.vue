@@ -40,11 +40,16 @@ let categoryQuizzes = ref([
 
 const router = useRouter();
 
+/**
+ * Handles the event when the "Create new quiz" button is pressed.
+ * Resets the quiz store and navigates to the summary page.
+ */
 function onNewQuizButtonPressed() {
   useQuizStore().resetQuiz()
   router.push('/summary')
 }
 
+// Fetch quizzes data from the server upon component mounted
 onMounted(async () => {
   try {
     const userResponse = await getQuizesByUser();
@@ -65,7 +70,7 @@ onMounted(async () => {
       <div class="discover-button-container">
         <button class="create-new-quiz-button" @click="onNewQuizButtonPressed()">Create new quiz</button>
       </div>
-      <Carousel class="carousel" title="Your quiz's" v-model:content="quizzesByUser"/>
+      <Carousel class="carousel" title="Your quizzes" v-model:content="quizzesByUser"/>
       <Carousel class="carousel" title="Category" v-model:content="categoryQuizzes"/>
       <Carousel class="carousel" title="Latest" v-model:content="publicQuizzes">
       </Carousel>

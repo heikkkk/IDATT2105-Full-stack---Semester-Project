@@ -4,6 +4,7 @@ import { saveQuiz } from '@/services/CreateQuizService.js'
 import { useRouter } from 'vue-router'
 
 const router = useRouter()
+// Defining emits and props for communication with the parent component
 const emit = defineEmits(['questionTextEvent', 'questionImageEvent', 'settingsButtonEvent']);
 const props = defineProps({
   questionText: {
@@ -16,15 +17,25 @@ const props = defineProps({
   }
 })
 
+/**
+ * Emits an event to update the question text in the parent component.
+ * @param {Event} event - The input event triggered by changing the question text.
+ */
 const emitQuestionText = (event) => {
   const newValue = event.target.value;
   emit('questionTextEvent', newValue)
 }
 
-function emitSettingsButtonEvent() {
+/**
+ * Navigates to the quiz summary page.
+ */
+function emitSummaryButtonEvent() {
   router.push('/summary')
 }
 
+/**
+ * Saves the quiz when the "Save quiz" button is pressed.
+ */
 async function onSaveQuizButtonPressed() {
   const response = await saveQuiz();
   if (response && response.status === 201) {
@@ -38,7 +49,7 @@ async function onSaveQuizButtonPressed() {
   <div class="question-wrapper">
 
     <div class="create-question-button-container">
-      <button @click="emitSettingsButtonEvent()">Settings</button>
+      <button @click="emitSummaryButtonEvent()">Settings</button>
       <button @click="onSaveQuizButtonPressed()">Save quiz</button>
     </div>
 

@@ -4,10 +4,14 @@ import SearchResult from '@/components/SearchResult/SearchResult.vue'
 import Footer from '@/components/Footer.vue'
 import { ref } from 'vue'
 
-// In order update search results
+// In order to update the SearchResult component
 let searchKey = ref(0)
+
+/**
+ * Increments the value of the search key by 1.
+ */
 const onSearchEventReceived = () => {
-  searchKey.value += 1
+  searchKey.value += 1;
 }
 
 </script>

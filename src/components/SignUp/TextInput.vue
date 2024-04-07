@@ -2,6 +2,7 @@
 import UniqueID from '../SignUp/UniqueID.js'
 import '../../assets/css/Login/login.css'
 
+// Generates a unique identifier
 const uuid = UniqueID().getID()
 
 const props = defineProps({
@@ -68,5 +69,4 @@ label {
   margin-left: 10px;
   color: red;
 }
-
 </style>

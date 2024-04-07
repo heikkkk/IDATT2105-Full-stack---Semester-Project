@@ -8,10 +8,16 @@ const quizStore = useQuizStore()
 const correctQuestions = quizStore.getCorrectQuestionCount
 const totalQuestions = quizStore.getActiveQuiz.questions.length
 
+/**
+ * Redirects to the play quiz page to play the quiz again.
+ */
 function onPlayAgainButtonPressed() {
   router.push('/play-quiz')
 }
 
+/**
+ * Redirects to the discover page to exit the quiz.
+ */
 function onExitQuizButtonPressed() {
   router.push('/discover')
 }

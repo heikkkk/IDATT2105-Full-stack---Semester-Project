@@ -11,7 +11,10 @@ const profileImage = "src/assets/img/defaultUserPicture.png";
 const router = useRouter();
 let quizzesByUser = ref([]);
 
-// Shows the form for updating password
+/**
+ * Redirects to the update password form page.
+ * If already on the update password page, redirects back to the profile page.
+ */
 const showUpdatePassword = () => {
   if (router.currentRoute.value.path === '/update-password') {
     router.push('profile')
@@ -21,7 +24,10 @@ const showUpdatePassword = () => {
   }
 }
 
-// Shows the form for updating username
+/**
+ * Redirects to the update username form page.
+ * If already on the update username page, redirects back to the profile page.
+ */
 const showUpdateUsername = () => {
   if (router.currentRoute.value.path === '/update-username') {
     router.push('profile')
@@ -31,6 +37,7 @@ const showUpdateUsername = () => {
   }
 }
 
+// Fetches quizzes associated with the user on component mount
 onMounted(async () => {
   try {
     const userResponse = await getQuizesByUser();
@@ -44,7 +51,7 @@ onMounted(async () => {
 <template>
   <div class="profile-wrapper">
     <div class="profile-details-container">
-      <img :src=profileImage class="profile-image" alt="profileImage" @click="showUpdateProfileImage">
+      <img :src=profileImage class="profile-image" alt="profileImage">
       <div class="profile-username-container">
         <h1 class="profile-username">{{store.getUsername}}</h1>
       </div>

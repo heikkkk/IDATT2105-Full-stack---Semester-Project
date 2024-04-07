@@ -1,6 +1,9 @@
 import axios from 'axios'
 import { useUserStore } from '@/stores/UserStore.js'
 
+/**
+ * The Axios HTTP client used for making API requests.
+ */
 const apiClient = axios.create({
   baseURL: 'http://localhost:8080/api',
   headers: {
@@ -9,12 +12,22 @@ const apiClient = axios.create({
   }
 })
 
+/**
+ * The configuration object containing request headers.
+ */
 const config = {
   headers: {
     'Authorization' : 'Bearer ' + useUserStore().getToken
   }
 }
 
+/**
+ * Fetches the username by user ID from the API.
+ *
+ * @param id the ID of the user
+ * @return the username associated with the given ID
+ * @throws Error if an error occurs while fetching the username
+ */
 export async function getUsernameById(id) {
   try {
     const response = await apiClient.get("/users/get-name/" + id, config)
@@ -24,6 +37,13 @@ export async function getUsernameById(id) {
   }
 }
 
+/**
+ * Fetches the user ID by username from the API.
+ *
+ * @param username the username of the user
+ * @return the ID associated with the given username
+ * @throws Error if an error occurs while fetching the user ID
+ */
 export async function getIdByUsername(username) {
   try {
     return await apiClient.get("/users/get-id/" + username, config)
@@ -32,6 +52,13 @@ export async function getIdByUsername(username) {
   }
 }
 
+/**
+ * Fetches the category by ID from the API.
+ *
+ * @param id the ID of the category
+ * @return the category associated with the given ID
+ * @throws Error if an error occurs while fetching the category
+ */
 export async function getCategoryById(id) {
   try {
     const response = await apiClient.get("/quizzes/id/category/" + id, config)

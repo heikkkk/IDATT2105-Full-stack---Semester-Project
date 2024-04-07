@@ -11,6 +11,7 @@ const router = useRouter();
 const userStore = useUserStore();
 const activeUserId = ref('');
 
+// Extracting quiz details for display
 const quizStore = useQuizStore();
 const quiz = quizStore.getActiveQuiz;
 const title = quiz.title;
@@ -26,6 +27,7 @@ const createdAt = quiz.createdAt;
 const category = ref('');
 const description = quiz.description;
 
+// Fetching additional details on component mount
 onMounted(async () => {
   try {
     activeUserId.value = (await getIdByUsername(userStore.getUsername)).data
@@ -36,14 +38,23 @@ onMounted(async () => {
   }
 });
 
+/**
+ * Redirects the user to the Discover page.
+ */
 const navigateToDiscover = () => {
   router.push('/discover')
 }
 
+/**
+ * Redirects the user to play the quiz.
+ */
 const navigateToPlayQuiz = () => {
   router.push('/play-quiz')
 }
 
+/**
+ * Redirects the user to edit the quiz if they are the owner.
+ */
 const navigateToCreateQuiz = () => {
   router.push('/create-quiz')
 }

@@ -9,11 +9,12 @@ import HamburgerMenu from '@/components/HamburgerMenu.vue'
 const store = useUserStore()
 const emit = defineEmits(['searchEvent']);
 
-// Passes search event to parent
+/**
+ * Handles the reception of the search event from child components and emits it to the parent.
+ */
 const onSearchEventReceived = () => {
   emit('searchEvent')
 }
-
 </script>
 
 <template>

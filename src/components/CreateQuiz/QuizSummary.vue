@@ -7,23 +7,37 @@ import { categoryMapper, getCategoryImage, reversedCategoryMapper } from '@/serv
 import { deleteQuiz } from '@/services/CreateQuizService.js'
 
 const router = useRouter();
+// Reference to trigger reactivity when cover image changes
 let refreshKey = ref(0);
 let coverImage = ref(null)
 
+/**
+ * Handles the event when the cancel button is pressed.
+ * Redirects the user to the Discover page.
+ */
 const onCancelButtonPressed = () => {
   router.push('/discover')
 }
 
+/**
+ * Handles the event when the continue button is pressed.
+ * Redirects the user to the Create Quiz page.
+ */
 const onContinueButtonPressed = () => {
   router.push('/create-quiz')
 }
 
+/**
+ * Handles the event when the delete button is pressed.
+ * Deletes the active quiz and redirects the user to the Discover page.
+ */
 const onDeleteButtonPressed = () => {
   deleteQuiz(useQuizStore().getActiveQuiz.quizId)
   alert("Quiz deleted")
   router.push('/discover')
 }
 
+// Get active quiz details
 const activeQuiz = useQuizStore().getActiveQuiz
 const title = ref(activeQuiz.title)
 const description = ref(activeQuiz.description)
@@ -32,28 +46,38 @@ let imagePath = ref(getCategoryImage(categoryId.value))
 let category = ref(categoryMapper[categoryId.value])
 const isPublic = ref(activeQuiz.isPublic)
 
-// Updates title
+/**
+ * Updates the title of the active quiz.
+ * @param {Event} event - The input event containing the new title value.
+ */
 const onTitleChange = (event) => {
   activeQuiz['title'] = event.target.value
 }
 
-// Updates description
+/**
+ * Updates the description of the active quiz.
+ * @param {Event} event - The input event containing the new description value.
+ */
 const onDescriptionChange = (event) => {
   activeQuiz['description'] = event.target.value
 }
 
-// Updates category
+/**
+ * Updates the category of the active quiz.
+ * @param {Event} event - The change event containing the new category value.
+ */
 const onCategoryChange = (event) => {
   activeQuiz['categoryId'] = reversedCategoryMapper[event.target.value]
   coverImage.value.src = getCategoryImage(activeQuiz['categoryId']);
 }
 
-// Updates public/private value
+/**
+ * Updates the visibility of the active quiz.
+ * @param {boolean} event - The boolean value indicating the new visibility (true for public, false for private).
+ */
 const onIsPublicChange = (event) => {
   activeQuiz['isPublic'] = event
 }
-
-
 </script>
 
 <template>

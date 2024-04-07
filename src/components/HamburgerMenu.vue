@@ -7,7 +7,10 @@ import { ref } from 'vue'
 const store = useUserStore();
 const menuRef = ref(null);
 
-// Moves the burger menu to the left or right
+/**
+ * Handles the click event on the burger icon to toggle the visibility of the menu.
+ * Moves the menu to the left or right based on its current position.
+ */
 const onBurgerClicked = () => {
   const menu = menuRef.value;
   if (parseInt(getComputedStyle(menu).getPropertyValue('right')) < 0) {

@@ -38,42 +38,73 @@ const props = defineProps({
   }
 })
 
-// Emit changes on answer content and values:
+/**
+ * Emits an event with the new value of answer 1.
+ * @param {Event} event - The input event object.
+ */
 const emitAnswer1 = (event) => {
   const newValue = event.target.value;
   emit('answer1Event', newValue);
 };
 
+/**
+ * Emits an event with the new value of answer 2.
+ * @param {Event} event - The input event object.
+ */
 const emitAnswer2 = (event) => {
   const newValue = event.target.value;
   emit('answer2Event', newValue);
 };
 
+/**
+ * Emits an event with the new value of answer 3.
+ * @param {Event} event - The input event object.
+ */
 const emitAnswer3 = (event) => {
   const newValue = event.target.value;
   emit('answer3Event', newValue);
 };
 
+/**
+ * Emits an event with the new value of answer 4.
+ * @param {Event} event - The input event object.
+ */
 const emitAnswer4 = (event) => {
   const newValue = event.target.value;
   emit('answer4Event', newValue);
 };
 
+/**
+ * Emits an event with the new checked status of answer 1.
+ * @param {Event} event - The change event object.
+ */
 const emitAnswer1Checked = (event) => {
   const newValue = event.target.checked;
   emit('answer1CheckedEvent', newValue);
 };
 
+/**
+ * Emits an event with the new checked status of answer 2.
+ * @param {Event} event - The change event object.
+ */
 const emitAnswer2Checked = (event) => {
   const newValue = event.target.checked;
   emit('answer2CheckedEvent', newValue);
 };
 
+/**
+ * Emits an event with the new checked status of answer 3.
+ * @param {Event} event - The change event object.
+ */
 const emitAnswer3Checked = (event) => {
   const newValue = event.target.checked;
   emit('answer3CheckedEvent', newValue);
 };
 
+/**
+ * Emits an event with the new checked status of answer 4.
+ * @param {Event} event - The change event object.
+ */
 const emitAnswer4Checked = (event) => {
   const newValue = event.target.checked;
   emit('answer4CheckedEvent', newValue);
