@@ -5,7 +5,9 @@ import { ref } from 'vue'
 let newPassword = ref('')
 let confirmPassword = ref('')
 
-const handleSubmit
+const handleSubmit = () => {
+
+}
 </script>
 
 <template>
