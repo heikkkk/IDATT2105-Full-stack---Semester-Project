@@ -4,7 +4,9 @@ import CountdownTimer from '@/components/PlayQuiz/CountdownTimer.vue'
 import AnswerButton from '@/components/PlayQuiz/AnswerButton.vue'
 import { ref } from 'vue'
 import { useQuizStore } from '@/stores/QuizStore.js'
+import { useRouter } from 'vue-router'
 
+const router = useRouter();
 const emit = defineEmits(['nextQuestionEvent']);
 const props = defineProps({
   quizTitle: {
@@ -76,12 +78,18 @@ function onTimerReachedZero() {
   }
   revealNextQuestionButton()
 }
+
+function onExitButtonPressed() {
+  timer.value.onAnswerPressed()
+  router.push('/discover')
+}
 </script>
 
 <template>
   <div class="question-display-wrapper">
     <div class="question-display-text-container">
       <h1>{{props.questionText}}</h1>
+      <button @click="onExitButtonPressed()">&#10006;</button>
     </div>
 
     <div class="question-display-content-container">
