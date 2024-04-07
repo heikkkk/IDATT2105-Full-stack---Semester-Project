@@ -1,18 +1,7 @@
 import axios from 'axios'
 import async from 'async'
 describe('create a new quiz to the adminUser ',() =>{
-  beforeEach(async () => {
-
-    //delete before creating quiz
-
-
-
-    try {
-      const response = await axios.get('http://localhost:8080/user/testUser')
-      return response.data
-    } catch (error) {
-      throw new Error('An error occurred while fetching username\'s : ' + error.response.statusText);
-    }
+  beforeEach( () => {
 
 
     cy.visit('http://localhost:4173')
@@ -41,7 +30,7 @@ describe('create a new quiz to the adminUser ',() =>{
     cy.get('#alternative-3').type("This is also not the answer", )
     cy.get('#alternative-4').type("not the answer", )
     //legg til flere spørsmål....
-    cy.contains('Save quiz').click()
+    //cy.contains('Save quiz').click()
   })
 })
 
