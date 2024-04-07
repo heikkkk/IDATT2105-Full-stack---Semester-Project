@@ -45,7 +45,7 @@ export const useUserStore = defineStore({
     getPath() {
       return this.userPicturePath;
     },
-    // Todo might wanna alter this one
+
     isActive() {
       return this.username!= null;
     },

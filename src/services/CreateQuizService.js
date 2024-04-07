@@ -27,13 +27,13 @@ export async function saveQuiz() {
 
 export async function deleteQuiz(quizId) {
   try {
-    console.log(config)
     return await apiClient.put("/delete-quiz/" + quizId, null, config)
   } catch (error) {
     throw new Error('An error occurred while saving quiz\'s : ' + error.response.statusText);
   }
 }
 
+// Returns a default question
 export function getNewQuestion() {
   return {
     "questionId": useQuestionStore().getGenericId,
@@ -49,6 +49,7 @@ export function getNewQuestion() {
   };
 }
 
+// Returns the active question
 export function getActiveQuestion() {
   const questionId = useQuestionStore().getActiveQuestionId
   const questions = useQuizStore().getActiveQuiz.questions
@@ -59,16 +60,14 @@ export function getActiveQuestion() {
   }
 }
 
-export function removeAnswer(answerIndex) {
-  getActiveQuestion().answers.splice(answerIndex, 1);
-}
-
+// Updates questionId
 export function updateId() {
   const activeQuestion = getActiveQuestion()
   activeQuestion['questionId'] = useQuestionStore().getGenericId
   useQuestionStore().setActiveQuestionId(activeQuestion['questionId'])
 }
 
+// Updates answers in current quesiton
 export function storeUpdateAnswers(listOfAnswers, listOfCheckedAnswers) {
   updateId()
   console.log(getActiveQuestion().answers)

@@ -5,16 +5,14 @@ import { useQuizStore } from '@/stores/QuizStore.js'
 import { getNewQuestion } from '@/services/CreateQuizService.js'
 import { getCategoryImage } from '@/services/DiscoverService.js'
 
+const image = getCategoryImage(useQuizStore().getActiveQuiz.categoryId)
 const emit = defineEmits(['toggleNextQuizEvent']);
-
 const props = defineProps({
   questionArray: {
     type: Array,
     default: () => []
   }
 })
-
-const image = getCategoryImage(useQuizStore().getActiveQuiz.categoryId)
 
 function onNewQuestionClicked() {
   const quizStore = useQuizStore();

@@ -3,7 +3,7 @@ import '@/assets/css/CreateQuiz/quizSummary.css'
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
 import { useQuizStore } from '@/stores/QuizStore.js'
-import { categoryMapper, getCategoryImage } from '@/services/DiscoverService.js'
+import { categoryMapper, getCategoryImage, reversedCategoryMapper } from '@/services/DiscoverService.js'
 import { deleteQuiz } from '@/services/CreateQuizService.js'
 
 const router = useRouter();
@@ -32,28 +32,25 @@ let imagePath = ref(getCategoryImage(categoryId.value))
 let category = ref(categoryMapper[categoryId.value])
 const isPublic = ref(activeQuiz.isPublic)
 
+// Updates title
 const onTitleChange = (event) => {
   activeQuiz['title'] = event.target.value
 }
 
+// Updates description
 const onDescriptionChange = (event) => {
   activeQuiz['description'] = event.target.value
 }
 
+// Updates category
 const onCategoryChange = (event) => {
-  if (event.target.value === 'Science') {
-    activeQuiz['categoryId'] = 1;
-  } else if (event.target.value === 'Math') {
-    activeQuiz['categoryId'] = 2;
-  } else if (event.target.value === 'History') {
-    activeQuiz['categoryId'] = 3;
-  }
+  activeQuiz['categoryId'] = reversedCategoryMapper[event.target.value]
   coverImage.value.src = getCategoryImage(activeQuiz['categoryId']);
 }
 
+// Updates public/private value
 const onIsPublicChange = (event) => {
   activeQuiz['isPublic'] = event
-  console.log(activeQuiz['isPublic'])
 }
 
 
@@ -82,10 +79,6 @@ const onIsPublicChange = (event) => {
           <h3>Cover image</h3>
           <div class="cover-image-container">
             <img :src="imagePath" ref="coverImage" :key="refreshKey">
-            <!--
-            <label class="change-quiz-image-label" for="change-quiz-image-input">Select file</label>
-            <input id="change-quiz-image-input" type="file">
-            -->
           </div>
         </div>
       </div>
@@ -94,9 +87,12 @@ const onIsPublicChange = (event) => {
         <div class="category-container">
           <h3>Category</h3>
           <select data-cy="category-selector" class="category-selector" :value="category" @change="onCategoryChange">
-            <option data-cy="science-select" >Science</option>
-            <option data-cy="math-select" >Math</option>
-            <option data-cy="history-select" >History</option>
+            <option data-cy="science-select">Science</option>
+            <option data-cy="math-select">Math</option>
+            <option data-cy="history-select">History</option>
+            <option data-cy="sport-select">Sport</option>
+            <option data-cy="film-select">Film</option>
+            <option data-cy="food-select">Food</option>
           </select>
         </div>
         <div class="visibility-container">

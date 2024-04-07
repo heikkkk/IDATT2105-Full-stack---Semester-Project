@@ -14,15 +14,14 @@ import {
   storeUpdateExplanation
 } from '@/services/CreateQuizService.js'
 import CreateMultipleChoice from '@/components/CreateQuiz/CreateMultipleChoice.vue'
-import { useUserStore } from '@/stores/UserStore.js'
 import { getCategoryImage } from '@/services/DiscoverService.js'
 
 // Retrieve the active quiz and current question
 const quiz = ref(useQuizStore().getActiveQuiz)
+
 // Initialize active question properties
 const questionText = ref('');
 const questionImage = ref(getCategoryImage(useQuizStore().getActiveQuiz.categoryId));
-console.log(questionImage.value)
 const answer1 = ref('');
 const answer2 = ref('');
 const answer3 = ref('');
@@ -37,18 +36,17 @@ const timeLimit = ref(60)
 const questionTag = ref('')
 const difficulty = ref('Easy')
 const explanation = ref('')
-
 const listOfAnswers = [answer1, answer2, answer3, answer4]
 const listOfCheckedAnswers = [answer1Checked, answer2Checked, answer3Checked, answer4Checked]
 
+// Updates reactive values when next question is being toggled
 const updateReactiveValues = () => {
   if (quiz.value.questions.length > 0) {
     const activeQuestion = getActiveQuestion();
-    console.log(activeQuestion)
     questionText.value = activeQuestion.questionText;
     questionImage.value = ref(getCategoryImage(useQuizStore().getActiveQuiz.categoryId));
 
-    // Initialize unreached answers as default
+    // Initialize unreached answers as default answers
     for (let i = 0; i < 4; i++) {
       listOfAnswers[i].value = ''
       listOfCheckedAnswers[i].value = false
@@ -60,8 +58,6 @@ const updateReactiveValues = () => {
     questionTitle.value = activeQuestion.questionName;
     if (activeQuestion.typeId === 1) {
       questionType.value = 'Multiple Choice';
-    } else if (activeQuestion.typeId === 2) {
-      questionType.value = 'True False';
     }
     if (!activeQuestion.question_duration) {
       timeLimit.value = 60;
@@ -77,18 +73,15 @@ const updateReactiveValues = () => {
       difficulty.value = 'Hard';
     }
     explanation.value = activeQuestion.explanations;
-    console.log(explanation.value)
   }
 }
 
 if (quiz.value.questions && quiz.value.questions.length > 0) {
-  console.log(quiz.value.questions)
   useQuestionStore().setActiveQuestionId(quiz.value.questions[0].questionId)
   updateReactiveValues()
-} else {
-  console.log(quiz.value)
 }
 
+// Update functions:
 const updateQuestionText = (newValue) => {
   questionText.value = newValue
   storeUpdateQuestionText(newValue)

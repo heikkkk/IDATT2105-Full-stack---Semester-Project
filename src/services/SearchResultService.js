@@ -1,7 +1,8 @@
 import axios from 'axios'
 import { useUserStore } from '@/stores/UserStore.js'
 
-// Must set this up in order to avoid pinia-not-initialized error message
+// Must set this up in order to avoid pinia-not-initialized error message.
+// This can happen due to that the SearchBar component is initialized from
 import piniaPluginPersistedState from "pinia-plugin-persistedstate"
 import { createPinia } from 'pinia'
 import { createApp } from 'vue'

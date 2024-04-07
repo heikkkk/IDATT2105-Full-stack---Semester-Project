@@ -23,15 +23,42 @@
     flex-direction: column;
 }
 
-.update-username-button, .new-username-input {
-    max-height: 50px;
+.update-username-button, .new-username-input, .password-input {
+    outline: none;
+    border: none;
+
+    height: 45px;
     width: 95%;
     padding: 10px;
     margin: 10px;
     border-radius: 5px;
 }
 
+.new-username-input:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
 .update-username-button {
+    justify-self: center;
     cursor: pointer;
-    font-size: 14px;
+    color: white;
+    font-size: 18px;
+    background: linear-gradient(to bottom right, #EF4765, #FF9A5A);
+    border-radius: 8px;
+    border: none;
+    font-family: "Semi Bold Italic", sans-serif;
+    font-weight: bold;
+    transition: transform 150ms ease-in-out;
+}
+
+.update-username-button:hover {
+    background: linear-gradient(to bottom right, #BF1745, #CF6A2A);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    transform: scale(1.05);
+}
+
+@media (max-width: 619px) {
+    .update-username-button {
+        height: 55px;
+    }
 }

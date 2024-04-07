@@ -23,14 +23,6 @@ const config = {
   }
 }
 
-export async function getQuizzesByKeywordAndAuthor(keyword) {
-  try {
-    return await apiClient.get("/keyword/" + keyword, config)
-  } catch (error) {
-    throw new Error('An error occurred while fetching quiz\'s by a user : ' + error.response.statusText);
-  }
-}
-
 export async function getQuizesByUser() {
   try {
     return await apiClient.get("/user/" + useUserStore().getUsername, config)
@@ -73,6 +65,19 @@ export const categoryMapper = {
   6: "Food"
 }
 
+export const reversedCategoryMapper = {
+  "Science": 1,
+  "Math": 2,
+  "History": 3,
+  "Sport": 4,
+  "Film": 5,
+  "Food": 6
+};
+
 export function getCategoryImage(categoryId) {
   return categoryImageMapper[categoryId]
+}
+
+export function checkBadUserClearance() {
+  return (useUserStore().getToken == null || useUserStore().getUsername == null)
 }
