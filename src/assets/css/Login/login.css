@@ -45,7 +45,6 @@ input {
 .login-button {
     cursor: pointer;
     font-size: 14px;
-
 }
 
 .login-button-container .signup-paragraph-container RouterLink {

@@ -71,11 +71,11 @@ const onIsPublicChange = (event) => {
         <div class="title-and-description-container">
           <div class="title-container">
             <h3>Title</h3>
-            <input :value="title" @input="onTitleChange" class="title-input" type="text" placeholder="Enter quiz title...">
+            <input data-cy="title-input" :value="title" @input="onTitleChange" class="title-input" type="text" placeholder="Enter quiz title...">
           </div>
           <div class="description-container">
             <h3>Description (optional)</h3>
-            <textarea class="description-textarea" :value="description" @input="onDescriptionChange"></textarea>
+            <textarea data-cy="description-input" class="description-textarea" :value="description" @input="onDescriptionChange"></textarea>
           </div>
         </div>
         <div class="cover-image-wrapper">
@@ -93,13 +93,14 @@ const onIsPublicChange = (event) => {
       <div class="details-wrapper">
         <div class="category-container">
           <h3>Category</h3>
-          <select class="category-selector" :value="category" @change="onCategoryChange">
-            <option>Science</option>
-            <option>Math</option>
-            <option>History</option>
+          <select data-cy="category-selector" class="category-selector" :value="category" @change="onCategoryChange">
+            <option data-cy="science-select" >Science</option>
+            <option data-cy="math-select" >Math</option>
+            <option data-cy="history-select" >History</option>
           </select>
         </div>
         <div class="visibility-container">
+          <!--TODO: Add cy-datatypes to control flow -->
           <h3>Visibility</h3>
           <div class="radio-button-container">
             <input type="radio" id="private" name="visibility" :checked="!isPublic" @change="onIsPublicChange(false)">
@@ -112,7 +113,7 @@ const onIsPublicChange = (event) => {
 
       <div class="create-quiz-button-container">
         <button class="cancel-button" @click="onCancelButtonPressed">Cancel</button>
-        <button class="confirm-button" @click="onContinueButtonPressed">Continue</button>
+        <button data-cy="continue-button" class="confirm-button" @click="onContinueButtonPressed">Continue</button>
         <button class="delete-button" @click="onDeleteButtonPressed">Delete quiz</button>
       </div>
     </div>

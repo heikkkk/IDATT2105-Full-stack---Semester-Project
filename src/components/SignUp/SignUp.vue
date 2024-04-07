@@ -55,14 +55,14 @@ const handleChange = (event) => {
       else if (event.target.id == 3) field = 'password'
 
       setFieldValue(field, event.target.value)
-    }
+}
 
 const submit = handleSubmit(async values => {
   try {
   const response = await signUp(values)
 
   if (response && response.status === 200) {
-      router.push('/discover')
+      await router.push('/discover')
     } else {
       registrationError.value = true
     }
@@ -105,7 +105,7 @@ const submit = handleSubmit(async values => {
 
 
         <div class="signup-button-container">
-          <button class="signup-button" type="submit">Sign up</button>
+          <button data-cy="sign-up-button" class="signup-button" type="submit">Sign up</button>
           <div class="login-paragraph-container">
             <p>Already created an account?
               <RouterLink to="/login" style="color: white">Login</RouterLink>

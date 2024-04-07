@@ -53,7 +53,7 @@ defineExpose({
 </script>
 
 <template>
-  <div class="answer-button-wrapper">
+  <div data-cy="answer-buttons" class="answer-button-wrapper">
     <div class="answer-button-container" :style="{ backgroundColor: props.color }" @click="onAnswerButtonPressed" ref="containerRef">
       <label class="answer-button-label">{{props.answer}}</label>
     </div>
