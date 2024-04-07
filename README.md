@@ -54,7 +54,12 @@ Rememeber that the backend application needs to be running for this to work.
 # How to Use the Application
 1. This is the screen you should see when starting up. Click on the button **login**
 ![image](https://github.com/heikkkk/IDATT2105-Semester-Project-Frontend/assets/89779148/c6ef3d21-555a-450f-86f3-1ab9c9a0ee27)
-2. 
+2. This is the login screen. Here you need to enter in a valid username and password. For testing purposes you can use the premade adminUser account:
+- **Username**: adminUser
+- **Password**: password123
+![image](https://github.com/heikkkk/IDATT2105-Semester-Project-Frontend/assets/89779148/74f64260-6e12-4c2b-983f-8f328483d9f3)
+3. This is the home screen. From here you are able to play through your own quizzes and other public quizzes by clicking on them. You can also sort these quizzes by category, and you are able to search for quizzes by keywords in their title, category and the author who made them. You are also able to create quizzes by clicking on the **Create new quiz** button on the top left size of the screen.
+  ![image](https://github.com/heikkkk/IDATT2105-Semester-Project-Frontend/assets/89779148/32de8fbe-2c9d-4c54-98d5-76c1c611fb58)
 
 # Common Issues and Troubleshooting
 
