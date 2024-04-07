@@ -28,6 +28,10 @@ const props = defineProps({
   }
 })
 
+/**
+ * Handles the click event when the result link is clicked.
+ * Fetches the quiz details and navigates to the quiz info page.
+ */
 async function onLinkClicked() {
   try {
     const response = await getQuizById(props.id);
@@ -39,7 +43,6 @@ async function onLinkClicked() {
     throw new Error('An error occurred while fetching quiz : ' + error.response.statusText);
   }
 }
-
 </script>
 
 <template>

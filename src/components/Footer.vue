@@ -6,12 +6,21 @@ import { useUserStore } from '@/stores/UserStore.js'
 
 const store = useUserStore();
 
+/**
+ * Determines the route to the login page or discover page based on the user's login status.
+ * @returns {string} The route to the login/discover page.
+ */
 const ifNotLoggedInLogin = () => {
   if (store.isActive) {
     return '/discover'
   }
   return '/login'
 }
+
+/**
+ * Determines the route to the discover page or home page based on the user's login status.
+ * @returns {string} The route to the home/discover page.
+ */
 
 const ifLoggedInDiscover = () => {
   if (store.isActive) {
@@ -20,6 +29,9 @@ const ifLoggedInDiscover = () => {
   return '/'
 }
 
+/**
+ * Resets user data (token, userId, username) when the user is logged in and clicks on the login link.
+ */
 const ifLoggedInReset = () => {
   if (store.isActive) {
     store.resetAll()

@@ -21,20 +21,26 @@ const props = defineProps({
   }
 })
 
+/**
+ * Handles the event when the image is clicked.
+ * Fetches quiz data based on image properties and navigates to the appropriate page.
+ */
 async function onImageClicked() {
   try {
+    // If the id === 0 then the image is a category, not a quiz.
     if (props.id === 0) {
       const response = await getQuizzesByCategory(props.title)
       if (response && response.status===200) {
         useQuizStore().setSearchResults(response.data)
-        router.push('/search-result')
+        await router.push('/search-result')
       }
     } else {
+      // If the id != 0, then the image is an authentic quiz.
       const response = await getQuizById(props.id);
       const quizStore = useQuizStore();
       quizStore.setActiveQuiz(response.data);
       if (response && response.status === 200) {
-        router.push('/quiz-info');
+        await router.push('/quiz-info');
       }
     }
   } catch (error) {

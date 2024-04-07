@@ -7,10 +7,14 @@ import { categoryMapper, getCategoryImage } from '@/services/DiscoverService.js'
 let resultKey = 0
 const results = useQuizStore().getSearchResults
 
+/**
+ * Updates the search results by incrementing the result key.
+ */
 const updateResults = () => {
   resultKey += 1
 }
 
+// Exposes the updateResults function to the parent component.
 defineExpose({
   updateResults
 })

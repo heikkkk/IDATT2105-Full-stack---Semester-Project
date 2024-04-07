@@ -7,7 +7,9 @@ import { useUserStore } from '@/stores/UserStore.js'
 let newUsername = ref('')
 let password = ref('')
 
-// Updates user's username
+/**
+ * Handles the submission of the username update form.
+ */
 async function handleSubmit() {
   // Update username
   const usernameResponse = await updateUsername(useUserStore().getUserId, newUsername.value)

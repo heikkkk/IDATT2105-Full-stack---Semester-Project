@@ -9,6 +9,9 @@ pinia.use(piniaPluginPersistedState);
 const app = createApp(App)
 app.use(pinia)
 
+/**
+ * The Axios HTTP client used for making API requests.
+ */
 const apiClient = axios.create({
   baseURL: 'http://localhost:8080/api/quizzes',
   headers: {
@@ -17,12 +20,21 @@ const apiClient = axios.create({
   }
 })
 
+/**
+ * The configuration object containing request headers.
+ */
 const config = {
   headers: {
     'Authorization' : 'Bearer ' + useUserStore().getToken
   }
 }
 
+/**
+ * Retrieves quizzes associated with the current user.
+ *
+ * @return a promise representing the result of the operation
+ * @throws Error if an error occurs while fetching quizzes by the user
+ */
 export async function getQuizesByUser() {
   try {
     return await apiClient.get("/user/" + useUserStore().getUsername, config)
@@ -31,6 +43,12 @@ export async function getQuizesByUser() {
   }
 }
 
+/**
+ * Retrieves public quizzes.
+ *
+ * @return a promise representing the result of the operation
+ * @throws Error if an error occurs while fetching public quizzes
+ */
 export async function getPublicQuizzes() {
   try {
     return await apiClient.get("/public", config)
@@ -39,6 +57,13 @@ export async function getPublicQuizzes() {
   }
 }
 
+/**
+ * Retrieves a quiz by its ID.
+ *
+ * @param id the ID of the quiz to retrieve
+ * @return a promise representing the result of the operation
+ * @throws Error if an error occurs while fetching the quiz
+ */
 export async function getQuizById(id) {
   try {
     return await apiClient.get("/" + id, config)
@@ -47,6 +72,9 @@ export async function getQuizById(id) {
   }
 }
 
+/**
+ * Maps category IDs to their respective image file paths.
+ */
 const categoryImageMapper = {
   1: "src/assets/img/categories/science.png",
   2: "src/assets/img/categories/math.png",
@@ -56,6 +84,9 @@ const categoryImageMapper = {
   6: "src/assets/img/categories/food.png"
 }
 
+/**
+ * Maps category IDs to category names.
+ */
 export const categoryMapper = {
   1: "Science",
   2: "Math",
@@ -65,6 +96,9 @@ export const categoryMapper = {
   6: "Food"
 }
 
+/**
+ * Maps category names to category IDs.
+ */
 export const reversedCategoryMapper = {
   "Science": 1,
   "Math": 2,
@@ -74,10 +108,21 @@ export const reversedCategoryMapper = {
   "Food": 6
 };
 
+/**
+ * Retrieves the image path associated with a given category ID.
+ *
+ * @param categoryId the ID of the category
+ * @return the image path for the category
+ */
 export function getCategoryImage(categoryId) {
   return categoryImageMapper[categoryId]
 }
 
+/**
+ * Checks if the user has proper clearance to access certain functionalities.
+ *
+ * @return true if the user's clearance is invalid, false otherwise
+ */
 export function checkBadUserClearance() {
   return (useUserStore().getToken == null || useUserStore().getUsername == null)
 }

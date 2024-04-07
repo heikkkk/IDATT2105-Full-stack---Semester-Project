@@ -19,7 +19,7 @@ import { getCategoryImage } from '@/services/DiscoverService.js'
 // Retrieve the active quiz and current question
 const quiz = ref(useQuizStore().getActiveQuiz)
 
-// Initialize active question properties
+// Initializing reactive values for the active quiz and question
 const questionText = ref('');
 const questionImage = ref(getCategoryImage(useQuizStore().getActiveQuiz.categoryId));
 const answer1 = ref('');
@@ -39,7 +39,9 @@ const explanation = ref('')
 const listOfAnswers = [answer1, answer2, answer3, answer4]
 const listOfCheckedAnswers = [answer1Checked, answer2Checked, answer3Checked, answer4Checked]
 
-// Updates reactive values when next question is being toggled
+/**
+ * Updates reactive values when the next question is being toggled.
+ */
 const updateReactiveValues = () => {
   if (quiz.value.questions.length > 0) {
     const activeQuestion = getActiveQuestion();
@@ -51,20 +53,26 @@ const updateReactiveValues = () => {
       listOfAnswers[i].value = ''
       listOfCheckedAnswers[i].value = false
     }
+    // Update answers and their checked status
     for (let i = 0; i < activeQuestion.answers.length; i++) {
       listOfAnswers[i].value = activeQuestion.answers[i].answerText;
       listOfCheckedAnswers[i].value = activeQuestion.answers[i].isCorrect;
     }
+    // Update question title
     questionTitle.value = activeQuestion.questionName;
+    // Determine question type
     if (activeQuestion.typeId === 1) {
       questionType.value = 'Multiple Choice';
     }
+    // Determine time limit
     if (!activeQuestion.question_duration) {
       timeLimit.value = 60;
     } else {
       timeLimit.value = activeQuestion.question_duration
     }
+    // Reset question tag
     questionTag.value = null;
+    // Determine question difficulty
     if (activeQuestion.difficultyId === 1) {
       difficulty.value = 'Easy';
     } else if (activeQuestion.difficultyId === 2) {
@@ -72,6 +80,7 @@ const updateReactiveValues = () => {
     } else if (activeQuestion.difficultyId === 3) {
       difficulty.value = 'Hard';
     }
+    // Update explanation
     explanation.value = activeQuestion.explanations;
   }
 }
@@ -81,68 +90,150 @@ if (quiz.value.questions && quiz.value.questions.length > 0) {
   updateReactiveValues()
 }
 
-// Update functions:
+/**
+ * Updates the question text value and stores it.
+ * @param {string} newValue - The new value for the question text.
+ */
 const updateQuestionText = (newValue) => {
   questionText.value = newValue
   storeUpdateQuestionText(newValue)
 }
+
+/**
+ * Updates the question image value.
+ * @param {string} newValue - The new value for the question image.
+ */
 const updateQuestionImage = (newValue) => {
   questionImage.value = newValue
 }
+
+/**
+ * Updates the first answer value and stores it.
+ * @param {string} newValue - The new value for the first answer.
+ */
 const updateAnswer1 = (newValue) => {
   answer1.value = newValue
   storeUpdateAnswers(listOfAnswers, listOfCheckedAnswers)
 }
+
+/**
+ * Updates the second answer value and stores it.
+ * @param {string} newValue - The new value for the second answer.
+ */
 const updateAnswer2 = (newValue) => {
   answer2.value = newValue
   storeUpdateAnswers(listOfAnswers, listOfCheckedAnswers)
 }
+
+/**
+ * Updates the third answer value and stores it.
+ * @param {string} newValue - The new value for the third answer.
+ */
 const updateAnswer3 = (newValue) => {
   answer3.value = newValue
   storeUpdateAnswers(listOfAnswers, listOfCheckedAnswers)
 }
+
+/**
+ * Updates the fourth answer value and stores it.
+ * @param {string} newValue - The new value for the fourth answer.
+ */
 const updateAnswer4 = (newValue) => {
   answer4.value = newValue
   storeUpdateAnswers(listOfAnswers, listOfCheckedAnswers)
 }
+
+/**
+ * Updates the checked status of the first answer and stores it.
+ * @param {boolean} newValue - The new checked status for the first answer.
+ */
 const updateAnswer1Checked = (newValue) => {
   answer1Checked.value = newValue
   storeUpdateAnswers(listOfAnswers, listOfCheckedAnswers)
 }
+
+/**
+ * Updates the checked status of the second answer and stores it.
+ * @param {boolean} newValue - The new checked status for the second answer.
+ */
 const updateAnswer2Checked = (newValue) => {
   answer2Checked.value = newValue
   storeUpdateAnswers(listOfAnswers, listOfCheckedAnswers)
 }
+
+/**
+ * Updates the checked status of the third answer and stores it.
+ * @param {boolean} newValue - The new checked status for the third answer.
+ */
 const updateAnswer3Checked = (newValue) => {
   answer3Checked.value = newValue
   storeUpdateAnswers(listOfAnswers, listOfCheckedAnswers)
 }
+
+/**
+ * Updates the checked status of the fourth answer and stores it.
+ * @param {boolean} newValue - The new checked status for the fourth answer.
+ */
 const updateAnswer4Checked = (newValue) => {
   answer4Checked.value = newValue
   storeUpdateAnswers(listOfAnswers, listOfCheckedAnswers)
 }
+
+/**
+ * Updates the question title value and stores it.
+ * @param {string} newValue - The new value for the question title.
+ */
 const updateQuestionTitle = (newValue) => {
   questionTitle.value = newValue
   storeUpdateQuestionTitle(newValue)
 }
+
+/**
+ * Updates the question type value.
+ * @param {string} newValue - The new value for the question type.
+ */
 const updateQuestionType = (newValue) => {
   questionType.value = newValue
 }
+
+/**
+ * Updates the time limit value and stores it.
+ * @param {number} newValue - The new value for the time limit.
+ */
 const updateTimeLimit = (newValue) => {
   timeLimit.value = newValue
   storeUpdateTimeLimit(newValue)
 }
+
+/**
+ * Updates the question tag value.
+ * @param {string} newValue - The new value for the question tag.
+ */
 const updateQuestionTag = (newValue) => {
   questionTag.value = newValue
 }
+
+/**
+ * Updates the difficulty value and stores it.
+ * @param {string} newValue - The new value for the question difficulty.
+ */
 const updateDifficulty = (newValue) => {
   difficulty.value = newValue
   storeUpdateDifficulty(newValue)
 }
+
+/**
+ * Updates the explanation value and stores it.
+ * @param {string} newValue - The new value for the question explanation.
+ */
 const updateExplanation = (newValue) => {
   explanation.value = newValue
   storeUpdateExplanation(newValue)
 }
+
+/**
+ * Retrieves the next question and updates reactive values accordingly.
+ */
 const nextQuestion = () => {
   updateReactiveValues(getActiveQuestion())
 }
