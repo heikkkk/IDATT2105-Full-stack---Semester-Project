@@ -81,9 +81,12 @@ const updateReactiveValues = () => {
   }
 }
 
-if (quiz.value.questions.length > 0) {
+if (quiz.value.questions && quiz.value.questions.length > 0) {
+  console.log(quiz.value.questions)
   useQuestionStore().setActiveQuestionId(quiz.value.questions[0].questionId)
   updateReactiveValues()
+} else {
+  console.log(quiz.value)
 }
 
 const updateQuestionText = (newValue) => {
@@ -151,11 +154,6 @@ const nextQuestion = () => {
   updateReactiveValues(getActiveQuestion())
 }
 
-const test = () => {
-  //console.log(JSON.stringify(useQuizStore().getActiveQuiz))
-  console.log(useQuizStore().getActiveQuiz)
-  console.log('userId: ', useUserStore().getUserId)
-}
 </script>
 
 <template>
