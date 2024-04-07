@@ -11,13 +11,13 @@ pinia.use(piniaPluginPersistedState);
 const app = createApp(App)
 app.use(pinia)
 
-const username = ref('')
-const password = ref('')
+const usernameRef = ref('')
+const passwordRef = ref('')
 
 const authConfig = computed(() => ({
   auth: {
-    username: username.value,
-    password: password.value
+    username: usernameRef.value,
+    password: passwordRef.value
   }
 }))
 
@@ -41,4 +41,4 @@ export async function login() {
   return await postLoginCredentials();
 }
 
-export { username, password }
+export { usernameRef, passwordRef }

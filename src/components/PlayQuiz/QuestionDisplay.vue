@@ -40,6 +40,13 @@ props.answers.forEach(answer => {
   }
 })
 
+// Shuffle answers
+for (let i = answerArray.value.length - 1; i > 0; i--) {
+  const j = Math.floor(Math.random() * (i + 1));
+  [answerArray.value[i], answerArray.value[j]] = [answerArray.value[j], answerArray.value[i]];
+  [booleanArray.value[i], booleanArray.value[j]] = [booleanArray.value[j], booleanArray.value[i]];
+}
+
 // Reactive values
 const answerButtons = ref(null);
 const timer = ref(null);

@@ -23,7 +23,7 @@
     flex-direction: column;
 }
 
-.update-username-button, .new-username-input {
+.update-username-button, .new-username-input, .password-input {
     outline: none;
     border: none;
 

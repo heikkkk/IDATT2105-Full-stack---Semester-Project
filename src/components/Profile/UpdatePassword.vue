@@ -13,8 +13,7 @@ async function handleSubmit() {
     console.log(newPassword.value === confirmPassword.value)
     const response = await updatePassword(useUserStore().getUserId, confirmPassword.value)
     if (response && response.status === 200) {
-      console.log(response.status)
-      alert("Password updated")
+      alert("Password updated!")
     } else {
       alert("An error happened while updating passwords")
     }
