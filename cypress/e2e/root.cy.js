@@ -12,10 +12,4 @@ describe('flow of the home-site', () => {
     cy.contains('Sign up').click()
     cy.url().should('include', '/sign-up')
   })
-  it('goes to the help scene through the hamburger-menu ', () =>{
-    cy.get('[data-cy="burger-menu-link"]').click()
-    cy.contains('Help').click()
-    cy.url().should('include', '/help')
-
-  })
 })

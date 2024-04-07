@@ -13,6 +13,7 @@ const handleSubmit = async () => {
     const response = await login()
     if (response && response.status === 200) {
       await router.push('/discover')
+      window.location.reload()
     } else {
       authenticationError.value = true
     }
