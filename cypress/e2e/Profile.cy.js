@@ -18,5 +18,3 @@ describe('log in to the site and change profile-features',() =>{
 
     //write rest of the code when its functional
   it('write password- and user registration')
-
-})
