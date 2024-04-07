@@ -1,5 +1,5 @@
 
-describe('functional ',() =>{
+describe('create a new quiz to the adminUser ',() =>{
   beforeEach(() =>{
     cy.visit('http://localhost:4173')
     cy.contains('Login').click()
@@ -8,6 +8,9 @@ describe('functional ',() =>{
     cy.get('.password-input').type('password123')
     cy.get('[data-cy="login-button"]').click()
     cy.url().should('include', '/discover')
+    cy.get('[data-cy="create-new-quiz-button"]').click()
+    cy.url().should('include', '/create-quiz')
+    cy.get("")
   })
   /*it('go to createQuiz and create a quiz (required fields)', () =>{
     cy.visit('http://localhost:5173/discover')

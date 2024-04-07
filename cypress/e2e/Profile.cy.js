@@ -1,5 +1,5 @@
 describe('log in to the site and change profile-features',() =>{
-  it('login to the application', () => {
+  it('login to the application and go to user-profile', () => {
     cy.visit('http://localhost:4173')
     cy.contains('Login').click()
     cy.url().should('include', '/login')
@@ -10,6 +10,6 @@ describe('log in to the site and change profile-features',() =>{
     cy.get('[data-cy="burger-menu-link"]').click()
     cy.get('[data-cy="hamburger-profile-link"]').click()
     cy.url().should('include', '/profile')
-
+    cy.get('[data-cy="profile-username-label"]').should('include', 'adminUser')
   })
 })
