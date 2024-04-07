@@ -47,8 +47,8 @@ const onHandleClicked = (increment) => {
         <!-- <CarouselImg class="carousel-image" v-for="(item, index) in props.content" :key="index" title="Title" :img="item" ></CarouselImg>-->
         <CarouselImg class="carousel-image" v-for="(item, index) in props.content" :key="index" v-model:title="item.quizTitle" v-model:id="item.quizId" :img='getCategoryImage(item.categoryId)'></CarouselImg>
       </div>
-      <button class="handle right-handle" @click="onHandleClicked(1)">
-        <span class="arrow">&#8250;</span>
+      <button data-cy="handle-right-button" class="handle right-handle" @click="onHandleClicked(1)">
+        <span data-cy="quizzes" class="arrow">&#8250;</span>
       </button>
     </div>
   </div>

@@ -103,14 +103,14 @@ function onTimerReachedZero() {
         <img :src="questionImage" alt="question image">
       </div>
       <div class="question-display-button-container">
-        <button class="question-display-next-question-button"
+        <button data-cy="next-question-button" class="question-display-next-question-button"
                 ref="nextQuestionButton"
                 @click="onNextQuestionPressed">{{buttonText}}
         </button>
       </div>
     </div>
     <div class="question-display-answer-container">
-      <AnswerButton v-for="(item, index) in answerArray"
+      <AnswerButton  v-for="(item, index) in answerArray"
                     :color="colorArray[index]"
                     :answer="item"
                     :is-correct="booleanArray[index]"
