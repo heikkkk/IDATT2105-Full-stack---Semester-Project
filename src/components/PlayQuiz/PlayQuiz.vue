@@ -6,11 +6,15 @@ import QuestionDisplay from '@/components/PlayQuiz/QuestionDisplay.vue'
 import { useRouter } from 'vue-router'
 import { getCategoryImage } from '@/services/DiscoverService.js'
 
+// Question key in order to refresh question component
+let questionKey = ref(0);
 const router = useRouter()
+
+// Initialize score value
 useQuizStore().setCorrectQuestionCount(0)
 useQuizStore().setFinalQuestion(false)
-let questionKey = ref(0);
 
+// Retrieving quiz details
 const activeQuiz = useQuizStore().getActiveQuiz;
 const questions = activeQuiz.questions
 const imagePath = getCategoryImage(activeQuiz.categoryId)
@@ -21,25 +25,27 @@ const questionDisplayRef = ref(null)
 const questionText = ref(null)
 const timeLimit = ref(null)
 const answers = ref(null)
+
 if (questions.length !== 0) {
   activeQuestion = questions[index]
   questionText.value = activeQuestion.questionText
   timeLimit.value = activeQuestion.question_duration
   answers.value = activeQuestion.answers
 } else {
-  // No questions in the quiz
+  // If there are no questions left in the quiz
   router.push('/quiz-results')
 }
 
+// Checking if current question is the last one.
 if (index + 2 >= questions.length) {
   useQuizStore().setFinalQuestion(true)
 }
 
+// Set reactive values accordingly to next question
 const displayNextQuestion = () => {
   if (index + 2 >= questions.length) {
     useQuizStore().setFinalQuestion(true)
   }
-  // If there is no more questions
   if (index + 1 === questions.length) {
     router.push('/quiz-results')
   } else {

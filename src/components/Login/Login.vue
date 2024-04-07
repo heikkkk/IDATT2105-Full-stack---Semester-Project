@@ -2,18 +2,16 @@
 import '../../assets/css/Login/login.css'
 import LogoTitle from '@/components/LogoTitle.vue'
 import { useRouter } from 'vue-router';
-import { login, username, password } from '../../services/LoginService.js'
+import { login, usernameRef, passwordRef } from '../../services/LoginService.js'
 import { ref } from 'vue'
 
 const authenticationError = ref(false)
-
 const router = useRouter()
 
 const handleSubmit = async () => {
   try {
     const response = await login()
     if (response && response.status === 200) {
-
       await router.push('/discover')
     } else {
       authenticationError.value = true
@@ -31,8 +29,8 @@ const handleSubmit = async () => {
       <form class="login-form" @submit.prevent="handleSubmit">
         <LogoTitle data-cy="logo-title-login" color="#ffffff"></LogoTitle>
         <p v-if="authenticationError" class="error_msg">Incorrect username or password</p>
-        <input v-model="username" :class="authenticationError === false ? 'username-input' : 'error'" type="text" placeholder="Username">
-        <input v-model="password" :class="authenticationError === false ? 'password-input' : 'error'" type="password" placeholder="Password">
+        <input v-model="usernameRef" :class="authenticationError === false ? 'username-input' : 'error'" type="text" placeholder="Username">
+        <input v-model="passwordRef" :class="authenticationError === false ? 'password-input' : 'error'" type="password" placeholder="Password">
         <div class="login-button-container">
 
           <button data-cy="login-button" class="login-button" type="submit">Login</button>

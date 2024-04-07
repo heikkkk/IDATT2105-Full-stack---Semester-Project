@@ -1,12 +1,24 @@
 <script setup>
 import '@/assets/css/Profile/updatePassword.css'
 import { ref } from 'vue'
+import { updatePassword } from '@/services/ProfileService.js'
+import { useUserStore } from '@/stores/UserStore.js'
 
 let newPassword = ref('')
 let confirmPassword = ref('')
 
-const handleSubmit = () => {
-
+// Updates user's password
+async function handleSubmit() {
+  if (newPassword.value === confirmPassword.value) {
+    const response = await updatePassword(useUserStore().getUserId, confirmPassword.value)
+    if (response && response.status === 200) {
+      alert("Password updated!")
+    } else {
+      alert("An error happened while updating passwords")
+    }
+  } else {
+    alert("Make sure that the passwords are equal")
+  }
 }
 </script>
 

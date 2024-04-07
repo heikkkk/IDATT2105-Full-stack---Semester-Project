@@ -37,11 +37,6 @@ const router = createRouter({
           path: '/update-username',
           name: 'update username',
           component: () => import('../components/Profile/UpdateUsername.vue')
-        },
-        {
-          path: '/update-Profile-image',
-          name: 'update Profile image',
-          component: () => import('../components/Profile/UpdateProfileImage.vue')
         }
       ]
     },
@@ -80,7 +75,17 @@ const router = createRouter({
     {
       path: '/search-result',
       name: 'search-result',
-      component: () => import('../views/SearchResultView.vue/')
+      component: () => import('../views/SearchResultView.vue')
+    },
+    {
+      path: '/about-us',
+      name: 'about us',
+      component: () => import('../components/AboutUs.vue')
+    },
+    {
+      path: '/privacy-policy',
+      name: 'privacy policy',
+      component: () => import('@/components/PrivacyPolicy.vue')
     }
   ]
 })

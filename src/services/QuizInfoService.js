@@ -40,12 +40,3 @@ export async function getCategoryById(id) {
     throw new Error('An error occurred while fetching category\'s : ' + error.response.statusText);
   }
 }
-
-export async function getMediaById(id) {
-  try {
-    const response = await apiClient.get("/media/" + id, config)
-    return response.data
-  } catch (error) {
-    throw new Error('An error occurred while fetching media\'s : ' + error.response.statusText);
-  }
-}
