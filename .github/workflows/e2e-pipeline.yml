@@ -1,6 +1,11 @@
 name: End-To-End Test Pipeline
 
 on:
+  workflow_dispatch:
+    inputs:
+      PIPELINE_TYPE:
+        required: true
+        default: 'multi-project-pipeline'
   pull_request:
     branches: [ main ]
 
