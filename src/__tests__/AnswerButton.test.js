@@ -2,7 +2,7 @@ import { mount } from '@vue/test-utils'
 import { describe, expect, test } from 'vitest'
 import AnswerButton from '@/components/PlayQuiz/AnswerButton.vue'
 
-describe('AnswerButton.vue', () => {
+describe('AnswerButton', () => {
   test('should render correctly', () => {
     const wrapper = mount(AnswerButton, {
       propsData: {
