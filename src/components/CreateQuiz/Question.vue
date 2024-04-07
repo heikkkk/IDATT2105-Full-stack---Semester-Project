@@ -35,9 +35,9 @@ function emitSettingsButtonEvent() {
 
 async function onSaveQuizButtonPressed() {
   const response = await saveQuiz();
-  if (response && response.status === 200) {
+  if (response && response.status === 201) {
+    console.log(response.status)
     alert("Quiz saved")
-    console.log('saved')
   }
 }
 

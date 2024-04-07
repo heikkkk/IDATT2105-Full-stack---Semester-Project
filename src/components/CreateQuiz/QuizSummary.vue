@@ -4,6 +4,7 @@ import { ref } from 'vue'
 import { useRouter } from 'vue-router'
 import { useQuizStore } from '@/stores/QuizStore.js'
 import { categoryMapper, getCategoryImage } from '@/services/DiscoverService.js'
+import { deleteQuiz } from '@/services/CreateQuizService.js'
 
 const router = useRouter();
 let refreshKey = ref(0);
@@ -15,6 +16,12 @@ const onCancelButtonPressed = () => {
 
 const onContinueButtonPressed = () => {
   router.push('/create-quiz')
+}
+
+const onDeleteButtonPressed = () => {
+  deleteQuiz(useQuizStore().getActiveQuiz.quizId)
+  alert("Quiz deleted")
+  router.push('/discover')
 }
 
 const activeQuiz = useQuizStore().getActiveQuiz
@@ -106,7 +113,7 @@ const onIsPublicChange = (event) => {
       <div class="create-quiz-button-container">
         <button class="cancel-button" @click="onCancelButtonPressed">Cancel</button>
         <button class="confirm-button" @click="onContinueButtonPressed">Continue</button>
-        <button class="delete-button">Delete quiz</button>
+        <button class="delete-button" @click="onDeleteButtonPressed">Delete quiz</button>
       </div>
     </div>
   </div>
