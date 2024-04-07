@@ -29,6 +29,8 @@ jobs:
     steps:
       - name: Checkout Repository Code
         uses: actions/checkout@v4
+        with:
+          repository: 'heikkkk/IDATT2105-Semester-Project-Backend'
 
       - name: Setup JDK 17 for Java Build
         uses: actions/setup-java@v4
