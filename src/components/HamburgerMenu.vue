@@ -24,15 +24,15 @@ const onBurgerClicked = () => {
 
 <template>
   <div class="hamburger-container">
-    <i class="fas fa-bars fa-2x" @click="onBurgerClicked"></i>
+    <i data-cy="burger-menu-link" class="fas fa-bars fa-2x" @click="onBurgerClicked"></i>
   </div>
   <div class="hamburger-menu" ref="menuRef">
     <ul>
-      <li v-if="store.isActive"><RouterLink class="hamburger-menu-link" to="/profile">Profile settings</RouterLink></li>
-      <li v-if="store.isActive"><RouterLink class="hamburger-menu-link" to="/" @click="store.resetAll()">Log out</RouterLink></li>
-      <li v-if="store.isActive"><RouterLink class="hamburger-menu-link" to="/discover">Discover</RouterLink></li>
-      <li v-if="!store.isActive"><RouterLink class="hamburger-menu-link" to="/login">Login</RouterLink></li>
-      <li v-if="!store.isActive"><RouterLink class="hamburger-menu-link" to="/sign-up">Sign up</RouterLink></li>
+      <li data-cy="hamburger-profile-link" v-if="store.isActive"><RouterLink class="hamburger-menu-link" to="/profile">Profile settings</RouterLink></li>
+      <li data-cy="hamburger-logout.link" v-if="store.isActive"><RouterLink class="hamburger-menu-link" to="/" @click="store.resetAll()">Log out</RouterLink></li>
+      <li data-cy="hamburger-discover-link" v-if="store.isActive"><RouterLink class="hamburger-menu-link" to="/discover">Discover</RouterLink></li>
+      <li data-cy="hamburger-login-link" v-if="!store.isActive"><RouterLink class="hamburger-menu-link" to="/login">Login</RouterLink></li>
+      <li data-cy="hamburger-sign-up-link" v-if="!store.isActive"><RouterLink class="hamburger-menu-link" to="/sign-up">Sign up</RouterLink></li>
     </ul>
   </div>
 </template>

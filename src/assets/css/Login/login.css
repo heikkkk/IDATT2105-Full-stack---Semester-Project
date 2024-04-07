@@ -64,7 +64,6 @@ input {
     font-family: "Semi Bold Italic", sans-serif;
     font-weight: bold;
     transition: transform 150ms ease-in-out;
-
 }
 
 .login-button-container .signup-paragraph-container RouterLink {

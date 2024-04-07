@@ -1,5 +1,13 @@
 import axios from 'axios'
 import { useUserStore } from '@/stores/UserStore.js'
+import piniaPluginPersistedState from "pinia-plugin-persistedstate"
+import { createPinia } from 'pinia'
+import { createApp } from 'vue'
+import App from '@/App.vue'
+const pinia = createPinia()
+pinia.use(piniaPluginPersistedState);
+const app = createApp(App)
+app.use(pinia)
 
 /**
  * The Axios HTTP client used for making API requests.

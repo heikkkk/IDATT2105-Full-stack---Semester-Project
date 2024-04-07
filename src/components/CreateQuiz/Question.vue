@@ -54,7 +54,7 @@ async function onSaveQuizButtonPressed() {
     </div>
 
     <div class="create-question-container">
-      <input class="create-question-input" type="text" :value="questionText" @input="emitQuestionText" placeholder="Type your question here">
+      <input cy-data="input-question" class="create-question-input" type="text" :value="questionText" @input="emitQuestionText" placeholder="Type your question here">
     </div>
 
     <div class="create-question-image-wrapper">

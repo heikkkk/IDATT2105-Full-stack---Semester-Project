@@ -117,15 +117,15 @@ const emitAnswer4Checked = (event) => {
       <div class="alternative-1-container">
         <input type="text" id="alternative-1" :value="answer1" @input="emitAnswer1" placeholder="Add answer 1">
         <div class="alternative-checkbox-container">
-          <input type="checkbox" id="correct-answer-1" :checked="answer1Checked" @change="emitAnswer1Checked">
-          <label for="correct-answer-1">&#x2714;</label>
+          <input cy-data="correct answer 1" type="checkbox" id="correct-answer-1" :checked="answer1Checked" @change="emitAnswer1Checked">
+          <label  for="correct-answer-1">&#x2714;</label>
         </div>
       </div>
 
       <div class="alternative-2-container">
         <input type="text" id="alternative-2" :value="answer2" @input="emitAnswer2" placeholder="Add answer 2">
         <div class="alternative-checkbox-container">
-          <input type="checkbox" id="correct-answer-2" :checked="answer2Checked" @change="emitAnswer2Checked">
+          <input cy-data="correct-answer-2" type="checkbox" id="correct-answer-2" :checked="answer2Checked" @change="emitAnswer2Checked">
           <label for="correct-answer-2">&#x2714;</label>
         </div>
       </div>
@@ -133,7 +133,7 @@ const emitAnswer4Checked = (event) => {
       <div class="alternative-3-container">
         <input type="text" id="alternative-3" :value="answer3" @input="emitAnswer3" placeholder="Add answer 3 (optional)">
         <div class="alternative-checkbox-container">
-          <input type="checkbox" id="correct-answer-3" :checked="answer3Checked" @change="emitAnswer3Checked">
+          <input cy-data="correct-answer-3" type="checkbox" id="correct-answer-3" :checked="answer3Checked" @change="emitAnswer3Checked">
           <label for="correct-answer-3">&#x2714;</label>
         </div>
       </div>
@@ -141,7 +141,7 @@ const emitAnswer4Checked = (event) => {
       <div class="alternative-4-container">
         <input type="text" id="alternative-4" :value="answer4" @input="emitAnswer4" placeholder="Add answer 4 (optional)">
         <div class="alternative-checkbox-container">
-          <input type="checkbox" id="correct-answer-4" :checked="answer4Checked" @change="emitAnswer4Checked">
+          <input cy-data="correct-answer-4" type="checkbox" id="correct-answer-4" :checked="answer4Checked" @change="emitAnswer4Checked">
           <label for="correct-answer-4">&#x2714;</label>
         </div>
       </div>
