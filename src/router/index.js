@@ -37,11 +37,6 @@ const router = createRouter({
           path: '/update-username',
           name: 'update username',
           component: () => import('../components/Profile/UpdateUsername.vue')
-        },
-        {
-          path: '/update-Profile-image',
-          name: 'update Profile image',
-          component: () => import('../components/Profile/UpdateProfileImage.vue')
         }
       ]
     },

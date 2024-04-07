@@ -17,6 +17,7 @@ const props = defineProps({
 
 const sliderRef = ref(null)
 
+// Increments/decrements the slider-index value accordingly to have many images there are per row.
 const onHandleClicked = (increment) => {
   const slider = sliderRef.value
   const sliderIndex = parseInt(getComputedStyle(slider).getPropertyValue('--slider-index'));
@@ -43,8 +44,6 @@ const onHandleClicked = (increment) => {
         <span class="arrow">&#8249;</span>
       </button>
       <div class="slider" ref="sliderRef">
-        <!--<img v-for="(item, index) in props.content" :key="index" :src="item" alt="placeholder">-->
-        <!-- <CarouselImg class="carousel-image" v-for="(item, index) in props.content" :key="index" title="Title" :img="item" ></CarouselImg>-->
         <CarouselImg class="carousel-image" v-for="(item, index) in props.content" :key="index" v-model:title="item.quizTitle" v-model:id="item.quizId" :img='getCategoryImage(item.categoryId)'></CarouselImg>
       </div>
       <button class="handle right-handle" @click="onHandleClicked(1)">
@@ -53,7 +52,3 @@ const onHandleClicked = (increment) => {
     </div>
   </div>
 </template>
-
-<style scoped>
-
-</style>

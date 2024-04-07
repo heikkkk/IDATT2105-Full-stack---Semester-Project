@@ -15,7 +15,7 @@ const config = {
   }
 }
 
-export async function updateUsername(userId, newUsername, password) {
+export async function updateUsername(userId, newUsername) {
   try {
     return await apiClient.put("/update-username/" + userId + "/" + newUsername, null, config)
   } catch (error) {
@@ -32,17 +32,15 @@ export async function updatePassword(userId, newPassword) {
 }
 
 
-
+// Refreshes the user's token by re-logging into the website.
 export async function refreshToken(newUsername, confirmPassword) {
   try {
-    const password = confirmPassword
     const authConfig = {
       "auth": {
         "username": newUsername,
-        "password": password
+        "password": confirmPassword
       }
     }
-    console.log(newUsername, password)
     const response = await axios.post('http://localhost:8080/sign-in', {}, authConfig);
     useUserStore().setUsername(response.data.user_name)
     useUserStore().setToken(response.data.access_token)

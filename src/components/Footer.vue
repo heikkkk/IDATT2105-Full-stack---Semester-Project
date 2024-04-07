@@ -6,28 +6,25 @@ import { useUserStore } from '@/stores/UserStore.js'
 
 const store = useUserStore();
 
-const isUserActive = () => {
+const ifNotLoggedInLogin = () => {
   if (store.isActive) {
     return '/discover'
   }
   return '/login'
 }
 
-const isUserOnline = () => {
+const ifLoggedInDiscover = () => {
   if (store.isActive) {
     return '/discover'
   }
   return '/'
 }
 
-const isLoggedIn = () => {
+const ifLoggedInReset = () => {
   if (store.isActive) {
     store.resetAll()
   }
 }
-
-
-
 </script>
 
 <template>
@@ -36,9 +33,9 @@ const isLoggedIn = () => {
     <div class="links-wrapper">
       <p class="links-header">Links</p>
       <div class="links-container">
-        <RouterLink class="router" id="home" :to="isUserOnline()">Home</RouterLink>
-        <RouterLink class="router" id="discover" :to="isUserActive()">Discover</RouterLink>
-        <RouterLink class="router" id="login" to="/login" @click="isLoggedIn()">Login</RouterLink>
+        <RouterLink class="router" id="home" :to="ifLoggedInDiscover()">Home</RouterLink>
+        <RouterLink class="router" id="discover" :to="ifNotLoggedInLogin()">Discover</RouterLink>
+        <RouterLink class="router" id="login" to="/login" @click="ifLoggedInReset()">Login</RouterLink>
       </div>
     </div>
 

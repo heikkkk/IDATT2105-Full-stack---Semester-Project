@@ -6,9 +6,10 @@ import { ref } from 'vue'
 
 const store = useUserStore();
 const menuRef = ref(null);
+
+// Moves the burger menu to the left or right
 const onBurgerClicked = () => {
   const menu = menuRef.value;
-  console.log(getComputedStyle(menu).getPropertyValue('right'))
   if (parseInt(getComputedStyle(menu).getPropertyValue('right')) < 0) {
     menu.style.setProperty('right', 0);
     return;

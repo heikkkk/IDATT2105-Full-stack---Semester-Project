@@ -7,28 +7,24 @@ import { useQuizStore } from '@/stores/QuizStore.js'
 import { checkBadUserClearance } from '@/services/DiscoverService.js'
 
 const emit = defineEmits(['searchEvent']);
-
 const router = useRouter()
 const filter = ref('Title')
 const keyword = ref('')
 
+// Only allows logged-in users to search in search bar
 async function handleSearchBarSubmit() {
   if (checkBadUserClearance()) {
     alert("You have to login in order to search for quizzes.")
     router.push('/')
   }
-
   try {
     let response;
     if (filter.value === 'Title') {
       response = await getQuizzesByTitleKeyword(keyword.value)
-      console.log(response.data)
     } else if (filter.value === 'Author') {
       response = await getQuizzesByAuthor(keyword.value)
-      console.log(response.data)
     } else if (filter.value === 'Category') {
       response = await getQuizzesByCategory(keyword.value)
-      console.log(response.data)
     }
     useQuizStore().setSearchResults(response.data)
     emit('searchEvent')

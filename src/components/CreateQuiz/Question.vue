@@ -4,10 +4,7 @@ import { saveQuiz } from '@/services/CreateQuizService.js'
 import { useRouter } from 'vue-router'
 
 const router = useRouter()
-
-// Define emits for emitting the update event
 const emit = defineEmits(['questionTextEvent', 'questionImageEvent', 'settingsButtonEvent']);
-
 const props = defineProps({
   questionText: {
     type: String,
@@ -19,27 +16,18 @@ const props = defineProps({
   }
 })
 
-console.log('Quesiton: ' + props.questionImage)
-
 const emitQuestionText = (event) => {
   const newValue = event.target.value;
-  emit('questionTextEvent', newValue);
-};
-
-const emitQuestionImage = (event) => {
-  const newValue = event.target.value;
-  emit('questionImageEvent', newValue);
-};
+  emit('questionTextEvent', newValue)
+}
 
 function emitSettingsButtonEvent() {
   router.push('/summary')
-
-};
+}
 
 async function onSaveQuizButtonPressed() {
   const response = await saveQuiz();
   if (response && response.status === 201) {
-    console.log(response.status)
     alert("Quiz saved")
   }
 }
@@ -62,12 +50,7 @@ async function onSaveQuizButtonPressed() {
       <div class="create-question-image-container">
         <img :src="questionImage" alt="question image">
       </div>
-      <div class="change-question-image-container">
-        <!--
-        <label class="change-question-image-label" for="change-question-image-input">Select image</label>
-        <input id="change-question-image-input" type="file" @input="emitQuestionImage">
-        -->
-      </div>
+      <div class="change-question-image-container"></div>
     </div>
   </div>
 </template>

@@ -3,7 +3,6 @@ import '@/assets/css/CreateQuiz/createMultipleChoice.css'
 
 const emit = defineEmits(['answer1Event', 'answer2Event', 'answer3Event', 'answer4Event',
   'answer1CheckedEvent', 'answer2CheckedEvent', 'answer3CheckedEvent', 'answer4CheckedEvent']);
-
 const props = defineProps({
   answer1: {
     type: String,
@@ -39,6 +38,7 @@ const props = defineProps({
   }
 })
 
+// Emit changes on answer content and values:
 const emitAnswer1 = (event) => {
   const newValue = event.target.value;
   emit('answer1Event', newValue);
@@ -78,8 +78,6 @@ const emitAnswer4Checked = (event) => {
   const newValue = event.target.checked;
   emit('answer4CheckedEvent', newValue);
 };
-
-
 </script>
 
 <template>

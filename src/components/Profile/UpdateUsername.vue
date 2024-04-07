@@ -7,13 +7,12 @@ import { useUserStore } from '@/stores/UserStore.js'
 let newUsername = ref('')
 let password = ref('')
 
+// Updates user's username
 async function handleSubmit() {
-  // Refresh Token
-  await refreshToken(useUserStore().getUsername, password.value)
   // Update username
   const usernameResponse = await updateUsername(useUserStore().getUserId, newUsername.value)
   if (usernameResponse.status === 200) {
-    // Generate a new token
+    // Refreshes token with new username
     const tokenResponse = await refreshToken(newUsername.value, password.value)
     if (tokenResponse.status === 200) {
       alert("Username updated!")

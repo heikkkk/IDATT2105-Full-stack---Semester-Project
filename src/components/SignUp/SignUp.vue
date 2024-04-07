@@ -8,7 +8,6 @@ import { signUp } from '@/services/SignUpService.js'
 import TextInput from '@/components/SignUp/TextInput.vue'
 
 const registrationError = ref(false)
-
 const router = useRouter()
 
 const required = value => {
@@ -40,22 +39,13 @@ const validationSchema = {
       },
     }
 
-const { handleSubmit, errors, setFieldValue, meta } = useForm({
+const { handleSubmit, errors } = useForm({
   validationSchema
 })
 
 const { value: username } = useField('username')
 const { value: email } = useField('email')
 const { value: password } = useField('password')
-
-const handleChange = (event) => {
-      let field = ''
-      if (event.target.id == 1) field = 'username'
-      else if (event.target.id == 2) field = 'email'
-      else if (event.target.id == 3) field = 'password'
-
-      setFieldValue(field, event.target.value)
-    }
 
 const submit = handleSubmit(async values => {
   try {

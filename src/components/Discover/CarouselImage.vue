@@ -30,18 +30,13 @@ async function onImageClicked() {
         router.push('/search-result')
       }
     } else {
-      console.log("Starting get request")
-      console.log(props.id)
       const response = await getQuizById(props.id);
       const quizStore = useQuizStore();
-
       quizStore.setActiveQuiz(response.data);
-      console.log(response.data);
       if (response && response.status === 200) {
         router.push('/quiz-info');
       }
     }
-
   } catch (error) {
     throw new Error('An error occurred while fetching quiz : ' + error.response.statusText);
   }

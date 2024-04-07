@@ -7,10 +7,9 @@ import { useUserStore } from '@/stores/UserStore.js'
 let newPassword = ref('')
 let confirmPassword = ref('')
 
+// Updates user's password
 async function handleSubmit() {
   if (newPassword.value === confirmPassword.value) {
-    console.log(newPassword.value, confirmPassword.value)
-    console.log(newPassword.value === confirmPassword.value)
     const response = await updatePassword(useUserStore().getUserId, confirmPassword.value)
     if (response && response.status === 200) {
       alert("Password updated!")

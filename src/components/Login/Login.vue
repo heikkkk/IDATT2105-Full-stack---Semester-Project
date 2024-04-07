@@ -6,14 +6,12 @@ import { login, usernameRef, passwordRef } from '../../services/LoginService.js'
 import { ref } from 'vue'
 
 const authenticationError = ref(false)
-
 const router = useRouter()
 
 const handleSubmit = async () => {
   try {
     const response = await login()
     if (response && response.status === 200) {
-
       await router.push('/discover')
     } else {
       authenticationError.value = true

@@ -32,23 +32,25 @@ let imagePath = ref(getCategoryImage(categoryId.value))
 let category = ref(categoryMapper[categoryId.value])
 const isPublic = ref(activeQuiz.isPublic)
 
+// Updates title
 const onTitleChange = (event) => {
   activeQuiz['title'] = event.target.value
 }
 
+// Updates description
 const onDescriptionChange = (event) => {
   activeQuiz['description'] = event.target.value
 }
 
+// Updates category
 const onCategoryChange = (event) => {
   activeQuiz['categoryId'] = reversedCategoryMapper[event.target.value]
-  console.log(activeQuiz['categoryId'])
   coverImage.value.src = getCategoryImage(activeQuiz['categoryId']);
 }
 
+// Updates public/private value
 const onIsPublicChange = (event) => {
   activeQuiz['isPublic'] = event
-  console.log(activeQuiz['isPublic'])
 }
 
 
@@ -77,10 +79,6 @@ const onIsPublicChange = (event) => {
           <h3>Cover image</h3>
           <div class="cover-image-container">
             <img :src="imagePath" ref="coverImage" :key="refreshKey">
-            <!--
-            <label class="change-quiz-image-label" for="change-quiz-image-input">Select file</label>
-            <input id="change-quiz-image-input" type="file">
-            -->
           </div>
         </div>
       </div>

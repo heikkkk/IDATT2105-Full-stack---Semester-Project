@@ -11,6 +11,7 @@ const profileImage = "src/assets/img/defaultUserPicture.png";
 const router = useRouter();
 let quizzesByUser = ref([]);
 
+// Shows the form for updating password
 const showUpdatePassword = () => {
   if (router.currentRoute.value.path === '/update-password') {
     router.push('profile')
@@ -20,6 +21,7 @@ const showUpdatePassword = () => {
   }
 }
 
+// Shows the form for updating username
 const showUpdateUsername = () => {
   if (router.currentRoute.value.path === '/update-username') {
     router.push('profile')
@@ -29,22 +31,10 @@ const showUpdateUsername = () => {
   }
 }
 
-/*
-const showUpdateProfileImage = () => {
-  if (router.currentRoute.value.path === '/update-Profile-image') {
-    router.push('profile')
-  }
-  else {
-    router.push('/update-Profile-image');
-  }
-}
-*/
-
 onMounted(async () => {
   try {
     const userResponse = await getQuizesByUser();
     quizzesByUser.value = userResponse.data;
-    console.log(userResponse.data)
   } catch (error) {
     throw new Error('Could not load quizzes from server : ' + error.response.statusText);
   }
@@ -60,9 +50,6 @@ onMounted(async () => {
       </div>
     </div>
     <div class="profile-button-container">
-      <!--
-      <button class="update-profile-image" @click="showUpdateProfileImage">Update image</button>
-      -->
       <button class="update-password" @click="showUpdatePassword">Update password</button>
       <button class="update-username" @click="showUpdateUsername">Update username</button>
     </div>

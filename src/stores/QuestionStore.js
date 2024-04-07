@@ -4,7 +4,7 @@ export const useQuestionStore = defineStore({
   id: 'QuestionStore',
   state: () => ({
     activeQuestionId: 0,
-    genericId: -1
+    genericId: -1 // Negative in order to specify a new change in attribute
   }),
   actions: {
     setActiveQuestionId(newValue) {

@@ -15,14 +15,6 @@ const config = {
   }
 }
 
-export async function getQuizzesByKeywordAndAuthor(keyword) {
-  try {
-    return await apiClient.get("/keyword/" + keyword, config)
-  } catch (error) {
-    throw new Error('An error occurred while fetching quiz\'s by a user : ' + error.response.statusText);
-  }
-}
-
 export async function getQuizesByUser() {
   try {
     return await apiClient.get("/user/" + useUserStore().getUsername, config)

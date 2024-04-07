@@ -22,7 +22,6 @@ try {
 } catch (error) {
   numberOfQuestions = 0;
 }
-console.log(quiz)
 const createdAt = quiz.createdAt;
 const category = ref('');
 const description = quiz.description;
@@ -30,7 +29,6 @@ const description = quiz.description;
 onMounted(async () => {
   try {
     activeUserId.value = (await getIdByUsername(userStore.getUsername)).data
-    console.log(activeUserId.value)
     author.value = await getUsernameById(quiz.userId);
     category.value = await getCategoryById(quiz.categoryId);
   } catch (error) {
@@ -42,11 +40,11 @@ const navigateToDiscover = () => {
   router.push('/discover')
 }
 
-const navigaateToPlayQuiz = () => {
+const navigateToPlayQuiz = () => {
   router.push('/play-quiz')
 }
 
-const navigaateToCreateQuiz = () => {
+const navigateToCreateQuiz = () => {
   router.push('/create-quiz')
 }
 
@@ -75,8 +73,8 @@ const navigaateToCreateQuiz = () => {
 
     <div class="quiz-info-button-container">
       <button @click="navigateToDiscover">Go back</button>
-      <button @click="navigaateToPlayQuiz">Play Quiz</button>
-      <button @click="navigaateToCreateQuiz" v-if="quiz.userId === activeUserId">Edit Quiz</button>
+      <button @click="navigateToPlayQuiz">Play Quiz</button>
+      <button @click="navigateToCreateQuiz" v-if="quiz.userId === activeUserId">Edit Quiz</button>
     </div>
 
   </div>

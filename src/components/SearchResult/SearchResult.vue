@@ -8,7 +8,6 @@ let resultKey = 0
 const results = useQuizStore().getSearchResults
 
 const updateResults = () => {
-  console.log('Hello')
   resultKey += 1
 }
 

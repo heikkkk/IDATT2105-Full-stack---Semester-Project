@@ -30,9 +30,16 @@ const props = defineProps({
     default: () => []
   }
 })
+
+let buttonText = ref('Next question');
+const answerButtons = ref(null);
+const timer = ref(null);
+const nextQuestionButton = ref(null);
 const answerArray = ref([])
 const booleanArray = ref([])
 const colorArray = ['#35a3e4', '#ff8701', '#01aa6f', '#fbf354']
+
+// Stores answers and correct-booleans in arrays
 props.answers.forEach(answer => {
   if (answer.answerText) {
     answerArray.value.push(answer.answerText)
@@ -47,12 +54,6 @@ for (let i = answerArray.value.length - 1; i > 0; i--) {
   [booleanArray.value[i], booleanArray.value[j]] = [booleanArray.value[j], booleanArray.value[i]];
 }
 
-// Reactive values
-const answerButtons = ref(null);
-const timer = ref(null);
-const nextQuestionButton = ref(null);
-
-let buttonText = ref('Next question');
 if (useQuizStore().isFinalQuestion) {
   buttonText.value = 'See results'
 }
@@ -72,8 +73,6 @@ function onAnswerPressed(value) {
   });
   timer.value.onAnswerPressed()
   revealNextQuestionButton()
-  console.log(timer.value)
-  console.log('This button was ', value)
 }
 
 function onTimerReachedZero() {
