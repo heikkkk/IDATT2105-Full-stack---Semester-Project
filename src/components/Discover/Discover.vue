@@ -63,7 +63,7 @@ onMounted(async () => {
   <div class="discover-wrapper">
     <div class="discover-container">
       <div class="discover-button-container">
-        <button class="create-new-quiz-button" @click="onNewQuizButtonPressed()">Create new quiz</button>
+        <button data-cy="create-new-quiz-button" class="create-new-quiz-button" @click="onNewQuizButtonPressed()">Create new quiz</button>
       </div>
       <Carousel class="carousel" title="Your quiz's" v-model:content="quizzesByUser"/>
       <Carousel class="carousel" title="Category" v-model:content="categoryQuizzes"/>

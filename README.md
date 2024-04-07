@@ -7,7 +7,7 @@ This repository contains the frontend code for our Quiz Application, Quizopia.
 [VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
 
 # Setup
-To run the backend server, follow these steps:
+To run the frontend server, follow these steps:
 
 1. **Clone this repository to your local machine**:
 ```shell
@@ -44,6 +44,22 @@ npm run test:e2e
 ```
 
 Rememeber that the backend application needs to be running for this to work.
+
+# Test Data
+1. **Backend Server**: Make sure that the backend server is up and running, and is connected to the database.
+2. **Test Data**: Thanks to our schema scripts and the use of Flyway for database migration, test data will automatically populate your database upon running the backend server.
+3. **Test Users**: We have predefined three test users within the system: **adminUser**, **regularUser** and **guestUser**. They all use the same password: **password123**.
+4. **Example Quizzes**: We have also preloaded four example quizzes that will be able to playthrough and edit if you select the user **adminUser**.
+
+# How to Use the Application
+1. This is the screen you should see when starting up. Click on the button **login**
+![image](https://github.com/heikkkk/IDATT2105-Semester-Project-Frontend/assets/89779148/c6ef3d21-555a-450f-86f3-1ab9c9a0ee27)
+2. This is the login screen. Here you need to enter in a valid username and password. For testing purposes you can use the premade adminUser account:
+- **Username**: adminUser
+- **Password**: password123
+![image](https://github.com/heikkkk/IDATT2105-Semester-Project-Frontend/assets/89779148/74f64260-6e12-4c2b-983f-8f328483d9f3)
+3. This is the home screen. From here you are able to play through your own quizzes and other public quizzes by clicking on them. You can also sort these quizzes by category, and you are able to search for quizzes by keywords in their title, category and the author who made them. You are also able to create quizzes by clicking on the **Create new quiz** button on the top left size of the screen.
+  ![image](https://github.com/heikkkk/IDATT2105-Semester-Project-Frontend/assets/89779148/32de8fbe-2c9d-4c54-98d5-76c1c611fb58)
 
 # Common Issues and Troubleshooting
 
