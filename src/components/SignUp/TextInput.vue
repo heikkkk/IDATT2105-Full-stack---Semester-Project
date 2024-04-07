@@ -64,6 +64,8 @@ label {
 }
 
 .errorMessage {
+  margin-top: 0;
+  margin-left: 10px;
   color: red;
 }
 

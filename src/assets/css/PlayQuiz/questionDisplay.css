@@ -9,6 +9,30 @@
     display: grid;
 }
 
+.question-display-text-container button {
+    cursor: pointer;
+    top: 9px;
+    right: 9px;
+    position: absolute;
+    justify-self: end;
+    outline: none;
+    border: none;
+    text-align: center;
+    text-justify: auto;
+    color: white;
+    width: 40px;
+    height: 40px;
+    font-size: 26px;
+    background: linear-gradient(to bottom right, #BF1745, #CF6A2A);
+    border-radius: 50%;
+    transition: transform 150ms ease-in-out;
+}
+
+.question-display-text-container button:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    transform: scale(1.1);
+}
+
 .question-display-text-container h1 {
     align-self: center;
     color: white;

@@ -41,7 +41,6 @@ function revealAnswers() {
 }
 
 function setSubmit() {
-  console.log('Changed')
   submitted = false
 }
 

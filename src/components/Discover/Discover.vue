@@ -53,8 +53,6 @@ onMounted(async () => {
     useUserStore().setUserId(userId.data)
     quizzesByUser.value = userResponse.data;
     publicQuizzes.value = publicResponse.data;
-    console.log(userResponse.data)
-    console.log(publicResponse.data)
   } catch (error) {
     throw new Error('Could not load quizzes from server : ' + error.response.statusText);
   }

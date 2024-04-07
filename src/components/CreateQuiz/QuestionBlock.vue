@@ -4,7 +4,6 @@ import { useQuizStore } from '@/stores/QuizStore.js'
 import { useQuestionStore} from '@/stores/QuestionStore.js'
 
 const emit = defineEmits(['toggleQuestionEvent']);
-
 const props = defineProps({
   id:{
     type: Number,
@@ -24,10 +23,9 @@ const props = defineProps({
   }
 })
 
+// Removes question from quiz store
 function onDeleteButtonPressed() {
   const quizStore = useQuizStore();
-  console.log(props.id)
-  console.log(quizStore.getActiveQuiz)
   quizStore.getActiveQuiz.questions = quizStore.getActiveQuiz.questions.filter(question => question.questionId !== props.id);
 }
 

@@ -2,10 +2,11 @@
 import '../../assets/css/PlayQuiz/countdownTimer.css'
 import { ref } from 'vue'
 
+// Displays quiz audio
 const audio = new Audio('src/assets/sound/BeAsYoung.mp3');
 audio.play()
-const emit = defineEmits(['timerZeroEvent']);
 
+const emit = defineEmits(['timerZeroEvent']);
 const props = defineProps({
   timerValue: {
     type: Number,
@@ -13,10 +14,10 @@ const props = defineProps({
   }
 })
 
-
-const timerRef = ref(null)
 let time = props.timerValue
+const timerRef = ref(null)
 
+// Starts the countdown timer
 const interval = setInterval(updateCountdown, 1000)
 function updateCountdown() {
   timerRef.value.innerText = time;
@@ -31,7 +32,6 @@ function updateCountdown() {
 }
 
 function onAnswerPressed() {
-  console.log('something is happening')
   clearInterval(interval)
   audio.pause()
   emit('timerZeroEvent')

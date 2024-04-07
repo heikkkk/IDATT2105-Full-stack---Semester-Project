@@ -1,15 +1,15 @@
 <script setup lang="js">
 import LogoTitle from '@/components/LogoTitle.vue'
 import SearchBar from '@/components/SearchBar.vue'
-// import SettingsDropdown from '@/components/SettingsDropdown.vue'
 import UserDropdown from '@/components/UserTitle.vue'
 import { useUserStore } from '@/stores/UserStore.js'
 import '../assets/css/header.css'
 import HamburgerMenu from '@/components/HamburgerMenu.vue'
 
 const store = useUserStore()
-
 const emit = defineEmits(['searchEvent']);
+
+// Passes search event to parent
 const onSearchEventReceived = () => {
   emit('searchEvent')
 }
@@ -28,12 +28,5 @@ const onSearchEventReceived = () => {
       <div/>
       <HamburgerMenu class="burger"/>
     </div>
-    <!--
-    <div v-if="store.getUsername==null" class="sign-up">
-      <RouterLink to="/sign-up" class="sign-up-link">Sign up</RouterLink>
-      <SettingsDropdown class="dropdown-content"/>
-    </div>
-    <UserDropdown v-else/>
-    -->
   </div>
 </template>

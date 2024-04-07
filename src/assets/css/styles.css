@@ -10,9 +10,9 @@ hr {
 
 body {
     margin: 0;
-    background-image: url("../img/background2.png");
+    background-image: url("../img/background.png");
     background-size: cover;
-    overflow-x: hidden; /* Hide the horizontal scrollbar */
+    overflow-x: hidden;
 }
 
 html {

@@ -4,7 +4,9 @@ import CountdownTimer from '@/components/PlayQuiz/CountdownTimer.vue'
 import AnswerButton from '@/components/PlayQuiz/AnswerButton.vue'
 import { ref } from 'vue'
 import { useQuizStore } from '@/stores/QuizStore.js'
+import { useRouter } from 'vue-router'
 
+const router = useRouter();
 const emit = defineEmits(['nextQuestionEvent']);
 const props = defineProps({
   quizTitle: {
@@ -28,9 +30,16 @@ const props = defineProps({
     default: () => []
   }
 })
+
+let buttonText = ref('Next question');
+const answerButtons = ref(null);
+const timer = ref(null);
+const nextQuestionButton = ref(null);
 const answerArray = ref([])
 const booleanArray = ref([])
 const colorArray = ['#35a3e4', '#ff8701', '#01aa6f', '#fbf354']
+
+// Stores answers and correct-booleans in arrays
 props.answers.forEach(answer => {
   if (answer.answerText) {
     answerArray.value.push(answer.answerText)
@@ -38,12 +47,13 @@ props.answers.forEach(answer => {
   }
 })
 
-// Reactive values
-const answerButtons = ref(null);
-const timer = ref(null);
-const nextQuestionButton = ref(null);
+// Shuffle answers
+for (let i = answerArray.value.length - 1; i > 0; i--) {
+  const j = Math.floor(Math.random() * (i + 1));
+  [answerArray.value[i], answerArray.value[j]] = [answerArray.value[j], answerArray.value[i]];
+  [booleanArray.value[i], booleanArray.value[j]] = [booleanArray.value[j], booleanArray.value[i]];
+}
 
-let buttonText = ref('Next question');
 if (useQuizStore().isFinalQuestion) {
   buttonText.value = 'See results'
 }
@@ -63,8 +73,6 @@ function onAnswerPressed(value) {
   });
   timer.value.onAnswerPressed()
   revealNextQuestionButton()
-  console.log(timer.value)
-  console.log('This button was ', value)
 }
 
 function onTimerReachedZero() {
@@ -76,12 +84,18 @@ function onTimerReachedZero() {
   }
   revealNextQuestionButton()
 }
+
+function onExitButtonPressed() {
+  timer.value.onAnswerPressed()
+  router.push('/discover')
+}
 </script>
 
 <template>
   <div class="question-display-wrapper">
     <div class="question-display-text-container">
       <h1>{{props.questionText}}</h1>
+      <button @click="onExitButtonPressed()">&#10006;</button>
     </div>
 
     <div class="question-display-content-container">
