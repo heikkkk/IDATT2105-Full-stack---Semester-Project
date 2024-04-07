@@ -1,6 +1,6 @@
 /**describe('flow of sign-up-site', () => {
   it('go to sign-up site',() => {
-    cy.visit('http://localhost:5173')
+    cy.visit('http://localhost:4173')
     cy.contains('Login').click()
     cy.contains('Sign up').click()
     cy.url().should('include', '/sign-up')
@@ -8,7 +8,7 @@
 
 
   it('sign-up and login thereafter',() => {
-    cy.visit('http://localhost:5173')
+    cy.visit('http://localhost:4173')
     cy.contains('Login').click()
     cy.contains('Sign up').click()
     cy.url().should('include', '/sign-up')

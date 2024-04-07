@@ -52,15 +52,15 @@ onMounted(async () => {
 <template>
   <div class="profile-wrapper">
     <div class="profile-details-container">
-      <img :src=profileImage class="profile-image" alt="profileImage" @click="showUpdateProfileImage">
+      <img data-cy="profile-image" :src=profileImage class="profile-image" alt="profileImage" @click="showUpdateProfileImage">
       <div class="profile-username-container">
         <h1 class="profile-username">{{store.getUsername}}</h1>
       </div>
     </div>
     <div class="profile-button-container">
-      <button class="update-profile-image" @click="showUpdateProfileImage">Update image</button>
-      <button class="update-password" @click="showUpdatePassword">Update password</button>
-      <button class="update-username" @click="showUpdateUsername">Update username</button>
+      <button data-cy="update-image-button" class="update-profile-image" @click="showUpdateProfileImage">Update image</button>
+      <button data-cy="update-password-button" class="update-password" @click="showUpdatePassword">Update password</button>
+      <button data-cy="update-username-button" class="update-username" @click="showUpdateUsername">Update username</button>
     </div>
     <div class="profile-router-view-container">
       <RouterView class="profile-router-view"></RouterView>
