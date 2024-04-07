@@ -7,7 +7,7 @@ describe('flow of the play-quiz', () => {
     cy.get('.password-input').type('password123')
     cy.get('[data-cy="login-button"]').click()
     cy.url().should('include', '/discover')
-    cy.get('.slider').eq(2).children().eq(2).click()
+    cy.get('.slider').eq(2).children().eq(4).click()
     cy.url().should('include', '/quiz-info')
     cy.contains('Play Quiz').click()
     cy.url().should('include','/play-quiz')
@@ -16,14 +16,14 @@ describe('flow of the play-quiz', () => {
     cy.get('[data-cy="next-question-button"]').click()
     cy.get('[data-cy="answer-buttons"]').eq(0).click()
     cy.get('[data-cy="next-question-button"]').click()
-    cy.get('[data-cy="answer-buttons"]').eq(2).click()
+    cy.get('[data-cy="answer-buttons"]').eq(1).click()
     cy.get('[data-cy="next-question-button"]').click()
-    cy.get('[data-cy="answer-buttons"]').eq(2).click()
+    cy.get('[data-cy="answer-buttons"]').eq(1).click()
     cy.get('[data-cy="next-question-button"]').click()
     cy.get('[data-cy="answer-buttons"]').eq(0).click()
     cy.get('[data-cy="next-question-button"]').click()
     cy.url().should('include', 'quiz-results')
-    cy.get('.quiz-result-container').children().eq(0).should( 'contain','You got 1 out of 5 right!')
+    cy.get('.quiz-result-container').children().eq(0).should( 'contain','You got 2 out of 5 right!')
 
 
     //click on the slide-button
