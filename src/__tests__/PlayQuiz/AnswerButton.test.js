@@ -2,7 +2,7 @@ import { mount } from '@vue/test-utils'
 import { describe, expect, test } from 'vitest'
 import AnswerButton from '@/components/PlayQuiz/AnswerButton.vue'
 
-describe('AnswerButton.vue', () => {
+describe('AnswerButton', () => {
   test('should render correctly', () => {
     const wrapper = mount(AnswerButton, {
       propsData: {
@@ -13,7 +13,9 @@ describe('AnswerButton.vue', () => {
     })
 
     const answerText = wrapper.find('.answer-button-label').text()
-    //TODO lag flere expect setninger som sjekker om alle props blir brukt
+    const answerButton = wrapper.find('.answer-button-container')
+    const backgroundColorButton = window.getComputedStyle(answerButton.element).backgroundColor
+    expect(backgroundColorButton).toEqual('rgb(255, 0, 0)')
     expect(answerText).toEqual('testAnswer')
   })
 })

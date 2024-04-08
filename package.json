@@ -12,7 +12,6 @@
     "build": "vite build",
     "preview": "vite preview",
     "test:unit": "vitest",
-    "test:e2e": "start-server-and-test preview http://localhost:4173/ 'cypress run --e2e'",
     "test:e2e:dev": "start-server-and-test 'vite dev --port 4173' http://localhost:4173/ 'cypress open --e2e'",
     "test:e2e:ci": "start-server-and-test 'vite dev --port 4173' http://localhost:4173/ 'cypress run --headless'",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore",
@@ -46,7 +45,7 @@
     "jsdom": "^24.0.0",
     "prettier": "^3.0.3",
     "start-server-and-test": "^2.0.3",
-    "vite": "^5.2.6",
+    "vite": "^5.2.8",
     "vitest": "^1.4.0"
   }
 }

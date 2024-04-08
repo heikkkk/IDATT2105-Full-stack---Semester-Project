@@ -8,7 +8,6 @@ describe('flow of the discovery-site', () => {
     cy.get('[data-cy="login-button"]').click()
     cy.url().should('include', '/discover')
   })
-
   it('Go to the user-profile', () => {
     cy.get('[data-cy="burger-menu-link"]').click()
     cy.get('[data-cy="hamburger-profile-link"]').click()

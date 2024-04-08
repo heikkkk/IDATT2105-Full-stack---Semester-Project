@@ -15,19 +15,7 @@ describe('flow of the play-quiz', () => {
     cy.get('[data-cy="answer-buttons"]').eq(1).click()//.children().eq(0).should('eql', { isCorrect: false })
     cy.get('[data-cy="next-question-button"]').click()
     cy.url().should('include', 'quiz-results')
-
     cy.get('.quiz-result-container').children().eq(0).should( 'contain','You got 0 out of 1 right!')
-
-
-    //click on the slide-button
-/*
-    cy.get('[data-cy="handle-right-button"]').first().click()
-    //How to access a array
-    ///cy.get('[data-cy="quizzes-by-user")]')
-    cy.url().should('include','/quiz-info')
-    cy.contains('Play Game').click()
-    cy.url().should('include', 'play-quiz')
-*/
     it('continue the flow of the program...')
   })
 })

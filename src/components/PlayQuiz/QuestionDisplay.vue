@@ -2,11 +2,21 @@
 import '../../assets/css/PlayQuiz/questionDisplay.css'
 import CountdownTimer from '@/components/PlayQuiz/CountdownTimer.vue'
 import AnswerButton from '@/components/PlayQuiz/AnswerButton.vue'
-import { ref } from 'vue'
+import { createApp, ref } from 'vue'
 import { useQuizStore } from '@/stores/QuizStore.js'
 import { useRouter } from 'vue-router'
+import { createPinia } from 'pinia'
+import piniaPluginPersistedState from 'pinia-plugin-persistedstate'
+import App from '@/App.vue'
+
+const pinia = createPinia()
+pinia.use(piniaPluginPersistedState);
+const app = createApp(App)
+app.use(pinia)
 
 const router = useRouter();
+
+
 const emit = defineEmits(['nextQuestionEvent']);
 const props = defineProps({
   quizTitle: {

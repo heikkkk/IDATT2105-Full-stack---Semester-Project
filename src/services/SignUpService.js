@@ -4,6 +4,7 @@ import piniaPluginPersistedState from "pinia-plugin-persistedstate"
 import { createPinia } from 'pinia'
 import { createApp } from 'vue'
 import App from '@/App.vue'
+import { ref } from 'vue'
 
 const pinia = createPinia()
 pinia.use(piniaPluginPersistedState);

@@ -29,9 +29,9 @@ async function handleSubmit() {
     <div class="update-password-container">
       <h1>Create new password</h1>
       <form class="update-password-form" @submit.prevent="handleSubmit">
-        <input class="new-password-input" v-model="newPassword" type="password" placeholder="New password">
-        <input class="confirm-password-input" v-model="confirmPassword" type="password" placeholder="Confirm password">
-        <button class="update-password-button" type="submit">Update password</button>
+        <input data-cy="new-password-input" class="new-password-input" v-model="newPassword" type="password" placeholder="New password">
+        <input data-cy="confirm-password-input" class="confirm-password-input" v-model="confirmPassword" type="password" placeholder="Confirm password">
+        <button data-cy="update-password-button-route" class="update-password-button" type="submit">Update password</button>
       </form>
     </div>
   <hr>

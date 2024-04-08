@@ -1,9 +1,5 @@
-import axios from 'axios'
-import async from 'async'
 describe('create a new quiz to the adminUser ',() =>{
   beforeEach( () => {
-
-
     cy.visit('http://localhost:4173')
     cy.contains('Login').click()
     cy.url().should('include', '/login')
@@ -15,9 +11,6 @@ describe('create a new quiz to the adminUser ',() =>{
     cy.url().should('include', '/summary')
   })
   it('go to createQuiz and create a quiz (required fields)', () =>{
-    cy.visit('http://localhost:4173/discover')
-    cy.get('[data-cy="create-new-quiz-button"]').click()
-    cy.url().should('include', '/summary')
     cy.get('[data-cy="title-input"]').type('TestTitle')
     cy.get('[data-cy="description-input"]').type('This is a test-description')
     cy.get('[data-cy="category-selector"]').select('Math')
@@ -29,8 +22,6 @@ describe('create a new quiz to the adminUser ',() =>{
     cy.get('#alternative-2').type("This is not the answer", )
     cy.get('#alternative-3').type("This is also not the answer", )
     cy.get('#alternative-4').type("not the answer", )
-    //legg til flere spørsmål....
-    //cy.contains('Save quiz').click()
   })
 })
 
