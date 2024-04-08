@@ -1,5 +1,5 @@
 
-describe('log in to the site and change profile-features',() =>{
+describe('log in to the site and change profile-features',() => {
 
 
   it('login to the application and go to user-profile', () => {
@@ -14,7 +14,5 @@ describe('log in to the site and change profile-features',() =>{
     cy.get('[data-cy="hamburger-profile-link"]').click()
     cy.url().should('include', '/profile')
     cy.get('.profile-username').should('contain.text', 'testUser')
-    })
-
-    //write rest of the code when its functional
-  it('write password- and user registration')
+  })
+})
