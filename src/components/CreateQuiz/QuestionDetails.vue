@@ -60,7 +60,7 @@ const emitExplanation = (event) => {
 
     <div class="question-title-container">
       <h3>Question title (optional)</h3>
-      <input class="question-title-input" type="text" :value="questionTitle" @input="emitQuestionTitle" placeholder="Enter a title...">
+      <input data-cy="question-title.input" class="question-title-input" type="text" :value="questionTitle" @input="emitQuestionTitle" placeholder="Enter a title...">
     </div>
 
     <div class="time-limit-container">

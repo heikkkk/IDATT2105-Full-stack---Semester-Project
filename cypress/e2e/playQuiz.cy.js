@@ -7,7 +7,7 @@ describe('flow of the play-quiz', () => {
     cy.get('.password-input').type('password123')
     cy.get('[data-cy="login-button"]').click()
     cy.url().should('include', '/discover')
-    cy.get('.slider').eq(2).children().eq(0).click()
+    cy.get('.slider').eq(2).children().eq(1).click()
     cy.url().should('include', '/quiz-info')
     cy.contains('Play Quiz').click()
     cy.url().should('include','/play-quiz')
