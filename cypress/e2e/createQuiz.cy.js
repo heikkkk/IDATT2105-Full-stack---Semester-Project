@@ -1,4 +1,3 @@
-
 describe('create a new quiz to the adminUser ',() =>{
   beforeEach( () => {
     cy.visit('http://localhost:4173')
@@ -23,6 +22,9 @@ describe('create a new quiz to the adminUser ',() =>{
     cy.get('#alternative-2').type("This is not the answer", )
     cy.get('#alternative-3').type("This is also not the answer", )
     cy.get('#alternative-4').type("not the answer", )
+
+    //legg til flere spørsmål....
+    //cy.contains('Save quiz').click()
   })
   it('Assert if it has all the elements')
 })
