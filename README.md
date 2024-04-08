@@ -40,16 +40,17 @@ npm run test:unit
 
 ```sh
 npm run build
-npm run test:e2e
+npm run test:e2e:dev
 ```
 
-Rememeber that the backend application needs to be running for this to work.
+Rememeber that the backend application needs to be running up against the test database for this to work. See [here](https://github.com/heikkkk/IDATT2105-Semester-Project-Backend/blob/main/README.md#testing) for more details.
 
 # Test Data
 1. **Backend Server**: Make sure that the backend server is up and running, and is connected to the database.
 2. **Test Data**: Thanks to our schema scripts and the use of Flyway for database migration, test data will automatically populate your database upon running the backend server.
 3. **Test Users**: We have predefined three test users within the system: **adminUser**, **regularUser** and **guestUser**. They all use the same password: **password123**.
-4. **Example Quizzes**: We have also preloaded four example quizzes that will be able to playthrough and edit if you select the user **adminUser**.
+4. **Example Quizzes**: We have also preloaded four example quizzes that you will be able to playthrough. You can also edit and delete them if you select the user **adminUser** since
+they are set as the author.
 
 # How to Use the Application
 1. This is the screen you should see when starting up. Click on the button **login**
@@ -57,6 +58,8 @@ Rememeber that the backend application needs to be running for this to work.
 2. This is the login screen. Here you need to enter in a valid username and password. For testing purposes you can use the premade adminUser account:
 - **Username**: adminUser
 - **Password**: password123
+
+You can optionally register your own user by clicking on **Sign up** and following the steps provided and then loggin with that user instead.
 ![image](https://github.com/heikkkk/IDATT2105-Semester-Project-Frontend/assets/89779148/74f64260-6e12-4c2b-983f-8f328483d9f3)
 3. This is the home screen. From here you are able to play through your own quizzes and other public quizzes by clicking on them. You can also sort these quizzes by category, and you are able to search for quizzes by keywords in their title, category and the author who made them. You are also able to create quizzes by clicking on the **Create new quiz** button on the top left size of the screen.
   ![image](https://github.com/heikkkk/IDATT2105-Semester-Project-Frontend/assets/89779148/32de8fbe-2c9d-4c54-98d5-76c1c611fb58)
@@ -71,10 +74,10 @@ Rememeber that the backend application needs to be running for this to work.
 
 # CI/CD - Github Actions
 ## CI
-Tests are run continuously with the Continuous Integration pipeline through Github Actions. The pipeline executes npm commands to build the application and run tests. There is also another pipeline that automatically run cypress e2e tests.
+Tests run continuously with the Continuous Integration (CI) pipeline through Github Actions. Our CI pipeline is designed to automatically execute npm commands to build the application and run unit tests. Additionally, we have a separate pipeline dedicated to running Cypress end-to-end (e2e) tests. This involves starting both the backend and frontend services as part of the workflow. It gets triggered by pull requests to the main branch, or if the [Backend Repository](https://github.com/heikkkk/IDATT2105-Semester-Project-Backend) requests a pull request to its main branch. Click [here](https://github.com/heikkkk/IDATT2105-Semester-Project-Backend/blob/main/.github/workflows/trigger-e2e-pipeline.yml) for more details.
 
 ## CD
-The Continuous Deployment pipeline automates the deployment of the Quizopia frontend application to GitHub Packages whenever changes are pushed to the main branch. NOTE: It only gets deployed if the version number is incremented in package.json:
+Our Continuous Deployment (CD) pipeline automatically deploys the frontend application to GitHub Packages. This process is triggered whenever changes are pushed to the main branch. **IMPORTANT NOTE**: The deployment will only work if the version number in the package.json file is incrementet:
 ```json
 {
   "name": "@heikkkk/idatt2105-semester-project-frontend",
