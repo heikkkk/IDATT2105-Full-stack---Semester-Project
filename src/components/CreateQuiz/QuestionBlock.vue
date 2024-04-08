@@ -3,6 +3,7 @@ import '../../assets/css/CreateQuiz/questionBlock.css'
 import { useQuizStore } from '@/stores/QuizStore.js'
 import { useQuestionStore} from '@/stores/QuestionStore.js'
 
+// Defining emits and props for communication with the parent component
 const emit = defineEmits(['toggleQuestionEvent']);
 const props = defineProps({
   id:{
@@ -23,12 +24,17 @@ const props = defineProps({
   }
 })
 
-// Removes question from quiz store
+/**
+ * Removes the question associated with this question block's id.
+ */
 function onDeleteButtonPressed() {
   const quizStore = useQuizStore();
   quizStore.getActiveQuiz.questions = quizStore.getActiveQuiz.questions.filter(question => question.questionId !== props.id);
 }
 
+/**
+ * Sets the active question ID in the question store and emits an event to toggle the question in the parent component.
+ */
 const onQuestionBlockPressed = () => {
   useQuestionStore().setActiveQuestionId(props.id)
   emit('toggleQuestionEvent', props.id);

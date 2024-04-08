@@ -64,19 +64,32 @@ for (let i = answerArray.value.length - 1; i > 0; i--) {
   [booleanArray.value[i], booleanArray.value[j]] = [booleanArray.value[j], booleanArray.value[i]];
 }
 
+// Update button text if it's the final question
 if (useQuizStore().isFinalQuestion) {
   buttonText.value = 'See results'
 }
 
+/**
+ * Reveals the next question button.
+ */
 function revealNextQuestionButton() {
   nextQuestionButton.value.style.display = 'inline-block';
 }
 
+/**
+ * Handles the event when the next question button is pressed.
+ * Emits nextQuestionEvent to parent.
+ */
 function onNextQuestionPressed() {
   emit('nextQuestionEvent')
 }
 
-function onAnswerPressed(value) {
+/**
+ * Handles the event when an answer button is pressed.
+ * Sets the buttons submit value to false and reveals the correct answers.
+ * Stops the timer and music.
+ */
+function onAnswerPressed() {
   answerButtons.value.forEach((button) => {
     button.setSubmit();
     button.revealAnswers();
@@ -85,6 +98,10 @@ function onAnswerPressed(value) {
   revealNextQuestionButton()
 }
 
+/**
+ * Handles the event when the timer reaches zero.
+ * Sets the buttons submit value to false and reveals the correct answers.
+ */
 function onTimerReachedZero() {
   if (answerArray.value.length !== 0) {
     answerButtons.value.forEach((button) => {
@@ -95,6 +112,10 @@ function onTimerReachedZero() {
   revealNextQuestionButton()
 }
 
+/**
+ * Handles the event when the exit button is pressed.
+ * Stops the timer and music, and navigates to discover.
+ */
 function onExitButtonPressed() {
   timer.value.onAnswerPressed()
   router.push('/discover')

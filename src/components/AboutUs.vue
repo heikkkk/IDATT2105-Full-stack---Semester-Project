@@ -4,6 +4,7 @@ import Header from '@/components/Header.vue'
 import Footer from '@/components/Footer.vue'
 import { marked } from 'marked'
 
+// Text containing information about the team
 const aboutUsText = "# About Us\n" +
   "\n" +
   "We are a dynamic team of data engineer students united by our passion for technology and programming. With diverse backgrounds and expertise, we bring a unique blend of skills to every project we undertake.\n" +
@@ -22,6 +23,7 @@ const aboutUsText = "# About Us\n" +
   "- **Jens Christian Aanestad**: Jens, renowned for his prowess in solving intricate problems with creative and innovative solutions in front-end.\n" +
   "\n"
 
+// Converts the markdown content to HTML
 const htmlContent = marked(aboutUsText)
 </script>
 

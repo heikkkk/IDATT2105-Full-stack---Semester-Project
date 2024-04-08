@@ -8,6 +8,10 @@ import { ref } from 'vue'
 const authenticationError = ref(false)
 const router = useRouter()
 
+/**
+ * Handles the form submission for login. If the promise from
+ * the login function gives status code 200, then navigates to discover.
+ */
 const handleSubmit = async () => {
   try {
     const response = await login()
@@ -21,7 +25,6 @@ const handleSubmit = async () => {
     authenticationError.value = true
   }
 }
-
 </script>
 
 <template>

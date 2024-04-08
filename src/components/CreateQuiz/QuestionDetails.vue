@@ -1,6 +1,7 @@
 <script setup>
 import '@/assets/css/CreateQuiz/questionDetails.css'
 
+// Defining emits and props for communication with the parent component
 const emit = defineEmits(['questionTitleEvent', 'questionTypeEvent', 'timeLimitEvent',
   'questionTagEvent', 'difficultyEvent', 'explanationEvent']);
 const props = defineProps({
@@ -30,25 +31,37 @@ const props = defineProps({
   }
 })
 
-// Sends emit to CreateQuiz with new question title value
+/**
+ * Sends an emit event to the parent component with the updated question title.
+ * @param {Event} event - The input event triggered by the user.
+ */
 const emitQuestionTitle = (event) => {
   const newValue = event.target.value;
   emit('questionTitleEvent', newValue);
 };
 
-// Sends emit to CreateQuiz with new time limit
+/**
+ * Sends an emit event to the parent component with the updated time limit value.
+ * @param {Event} event - The change event triggered by the user.
+ */
 const emitTimeLimit = (event) => {
   const newValue = event.target.value;
   emit('timeLimitEvent', newValue);
 };
 
-// Sends emit to CreateQuiz with new difficulty value
+/**
+ * Sends an emit event to the parent component with the updated difficulty value.
+ * @param {Event} event - The change event triggered by the user.
+ */
 const emitDifficulty = (event) => {
   const newValue = event.target.value;
   emit('difficultyEvent', newValue);
 };
 
-// Sends emit to CreateQuiz with new explanation
+/**
+ * Sends an emit event to the parent component with the updated explanation.
+ * @param {Event} event - The input event triggered by the user.
+ */
 const emitExplanation = (event) => {
   const newValue = event.target.value;
   emit('explanationEvent', newValue);

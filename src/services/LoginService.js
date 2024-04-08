@@ -11,9 +11,17 @@ pinia.use(piniaPluginPersistedState);
 const app = createApp(App)
 app.use(pinia)
 
+/**
+ * The reference to the username input field.
+ */
 const usernameRef = ref('')
+/**
+ * The reference to the password input field.
+ */
 const passwordRef = ref('')
-
+/**
+ * The computed property representing the authentication configuration.
+ */
 const authConfig = computed(() => ({
   auth: {
     username: usernameRef.value,
@@ -21,6 +29,12 @@ const authConfig = computed(() => ({
   }
 }))
 
+/**
+ * Parses the response data and updates the user store with the username and token.
+ *
+ * @param response the response object received from the login request
+ * @return the response object
+ */
 function parseResponse(response) {
   const userStore = useUserStore()
   userStore.setUsername(response.data.user_name)
@@ -28,17 +42,19 @@ function parseResponse(response) {
   return response; // Return the response
 }
 
-export async function postLoginCredentials() {
+/**
+ * Sends a login request with the provided authentication configuration.
+ *
+ * @return a promise representing the result of the login operation
+ * @throws Error if an error occurs while logging in
+ */
+export async function login() {
   try {
     const response = await axios.post('http://localhost:8080/sign-in', {}, authConfig.value);
     return parseResponse(response);
   } catch (error) {
     throw error; // Throw error to propagate it to the caller
   }
-}
-
-export async function login() {
-  return await postLoginCredentials();
 }
 
 export { usernameRef, passwordRef }

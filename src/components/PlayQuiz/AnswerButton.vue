@@ -21,6 +21,11 @@ const props = defineProps({
 
 let submitted = true;
 const containerRef = ref(null)
+
+/**
+ * Handles the event when the answer button is pressed.
+ * Emits the 'answerPressedEvent' with the correctness of the answer.
+ */
 const onAnswerButtonPressed = () => {
   if (submitted) {
     if (props.isCorrect) {
@@ -31,6 +36,9 @@ const onAnswerButtonPressed = () => {
   }
 }
 
+/**
+ * Reveals the correct or incorrect appearance of the answer button.
+ */
 function revealAnswers() {
   if (props.isCorrect) {
     containerRef.value.style.backgroundColor = 'green'
@@ -40,6 +48,9 @@ function revealAnswers() {
   }
 }
 
+/**
+ * Sets the answer button to the submitted state false.
+ */
 function setSubmit() {
   submitted = false
 }

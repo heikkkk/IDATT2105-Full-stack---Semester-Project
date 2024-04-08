@@ -71,7 +71,7 @@ Rememeber that the backend application needs to be running for this to work.
 
 # CI/CD - Github Actions
 ## CI
-Tests are run continuously with the Continuous Integration pipeline through Github Actions. The pipeline executes npm commands to build the application and run tests.
+Tests are run continuously with the Continuous Integration pipeline through Github Actions. The pipeline executes npm commands to build the application and run tests. There is also another pipeline that automatically run cypress e2e tests.
 
 ## CD
 The Continuous Deployment pipeline automates the deployment of the Quizopia frontend application to GitHub Packages whenever changes are pushed to the main branch. NOTE: It only gets deployed if the version number is incremented in package.json:
@@ -84,3 +84,4 @@ The Continuous Deployment pipeline automates the deployment of the Quizopia fron
     "url": "git://github.com/heikkkk/IDATT2105-Semester-Project-Frontend.git"
   },
 ```
+

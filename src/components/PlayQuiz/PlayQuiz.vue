@@ -26,6 +26,7 @@ const questionText = ref(null)
 const timeLimit = ref(null)
 const answers = ref(null)
 
+// Check for question content and set reactive values
 if (questions.length !== 0) {
   activeQuestion = questions[index]
   questionText.value = activeQuestion.questionText
@@ -41,7 +42,10 @@ if (index + 2 >= questions.length) {
   useQuizStore().setFinalQuestion(true)
 }
 
-// Set reactive values accordingly to next question
+/**
+ * Displays the next question.
+ * If the current question is the last one, redirects to quiz results.
+ */
 const displayNextQuestion = () => {
   if (index + 2 >= questions.length) {
     useQuizStore().setFinalQuestion(true)

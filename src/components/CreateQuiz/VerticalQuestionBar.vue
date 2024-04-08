@@ -14,15 +14,22 @@ const props = defineProps({
   }
 })
 
+/**
+ * Handles the event when the "New Question" button is clicked.
+ * Adds a new question to the active quiz.
+ */
 function onNewQuestionClicked() {
   const quizStore = useQuizStore();
   quizStore.getActiveQuiz.questions.push(getNewQuestion())
 }
 
+/**
+ * Emits an event to toggle the display of the next quiz.
+ * @param {number} id - The ID of the question.
+ */
 const emitNextQuiz = (id) => {
   emit('toggleNextQuizEvent', id)
 }
-
 </script>
 
 <template>

@@ -3,6 +3,9 @@ import { useQuizStore } from '@/stores/QuizStore.js'
 import axios from 'axios'
 import { useUserStore } from '@/stores/UserStore.js'
 
+/**
+ * The Axios HTTP client used for making API requests.
+ */
 const apiClient = axios.create({
   baseURL: 'http://localhost:8080/api/quizzes',
   headers: {
@@ -11,12 +14,21 @@ const apiClient = axios.create({
   }
 })
 
+/**
+ * The configuration object containing request headers.
+ */
 const config = {
   headers: {
     'Authorization' : 'Bearer ' + useUserStore().getToken
   }
 }
 
+/**
+ * Saves the active quiz.
+ *
+ * @return {Promise} A promise representing the result of the save operation.
+ * @throws {Error} If an error occurs while saving the quiz.
+ */
 export async function saveQuiz() {
   try {
     return await apiClient.post("/updateQuiz", useQuizStore().getActiveQuiz, config)
@@ -25,6 +37,13 @@ export async function saveQuiz() {
   }
 }
 
+/**
+ * Deletes a quiz by its ID.
+ *
+ * @param {number} quizId The ID of the quiz to delete.
+ * @return {Promise} A promise representing the result of the delete operation.
+ * @throws {Error} If an error occurs while deleting the quiz.
+ */
 export async function deleteQuiz(quizId) {
   try {
     return await apiClient.put("/delete-quiz/" + quizId, null, config)
@@ -33,7 +52,11 @@ export async function deleteQuiz(quizId) {
   }
 }
 
-// Returns a default question
+/**
+ * Returns a default question object.
+ *
+ * @return {Object} A new question object.
+ */
 export function getNewQuestion() {
   return {
     "questionId": useQuestionStore().getGenericId,
@@ -49,7 +72,11 @@ export function getNewQuestion() {
   };
 }
 
-// Returns the active question
+/**
+ * Returns the active question.
+ *
+ * @return {Object} The active question.
+ */
 export function getActiveQuestion() {
   const questionId = useQuestionStore().getActiveQuestionId
   const questions = useQuizStore().getActiveQuiz.questions
@@ -60,14 +87,21 @@ export function getActiveQuestion() {
   }
 }
 
-// Updates questionId
+/**
+ * Updates the ID of the active question.
+ */
 export function updateId() {
   const activeQuestion = getActiveQuestion()
   activeQuestion['questionId'] = useQuestionStore().getGenericId
   useQuestionStore().setActiveQuestionId(activeQuestion['questionId'])
 }
 
-// Updates answers in current quesiton
+/**
+ * Updates answers in the current question.
+ *
+ * @param {Array} listOfAnswers List of answers.
+ * @param {Array} listOfCheckedAnswers List of answers isCorrect value.
+ */
 export function storeUpdateAnswers(listOfAnswers, listOfCheckedAnswers) {
   updateId()
   console.log(getActiveQuestion().answers)
@@ -92,24 +126,44 @@ export function storeUpdateAnswers(listOfAnswers, listOfCheckedAnswers) {
   }
 }
 
+/**
+ * Updates the text of the active question.
+ *
+ * @param {string} questionText The new question text.
+ */
 export function storeUpdateQuestionText(questionText) {
   updateId()
   const activeQuestion = getActiveQuestion()
   activeQuestion['questionText'] = questionText;
 }
 
+/**
+ * Updates the title of the active question.
+ *
+ * @param {string} questionTitle The new question title.
+ */
 export function storeUpdateQuestionTitle(questionTitle) {
   updateId()
   const activeQuestion = getActiveQuestion()
   activeQuestion['questionName'] = questionTitle;
 }
 
+/**
+ * Updates the time limit of the active question.
+ *
+ * @param {number} timeLimit The new time limit.
+ */
 export function storeUpdateTimeLimit(timeLimit) {
   updateId()
   const activeQuestion = getActiveQuestion()
   activeQuestion['question_duration'] = timeLimit;
 }
 
+/**
+ * Updates the difficulty of the active question.
+ *
+ * @param {string} difficulty The new difficulty level ("Easy", "Medium", or "Hard").
+ */
 export function storeUpdateDifficulty(difficulty) {
   updateId()
   const activeQuestion = getActiveQuestion()
@@ -122,6 +176,11 @@ export function storeUpdateDifficulty(difficulty) {
   }
 }
 
+/**
+ * Updates the explanation of the active question.
+ *
+ * @param {string} explanation The new explanation.
+ */
 export function storeUpdateExplanation(explanation) {
   updateId()
   const activeQuestion = getActiveQuestion();
