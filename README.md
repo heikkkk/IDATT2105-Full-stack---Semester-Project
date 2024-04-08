@@ -85,3 +85,8 @@ The Continuous Deployment pipeline automates the deployment of the Quizopia fron
   },
 ```
 
+# Contributors
+- Henrik Teksle Sandok
+- Jens Christian Aanestad
+- Andreas Kluge Svendsrud
+- Anders Høvik
