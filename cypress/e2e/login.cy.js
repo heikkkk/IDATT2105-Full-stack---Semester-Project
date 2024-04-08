@@ -10,7 +10,6 @@ describe('log in to site', () => {
     cy.get('[data-cy="login-button"]').click()
     cy.url().should('include', '/discover')
   })
-
   it('Go to the registration-site', () => {
     cy.get('[data-cy="sign-up-button"]').click()
     cy.url().should('include', '/sign-up')

@@ -12,7 +12,7 @@ describe('Carousel', () => {
     })
     expect(wrapper.find('h1').text()).toEqual('testTitle')
     expect(wrapper.props().content.length).toBe(0)
-    expect(wrapper.find('h2').text()).toEqual("No quiz's available!")
+    expect(wrapper.find('h2').text()).toEqual("No quizzes available!")
   })
 
   test('renders correctly with quizzes', () => {
